@@ -1,0 +1,22 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+jobs:
+  test:
+    name: testing extension
+    runs-on: ubuntu-20.04
+    env:
+      TYPO3_API_TOKEN: ${{ secrets.TYPO3_API_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Todo
+        run: echo "todo"

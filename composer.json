@@ -1,0 +1,73 @@
+{
+	"name": "wacon/simplequiz",
+	"type": "typo3-cms-extension",
+	"description": "",
+	"homepage": "https://extensions.typo3.org/extension/simplequiz",
+	"support": {
+		"source": "https://github.com/wacon-internet-gmbh/simplequiz",
+		"docs": "https://docs.typo3.org/p/wacon/simplequiz/main/en-us/",
+		"issues": "https://github.com/wacon-internet-gmbh/simplequiz/issues/"
+	},
+	"keywords": [
+		"TYPO3 CMS",
+		"Simplequiz"
+	],
+	"authors": [
+		{
+			"name": "Philipp Kuhlmay",
+			"email": "info@wacon.de",
+			"role": "Developer",
+			"homepage": "https://www.wacon.de"
+		}
+	],
+	"license": "GPL-2.0-or-later",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin",
+		"platform-check": false,
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		}
+	},
+	"require-dev": {
+		"typo3/testing-framework": "7.x-dev",
+		"phpunit/phpunit": "^9.6.3",
+		"friendsofphp/php-cs-fixer": "^3.4",
+		"phpstan/phpstan": "^1.4",
+		"bnf/phpstan-psr-container": "^1.0",
+		"friendsoftypo3/phpstan-typo3": "^0.9.0",
+		"phpstan/phpstan-phpunit": "^1.0",
+		"typo3/coding-standards": "^0.6"
+	},
+	"require": {
+		"php": "^8.0",
+		"ext-json": "*",
+		"typo3/cms-core": "^12.4",
+		"typo3/cms-backend": "^12.4",
+		"typo3/cms-fluid": "^12.4",
+		"typo3/cms-fluid-styled-content": "^12.4",
+		"friendsoftypo3/fontawesome-provider": "^1.0"
+	},
+	"replace": {
+		"typo3-ter/simplequiz": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"Wacon\\Simplequiz\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Wacon\\Simplequiz\\Tests\\": "Tests"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "simplequiz",
+			"web-dir": ".Build/Web"
+		}
+	}
+}
