@@ -2,18 +2,16 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Simplequiz',
-    'description' => '',
-    'category' => 'plugin',
-    'author' => 'Wacon Internet GmbH',
+    'description' => 'This extension provides a simple quiz with plugins and a backend module.',
+    'category' => 'misc',
+    'author' => 'Philipp Kuhlmay',
     'author_email' => 'info@wacon.de',
-    'author_company' => 'Wacon Internet GmbH',
     'state' => 'alpha',
-    'clearCacheOnLoad' => 1,
+    'clearCacheOnLoad' => 0,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-12.4.99',
-            'fluid' => '12.4.0-12.4.99'
+            'typo3' => '13.0.0-13.0.99',
         ],
         'conflicts' => [],
         'suggests' => [],

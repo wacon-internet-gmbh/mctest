@@ -1,9 +1,6 @@
 <?php
+defined('TYPO3') || die();
 
-defined('TYPO3') or die();
-
-
-
-(static function () {
-    // nothing here yet
+(static function() {
+    // please insert your own code her
 })();

@@ -1,0 +1,44 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "This extension provides a simple quiz with plugins and a backend module.",
+        "emConf": {
+            "category": "misc",
+            "custom_category": "",
+            "dependsOn": "typo3 => 13.0.0-13.0.99",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "generateDocumentationTemplate": true,
+            "generateEditorConfig": true,
+            "generateEmptyGitRepository": true,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "12.4",
+            "version": "1.0.0"
+        },
+        "extensionKey": "simplequiz",
+        "name": "Simplequiz",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "Wacon Internet GmbH",
+                "email": "info@wacon.de",
+                "name": "Philipp Kuhlmay",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Wacon"
+    },
+    "wires": [],
+    "nodes": [],
+    "edges": [],
+    "storagePath": "\/var\/www\/html\/Packages\/",
+    "log": {
+        "last_modified": "2024-01-16 09:25",
+        "extension_builder_version": "dev-typo3-12-reactjs",
+        "be_user": " (1)"
+    }
+}
