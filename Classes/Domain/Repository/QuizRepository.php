@@ -19,4 +19,10 @@ namespace Wacon\Simplequiz\Domain\Repository;
  */
 class QuizRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    public function findAll()
+    {
+        $query = $this->createQuery();
+        // get sql for createQuery
+        return $this->createQuery()->execute();
+    }
 }

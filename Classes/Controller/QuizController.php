@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Wacon\Simplequiz\Controller;
 
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
  *
@@ -53,6 +55,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function listAction(): \Psr\Http\Message\ResponseInterface
     {
         $quizzes = $this->quizRepository->findAll();
+        DebuggerUtility::var_dump($quizzes, 'quizzes');
         $this->view->assign('quizzes', $quizzes);
         return $this->htmlResponse();
     }

@@ -6,7 +6,7 @@ defined('TYPO3') || die();
         'Simplequiz',
         'Simplequiz',
         [
-            \Wacon\Simplequiz\Controller\QuizController::class => 'show'
+            \Wacon\Simplequiz\Controller\QuizController::class => 'list, show'
         ],
         // non-cacheable actions
         [

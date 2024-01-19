@@ -30,7 +30,7 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "9a392bca-673d-4e92-abc6-7d6c2afbf2a9"
+                    "uid": "7ddeff61-0fa9-420c-b482-8e6acb205385"
                 },
                 "propertyGroup": {
                     "properties": [
@@ -78,7 +78,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "8466f766-c520-4605-ba6b-d671518feb76"
+                            "uid": "19b19bae-9a2a-4b2c-81c9-09c04eb853a9"
                         }
                     ]
                 },
@@ -117,7 +117,7 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "eaea59ff-7fdf-40ec-960f-3bab28d9c62c"
+                    "uid": "52cc327d-eae5-4c03-bae9-4a017efc5be1"
                 },
                 "propertyGroup": {
                     "properties": [
@@ -165,7 +165,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "1a117c1b-ec77-4122-96be-81217324e6b4"
+                            "uid": "b4daeec2-c39f-487a-937a-d1989535ca80"
                         }
                     ]
                 },
@@ -204,7 +204,7 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "2c1e3cb5-a9a2-4000-99cf-83b22d7d9ae0"
+                    "uid": "8efb1d47-33b7-4c05-ba12-bc178a7cee0f"
                 },
                 "propertyGroup": {
                     "properties": [
@@ -252,7 +252,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "c1f8fb63-443d-462e-9ec5-19f9d0e7c2de"
+                            "uid": "6c8b5a13-13a1-4568-8d05-2f2720fef584"
                         },
                         {
                             "allowedFileTypes": "",
@@ -298,7 +298,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "d5f15901-5387-4a9f-b928-8ee5e3ee94b8"
+                            "uid": "daa352c8-346a-4acd-9c3c-7400db3d2f81"
                         },
                         {
                             "allowedFileTypes": "",
@@ -344,7 +344,7 @@
                             "size": "10",
                             "minItems": "2",
                             "maxItems": "",
-                            "uid": "a3bbda8c-8e1f-42ab-8515-0862942a334c"
+                            "uid": "3d5a5474-fc39-47fb-927f-1be3c2570f75"
                         }
                     ]
                 },
@@ -383,7 +383,7 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "fc6165ac-53ec-4f94-8e5e-2991654cd628"
+                    "uid": "72c17dfe-a01e-494e-8330-538c21b77d56"
                 },
                 "propertyGroup": {
                     "properties": [
@@ -431,7 +431,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "fbbf0213-24ad-475a-8932-8a3295d7bb64"
+                            "uid": "e2287247-e6a7-499e-8603-3affec8aef9f"
                         },
                         {
                             "allowedFileTypes": "",
@@ -477,7 +477,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "249fcf43-599a-4c01-8dc6-495b1038fe74"
+                            "uid": "839e4c91-582a-41a5-9a97-f0834e19c671"
                         },
                         {
                             "allowedFileTypes": "",
@@ -523,7 +523,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "a9596015-1756-492d-a031-b5ef6cd5b9a2"
+                            "uid": "77332eff-8859-4c42-9b7b-de2da3db9faf"
                         }
                     ]
                 },
@@ -562,7 +562,7 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "1b521d78-661d-4041-a8ed-b5f88d69cc16"
+                    "uid": "4699f40c-1bc9-4046-ba42-8f8321a2f46d"
                 },
                 "propertyGroup": {
                     "properties": [
@@ -610,7 +610,7 @@
                             "size": "30",
                             "minItems": "",
                             "maxItems": "",
-                            "uid": "2beb3bb1-042c-4e12-9b4a-2e35d8e1fb93"
+                            "uid": "4e7b8e11-f7cd-4cd2-8d94-4bdb26d7255c"
                         },
                         {
                             "allowedFileTypes": "",
@@ -656,7 +656,7 @@
                             "size": "5",
                             "minItems": "1",
                             "maxItems": "1",
-                            "uid": "7ad7f0bb-9345-4c99-93d1-b3e36c8bc453"
+                            "uid": "426547b1-82e1-4eeb-a27f-9d725147bb45"
                         }
                     ]
                 },
@@ -698,7 +698,7 @@
         "plugins": [
             {
                 "actions": {
-                    "controllerActionCombinations": "Quiz => show",
+                    "controllerActionCombinations": "Quiz => list,show",
                     "noncacheableActions": ""
                 },
                 "description": "This shows a quiz in the frontend",
@@ -1056,7 +1056,7 @@
             "dragHandle": ".drag-handle",
             "draggable": true,
             "width": 300,
-            "height": 491,
+            "height": 257,
             "selected": false,
             "positionAbsolute": {
                 "x": 124,
@@ -1379,7 +1379,7 @@
     "edges": [],
     "storagePath": "\/var\/www\/html\/Packages\/",
     "log": {
-        "last_modified": "2024-01-19 01:50",
+        "last_modified": "2024-01-19 02:06",
         "extension_builder_version": "dev-typo3-12-reactjs",
         "be_user": " (1)"
     }
