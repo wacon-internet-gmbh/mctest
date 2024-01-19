@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_db.xlf" date="2024-01-19T12:26:51Z" product-name="simplequiz">
+	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_db.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
 		<header/>
 		<body>
 			<trans-unit id="tx_simplequiz_domain_model_quizsessions" resname="tx_simplequiz_domain_model_quizsessions">
@@ -9,11 +9,23 @@
 			<trans-unit id="tx_simplequiz_domain_model_quizsessions.description" resname="tx_simplequiz_domain_model_quizsessions.description">
 				<source>This Stores The Sessions</source>
 			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quizsessions.session_key" resname="tx_simplequiz_domain_model_quizsessions.session_key">
+				<source>Session Key</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quizsessions.session_key.description" resname="tx_simplequiz_domain_model_quizsessions.session_key.description">
+				<source>Session Key</source>
+			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_answerreport" resname="tx_simplequiz_domain_model_answerreport">
 				<source>Answer Report</source>
 			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_answerreport.description" resname="tx_simplequiz_domain_model_answerreport.description">
 				<source>This Stores The Answer Report</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answerreport.id" resname="tx_simplequiz_domain_model_answerreport.id">
+				<source>Id</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answerreport.id.description" resname="tx_simplequiz_domain_model_answerreport.id.description">
+				<source>Id</source>
 			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_quiz" resname="tx_simplequiz_domain_model_quiz">
 				<source>Quiz</source>
@@ -21,17 +33,83 @@
 			<trans-unit id="tx_simplequiz_domain_model_quiz.description" resname="tx_simplequiz_domain_model_quiz.description">
 				<source>Quiz Which The User Should Answer</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question" resname="tx_simplequiz_domain_model_question">
-				<source>Question</source>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.name" resname="tx_simplequiz_domain_model_quiz.name">
+				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question.description" resname="tx_simplequiz_domain_model_question.description">
-				<source>Single Question For Each Quiz</source>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.name.description" resname="tx_simplequiz_domain_model_quiz.name.description">
+				<source>Name Of The Quiz</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.possible_questions" resname="tx_simplequiz_domain_model_quiz.possible_questions">
+				<source>Possible Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.possible_questions.description" resname="tx_simplequiz_domain_model_quiz.possible_questions.description">
+				<source>Number Of Possible Questions Which Are Shown In The Frontend.</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.questions" resname="tx_simplequiz_domain_model_quiz.questions">
+				<source>Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.questions.description" resname="tx_simplequiz_domain_model_quiz.questions.description">
+				<source>Questions</source>
 			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_answer" resname="tx_simplequiz_domain_model_answer">
 				<source>Answer</source>
 			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_answer.description" resname="tx_simplequiz_domain_model_answer.description">
 				<source>Single Answer, Right Or Wrong</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.answer" resname="tx_simplequiz_domain_model_answer.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.answer.description" resname="tx_simplequiz_domain_model_answer.answer.description">
+				<source>Text Of The Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.is_question_true" resname="tx_simplequiz_domain_model_answer.is_question_true">
+				<source>Is Question True</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.is_question_true.description" resname="tx_simplequiz_domain_model_answer.is_question_true.description">
+				<source>Is This Question True?</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.further_information" resname="tx_simplequiz_domain_model_answer.further_information">
+				<source>Further Information</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.further_information.description" resname="tx_simplequiz_domain_model_answer.further_information.description">
+				<source>Further Information Which Are Shown After Answering The Question.</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question" resname="tx_simplequiz_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.description" resname="tx_simplequiz_domain_model_question.description">
+				<source>Single Question For Each Quiz</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.text" resname="tx_simplequiz_domain_model_question.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.text.description" resname="tx_simplequiz_domain_model_question.text.description">
+				<source>Text Of The Question</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.right_answer" resname="tx_simplequiz_domain_model_question.right_answer">
+				<source>Right Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.right_answer.description" resname="tx_simplequiz_domain_model_question.right_answer.description">
+				<source>This Answer Is The Correct One For This Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_simplequiz.name" resname="tx_simplequiz_simplequiz.name">
+				<source>Simplequiz</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_simplequiz.description" resname="tx_simplequiz_simplequiz.description">
+				<source>This shows a quiz in the frontend</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.correct_answer" resname="tx_simplequiz_domain_model_question.correct_answer">
+				<source>Correct Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.correct_answer.description" resname="tx_simplequiz_domain_model_question.correct_answer.description">
+				<source>Correct Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.wrong_answers" resname="tx_simplequiz_domain_model_question.wrong_answers">
+				<source>Wrong Answers</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.wrong_answers.description" resname="tx_simplequiz_domain_model_question.wrong_answers.description">
+				<source>Wrong Answers</source>
 			</trans-unit>
 		</body>
 	</file>

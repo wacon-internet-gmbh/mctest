@@ -19,4 +19,33 @@ namespace Wacon\Simplequiz\Domain\Model;
  */
 class QuizSessions extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+
+    /**
+     * SessionKey
+     *
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     */
+    protected $SessionKey = '';
+
+    /**
+     * Returns the SessionKey
+     *
+     * @return string
+     */
+    public function getSessionKey()
+    {
+        return $this->SessionKey;
+    }
+
+    /**
+     * Sets the SessionKey
+     *
+     * @param string $SessionKey
+     * @return void
+     */
+    public function setSessionKey(string $SessionKey)
+    {
+        $this->SessionKey = $SessionKey;
+    }
 }

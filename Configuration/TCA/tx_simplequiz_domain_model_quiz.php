@@ -2,7 +2,7 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz',
-        'label' => 'uid',
+        'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -16,14 +16,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => '',
+        'searchFields' => 'name',
         'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/tx_simplequiz_domain_model_quiz.gif',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
     ],
     'types' => [
-        '1' => ['showitem' => ', --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'name, possible_questions, questions, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -97,5 +97,42 @@ return [
             ],
         ],
 
+        'name' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.name',
+            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.name.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'required' => true,
+                'default' => ''
+            ],
+        ],
+        'possible_questions' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.possible_questions',
+            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.possible_questions.description',
+            'config' => [
+                'type' => 'number',
+                'size' => 30,
+                'required' => true,
+                'default' => 0
+            ]
+        ],
+        'questions' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.questions',
+            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.questions.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_simplequiz_domain_model_question',
+                'size' => 10,
+                'minitems' => 2,
+                'maxitems' => 0,
+            ],
+        ],
+    
     ],
 ];

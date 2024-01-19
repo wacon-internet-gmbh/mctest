@@ -38,8 +38,21 @@ class QuizSessionsTest extends UnitTestCase
     /**
      * @test
      */
-    public function dummyTestToNotLeaveThisFileEmpty(): void
+    public function getSessionKeyReturnsInitialValueForString(): void
     {
-        self::markTestIncomplete();
+        self::assertSame(
+            '',
+            $this->subject->getSessionKey()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setSessionKeyForStringSetsSessionKey(): void
+    {
+        $this->subject->setSessionKey('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('SessionKey'));
     }
 }

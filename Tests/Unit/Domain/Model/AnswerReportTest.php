@@ -38,8 +38,21 @@ class AnswerReportTest extends UnitTestCase
     /**
      * @test
      */
-    public function dummyTestToNotLeaveThisFileEmpty(): void
+    public function getIdReturnsInitialValueForString(): void
     {
-        self::markTestIncomplete();
+        self::assertSame(
+            '',
+            $this->subject->getId()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setIdForStringSetsId(): void
+    {
+        $this->subject->setId('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('id'));
     }
 }

@@ -46,29 +46,29 @@ overwriteSettings:
 
   Configuration:
     # TCA merge not possible - use overrides directory
-    #TypoScript: keep
+    # TypoScript: keep
 
   Resources:
     Private:
-      #Language: merge
-      #Layouts: keep
-      #Partials: keep
-      #Templates: keep
+      Language: merge
+      # Layouts: keep
+      # Partials: keep
+      # Templates: keep
       Backend:
-        #Layouts: keep
-        #Partials: keep
-        #Templates: keep
+        # Layouts: keep
+        # Partials: keep
+        # Templates: keep
 
   user_extension.svg: keep
-  #ext_localconf.php: merge
-  #ext_tables.php: merge
-  #ext_tables.sql: merge
+  ext_localconf.php: merge
+  ext_tables.php: merge
+  ext_tables.sql: merge
 
 ## add declare strict types in php files
 declareStrictTypes: true
 
 ## use static date attribute in xliff files
-#staticDateInXliffFiles: '2024-01-16T09:21:42Z'
+staticDateInXliffFiles: '2024-01-16T09:21:42Z'
 
 ## skip docComment (license header)
 #skipDocComment: false

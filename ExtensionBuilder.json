@@ -3,8 +3,8 @@
         {
             "config": {
                 "position": [
-                    338,
-                    242
+                    340,
+                    82.39999999999998
                 ]
             },
             "name": "QuizSessions",
@@ -23,17 +23,64 @@
                     "addDeletedField": true,
                     "addHiddenField": true,
                     "addStarttimeEndtimeFields": true,
-                    "aggregateRoot": true,
+                    "aggregateRoot": false,
                     "categorizable": false,
                     "description": "This stores the sessions",
                     "mapToTable": "",
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "cf435302-3273-4929-9e2e-4e412fee0953"
+                    "uid": "9a392bca-673d-4e92-abc6-7d6c2afbf2a9"
                 },
                 "propertyGroup": {
-                    "properties": []
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "SessionKey",
+                            "propertyType": "String",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "8466f766-c520-4605-ba6b-d671518feb76"
+                        }
+                    ]
                 },
                 "relationGroup": {
                     "relations": []
@@ -43,8 +90,8 @@
         {
             "config": {
                 "position": [
-                    787,
-                    223
+                    733,
+                    62
                 ]
             },
             "name": "AnswerReport",
@@ -63,17 +110,64 @@
                     "addDeletedField": true,
                     "addHiddenField": true,
                     "addStarttimeEndtimeFields": true,
-                    "aggregateRoot": true,
+                    "aggregateRoot": false,
                     "categorizable": false,
                     "description": "This stores the answer report",
                     "mapToTable": "",
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "29605a78-3cdc-44e0-b082-f5b9ec848702"
+                    "uid": "eaea59ff-7fdf-40ec-960f-3bab28d9c62c"
                 },
                 "propertyGroup": {
-                    "properties": []
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "id",
+                            "propertyType": "String",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "1a117c1b-ec77-4122-96be-81217324e6b4"
+                        }
+                    ]
                 },
                 "relationGroup": {
                     "relations": []
@@ -83,16 +177,16 @@
         {
             "config": {
                 "position": [
-                    338,
-                    629
+                    124,
+                    385
                 ]
             },
             "name": "Quiz",
             "value": {
                 "actionGroup": {
-                    "_default0_index": false,
-                    "_default1_list": false,
-                    "_default2_show": false,
+                    "_default0_index": true,
+                    "_default1_list": true,
+                    "_default2_show": true,
                     "_default3_new_create": false,
                     "_default4_edit_update": false,
                     "_default5_delete": false,
@@ -110,10 +204,149 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "838d811c-c909-4a15-accb-a4412902b1e2"
+                    "uid": "2c1e3cb5-a9a2-4000-99cf-83b22d7d9ae0"
                 },
                 "propertyGroup": {
-                    "properties": []
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "Name of the quiz",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "name",
+                            "propertyType": "String",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "c1f8fb63-443d-462e-9ec5-19f9d0e7c2de"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "Number of possible questions which are shown in the frontend.",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "possibleQuestions",
+                            "propertyType": "Integer",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "d5f15901-5387-4a9f-b928-8ee5e3ee94b8"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "questions",
+                            "propertyType": "Select",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectMultipleSideBySide",
+                                "foreignTable": "tx_simplequiz_domain_model_question"
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "10",
+                            "minItems": "2",
+                            "maxItems": "",
+                            "uid": "a3bbda8c-8e1f-42ab-8515-0862942a334c"
+                        }
+                    ]
                 },
                 "relationGroup": {
                     "relations": []
@@ -123,48 +356,8 @@
         {
             "config": {
                 "position": [
-                    797,
-                    624
-                ]
-            },
-            "name": "Question",
-            "value": {
-                "actionGroup": {
-                    "_default0_index": false,
-                    "_default1_list": false,
-                    "_default2_show": false,
-                    "_default3_new_create": false,
-                    "_default4_edit_update": false,
-                    "_default5_delete": false,
-                    "customActions": []
-                },
-                "name": "Question",
-                "objectsettings": {
-                    "addDeletedField": true,
-                    "addHiddenField": true,
-                    "addStarttimeEndtimeFields": true,
-                    "aggregateRoot": true,
-                    "categorizable": false,
-                    "description": "Single Question for each quiz",
-                    "mapToTable": "",
-                    "parentClass": "",
-                    "sorting": false,
-                    "type": "Entity",
-                    "uid": "5bc7a63a-3c38-408a-a18b-fa1fc119ace6"
-                },
-                "propertyGroup": {
-                    "properties": []
-                },
-                "relationGroup": {
-                    "relations": []
-                }
-            }
-        },
-        {
-            "config": {
-                "position": [
-                    1255,
-                    621
+                    478.4841651980255,
+                    915.3942157920848
                 ]
             },
             "name": "Answer",
@@ -190,10 +383,282 @@
                     "parentClass": "",
                     "sorting": false,
                     "type": "Entity",
-                    "uid": "5c0aeb42-8a0c-4871-aa70-d9f7da8caaae"
+                    "uid": "fc6165ac-53ec-4f94-8e5e-2991654cd628"
                 },
                 "propertyGroup": {
-                    "properties": []
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "Text of the answer",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "answer",
+                            "propertyType": "Text",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": true
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "fbbf0213-24ad-475a-8932-8a3295d7bb64"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "Is this question true?",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "isQuestionTrue",
+                            "propertyType": "Boolean",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "249fcf43-599a-4c01-8dc6-495b1038fe74"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "Further information which are shown after answering the question.",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "furtherInformation",
+                            "propertyType": "Text",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": true
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "a9596015-1756-492d-a031-b5ef6cd5b9a2"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    935,
+                    504
+                ]
+            },
+            "name": "Question",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "Question",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "1b521d78-661d-4041-a8ed-b5f88d69cc16"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "text",
+                            "propertyType": "Text",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": ""
+                            },
+                            "typeText": {
+                                "enableRichtext": true
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "30",
+                            "minItems": "",
+                            "maxItems": "",
+                            "uid": "2beb3bb1-042c-4e12-9b4a-2e35d8e1fb93"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "propertyDescription": "",
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "rightAnswer",
+                            "propertyType": "Select",
+                            "typeSelect": {
+                                "selectboxValues": "",
+                                "renderType": "selectSingle",
+                                "foreignTable": "tx_simplequiz_domain_model_answer"
+                            },
+                            "typeText": {
+                                "enableRichtext": false
+                            },
+                            "typeNumber": {
+                                "enableSlider": false,
+                                "steps": 1,
+                                "setRange": false,
+                                "upperRange": 255,
+                                "lowerRange": 0
+                            },
+                            "typeColor": {
+                                "setValuesColorPicker": false,
+                                "colorPickerValues": ""
+                            },
+                            "typeBoolean": {
+                                "renderType": "default",
+                                "booleanValues": ""
+                            },
+                            "typePassword": {
+                                "renderPasswordGenerator": false
+                            },
+                            "typeDateTime": {
+                                "dbTypeDateTime": "",
+                                "formatDateTime": ""
+                            },
+                            "typeFile": {
+                                "allowedFileTypes": ""
+                            },
+                            "size": "5",
+                            "minItems": "1",
+                            "maxItems": "1",
+                            "uid": "7ad7f0bb-9345-4c99-93d1-b3e36c8bc453"
+                        }
+                    ]
                 },
                 "relationGroup": {
                     "relations": []
@@ -230,7 +695,17 @@
                 "role": "Developer"
             }
         ],
-        "plugins": [],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Quiz => show",
+                    "noncacheableActions": ""
+                },
+                "description": "This shows a quiz in the frontend",
+                "key": "simplequiz",
+                "name": "Simplequiz"
+            }
+        ],
         "vendorName": "Wacon"
     },
     "wires": [],
@@ -239,13 +714,13 @@
             "id": "dndnode_0",
             "type": "customModel",
             "position": {
-                "x": 338,
-                "y": 242
+                "x": 340,
+                "y": 82.39999999999998
             },
             "data": {
                 "label": "QuizSessions",
                 "objectType": "",
-                "isAggregateRoot": true,
+                "isAggregateRoot": false,
                 "enableSorting": false,
                 "addDeletedField": true,
                 "addHiddenField": true,
@@ -263,7 +738,53 @@
                     "actionDelete": false
                 },
                 "customActions": [],
-                "properties": [],
+                "properties": [
+                    {
+                        "name": "SessionKey",
+                        "type": "String",
+                        "description": "",
+                        "isRequired": true,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    }
+                ],
                 "relations": []
             },
             "dragHandle": ".drag-handle",
@@ -272,8 +793,8 @@
             "height": 257,
             "selected": false,
             "positionAbsolute": {
-                "x": 338,
-                "y": 242
+                "x": 340,
+                "y": 82.39999999999998
             },
             "dragging": false
         },
@@ -281,13 +802,13 @@
             "id": "dndnode_1",
             "type": "customModel",
             "position": {
-                "x": 787,
-                "y": 223
+                "x": 733,
+                "y": 62
             },
             "data": {
                 "label": "AnswerReport",
                 "objectType": "",
-                "isAggregateRoot": true,
+                "isAggregateRoot": false,
                 "enableSorting": false,
                 "addDeletedField": true,
                 "addHiddenField": true,
@@ -305,7 +826,53 @@
                     "actionDelete": false
                 },
                 "customActions": [],
-                "properties": [],
+                "properties": [
+                    {
+                        "name": "id",
+                        "type": "String",
+                        "description": "",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    }
+                ],
                 "relations": []
             },
             "dragHandle": ".drag-handle",
@@ -314,8 +881,8 @@
             "height": 257,
             "selected": false,
             "positionAbsolute": {
-                "x": 787,
-                "y": 223
+                "x": 733,
+                "y": 62
             },
             "dragging": false
         },
@@ -323,8 +890,8 @@
             "id": "dndnode_2",
             "type": "customModel",
             "position": {
-                "x": 338,
-                "y": 629
+                "x": 124,
+                "y": 385
             },
             "data": {
                 "label": "Quiz",
@@ -339,67 +906,161 @@
                 "mapToExistingTable": "",
                 "extendExistingModelClass": "",
                 "actions": {
-                    "actionIndex": false,
-                    "actionList": false,
-                    "actionShow": false,
+                    "actionIndex": true,
+                    "actionList": true,
+                    "actionShow": true,
                     "actionNewCreate": false,
                     "actionEditUpdate": false,
                     "actionDelete": false
                 },
                 "customActions": [],
-                "properties": [],
+                "properties": [
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "description": "Name of the quiz",
+                        "isRequired": true,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    },
+                    {
+                        "name": "possibleQuestions",
+                        "type": "Integer",
+                        "description": "Number of possible questions which are shown in the frontend.",
+                        "isRequired": true,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    },
+                    {
+                        "name": "questions",
+                        "type": "Select",
+                        "description": "",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectMultipleSideBySide",
+                            "foreignTable": "tx_simplequiz_domain_model_question"
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "10",
+                        "minItems": "2",
+                        "maxItems": ""
+                    }
+                ],
                 "relations": []
             },
             "dragHandle": ".drag-handle",
             "draggable": true,
             "width": 300,
-            "height": 257,
+            "height": 491,
             "selected": false,
             "positionAbsolute": {
-                "x": 338,
-                "y": 629
-            },
-            "dragging": false
-        },
-        {
-            "id": "dndnode_3",
-            "type": "customModel",
-            "position": {
-                "x": 797,
-                "y": 624
-            },
-            "data": {
-                "label": "Question",
-                "objectType": "",
-                "isAggregateRoot": true,
-                "enableSorting": false,
-                "addDeletedField": true,
-                "addHiddenField": true,
-                "addStarttimeEndtimeFields": true,
-                "enableCategorization": false,
-                "description": "Single Question for each quiz",
-                "mapToExistingTable": "",
-                "extendExistingModelClass": "",
-                "actions": {
-                    "actionIndex": false,
-                    "actionList": false,
-                    "actionShow": false,
-                    "actionNewCreate": false,
-                    "actionEditUpdate": false,
-                    "actionDelete": false
-                },
-                "customActions": [],
-                "properties": [],
-                "relations": []
-            },
-            "dragHandle": ".drag-handle",
-            "draggable": true,
-            "width": 300,
-            "height": 257,
-            "selected": false,
-            "positionAbsolute": {
-                "x": 797,
-                "y": 624
+                "x": 124,
+                "y": 385
             },
             "dragging": false
         },
@@ -407,8 +1068,8 @@
             "id": "dndnode_4",
             "type": "customModel",
             "position": {
-                "x": 1255,
-                "y": 621
+                "x": 478.4841651980255,
+                "y": 915.3942157920848
             },
             "data": {
                 "label": "Answer",
@@ -431,17 +1092,286 @@
                     "actionDelete": false
                 },
                 "customActions": [],
-                "properties": [],
+                "properties": [
+                    {
+                        "name": "answer",
+                        "type": "Text",
+                        "description": "Text of the answer",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": true
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    },
+                    {
+                        "name": "isQuestionTrue",
+                        "type": "Boolean",
+                        "description": "Is this question true?",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    },
+                    {
+                        "name": "furtherInformation",
+                        "type": "Text",
+                        "description": "Further information which are shown after answering the question.",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": true
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    }
+                ],
                 "relations": []
             },
             "dragHandle": ".drag-handle",
             "draggable": true,
             "width": 300,
             "height": 257,
-            "selected": true,
+            "selected": false,
             "positionAbsolute": {
-                "x": 1255,
-                "y": 621
+                "x": 478.4841651980255,
+                "y": 915.3942157920848
+            },
+            "dragging": false
+        },
+        {
+            "id": "dndnode_5",
+            "type": "customModel",
+            "position": {
+                "x": 935,
+                "y": 504
+            },
+            "data": {
+                "label": "Question",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [
+                    {
+                        "name": "text",
+                        "type": "Text",
+                        "description": "",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": ""
+                        },
+                        "typeText": {
+                            "enableRichtext": true
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "",
+                        "minItems": "",
+                        "maxItems": ""
+                    },
+                    {
+                        "name": "rightAnswer",
+                        "type": "Select",
+                        "description": "",
+                        "isRequired": false,
+                        "isNullable": false,
+                        "isExcludeField": false,
+                        "isl10nModeExlude": false,
+                        "typeSelect": {
+                            "selectboxValues": "",
+                            "renderType": "selectSingle",
+                            "foreignTable": "tx_simplequiz_domain_model_answer"
+                        },
+                        "typeText": {
+                            "enableRichtext": false
+                        },
+                        "typeNumber": {
+                            "enableSlider": false,
+                            "steps": 1,
+                            "setRange": false,
+                            "upperRange": 255,
+                            "lowerRange": 0
+                        },
+                        "typeColor": {
+                            "setValuesColorPicker": false,
+                            "colorPickerValues": ""
+                        },
+                        "typeBoolean": {
+                            "renderType": "default",
+                            "booleanValues": ""
+                        },
+                        "typePassword": {
+                            "renderPasswordGenerator": false
+                        },
+                        "typeDateTime": {
+                            "dbTypeDateTime": "",
+                            "formatDateTime": ""
+                        },
+                        "typeFile": {
+                            "allowedFileTypes": ""
+                        },
+                        "size": "5",
+                        "minItems": "1",
+                        "maxItems": "1"
+                    }
+                ],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": false,
+            "positionAbsolute": {
+                "x": 935,
+                "y": 504
             },
             "dragging": false
         }
@@ -449,7 +1379,7 @@
     "edges": [],
     "storagePath": "\/var\/www\/html\/Packages\/",
     "log": {
-        "last_modified": "2024-01-19 12:26",
+        "last_modified": "2024-01-19 01:50",
         "extension_builder_version": "dev-typo3-12-reactjs",
         "be_user": " (1)"
     }

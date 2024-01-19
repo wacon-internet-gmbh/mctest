@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_csh_tx_simplequiz_domain_model_quiz.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>Name of the quiz</source>
+			</trans-unit>
+			<trans-unit id="possible_questions.description" resname="possible_questions.description">
+				<source>Number of possible questions which are shown in the frontend.</source>
+			</trans-unit>
+			<trans-unit id="questions.description" resname="questions.description">
+				<source>questions</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

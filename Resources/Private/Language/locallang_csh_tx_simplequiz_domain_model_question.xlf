@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_csh_tx_simplequiz_domain_model_question.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
+		<header/>
+		<body>
+			<trans-unit id="text.description" resname="text.description">
+				<source>Text of the question</source>
+			</trans-unit>
+			<trans-unit id="right_answer.description" resname="right_answer.description">
+				<source>This answer is the correct one for this questions</source>
+			</trans-unit>
+			<trans-unit id="correct_answer.description" resname="correct_answer.description">
+				<source>correctAnswer</source>
+			</trans-unit>
+			<trans-unit id="wrong_answers.description" resname="wrong_answers.description">
+				<source>wrongAnswers</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

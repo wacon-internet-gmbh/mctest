@@ -38,8 +38,63 @@ class QuizTest extends UnitTestCase
     /**
      * @test
      */
-    public function dummyTestToNotLeaveThisFileEmpty(): void
+    public function getNameReturnsInitialValueForString(): void
     {
-        self::markTestIncomplete();
+        self::assertSame(
+            '',
+            $this->subject->getName()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setNameForStringSetsName(): void
+    {
+        $this->subject->setName('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('name'));
+    }
+
+    /**
+     * @test
+     */
+    public function getPossibleQuestionsReturnsInitialValueForInt(): void
+    {
+        self::assertSame(
+            0,
+            $this->subject->getPossibleQuestions()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setPossibleQuestionsForIntSetsPossibleQuestions(): void
+    {
+        $this->subject->setPossibleQuestions(12);
+
+        self::assertEquals(12, $this->subject->_get('possibleQuestions'));
+    }
+
+    /**
+     * @test
+     */
+    public function getQuestionsReturnsInitialValueForInt(): void
+    {
+        self::assertSame(
+            0,
+            $this->subject->getQuestions()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setQuestionsForIntSetsQuestions(): void
+    {
+        $this->subject->setQuestions(12);
+
+        self::assertEquals(12, $this->subject->_get('questions'));
     }
 }

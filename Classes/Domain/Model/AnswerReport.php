@@ -19,4 +19,32 @@ namespace Wacon\Simplequiz\Domain\Model;
  */
 class AnswerReport extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+
+    /**
+     * id
+     *
+     * @var string
+     */
+    protected $id = '';
+
+    /**
+     * Returns the id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Sets the id
+     *
+     * @param string $id
+     * @return void
+     */
+    public function setId(string $id)
+    {
+        $this->id = $id;
+    }
 }

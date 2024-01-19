@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_csh_tx_simplequiz_domain_model_answer.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
+		<header/>
+		<body>
+			<trans-unit id="answer.description" resname="answer.description">
+				<source>Text of the answer</source>
+			</trans-unit>
+			<trans-unit id="is_question_true.description" resname="is_question_true.description">
+				<source>Is this question true?</source>
+			</trans-unit>
+			<trans-unit id="further_information.description" resname="further_information.description">
+				<source>Further information which are shown after answering the question.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

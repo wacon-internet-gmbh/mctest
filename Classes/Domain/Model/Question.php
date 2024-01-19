@@ -15,8 +15,64 @@ namespace Wacon\Simplequiz\Domain\Model;
  */
 
 /**
- * Single Question for each quiz
+ * Question
  */
 class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
+
+    /**
+     * text
+     *
+     * @var string
+     */
+    protected $text = '';
+
+    /**
+     * rightAnswer
+     *
+     * @var int
+     */
+    protected $rightAnswer = 0;
+
+    /**
+     * Returns the text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Sets the text
+     *
+     * @param string $text
+     * @return void
+     */
+    public function setText(string $text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * Returns the rightAnswer
+     *
+     * @return int
+     */
+    public function getRightAnswer()
+    {
+        return $this->rightAnswer;
+    }
+
+    /**
+     * Sets the rightAnswer
+     *
+     * @param int $rightAnswer
+     * @return void
+     */
+    public function setRightAnswer(int $rightAnswer)
+    {
+        $this->rightAnswer = $rightAnswer;
+    }
 }

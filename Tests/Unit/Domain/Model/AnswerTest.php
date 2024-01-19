@@ -38,8 +38,60 @@ class AnswerTest extends UnitTestCase
     /**
      * @test
      */
-    public function dummyTestToNotLeaveThisFileEmpty(): void
+    public function getAnswerReturnsInitialValueForString(): void
     {
-        self::markTestIncomplete();
+        self::assertSame(
+            '',
+            $this->subject->getAnswer()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setAnswerForStringSetsAnswer(): void
+    {
+        $this->subject->setAnswer('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('answer'));
+    }
+
+    /**
+     * @test
+     */
+    public function getIsQuestionTrueReturnsInitialValueForBool(): void
+    {
+        self::assertFalse($this->subject->getIsQuestionTrue());
+    }
+
+    /**
+     * @test
+     */
+    public function setIsQuestionTrueForBoolSetsIsQuestionTrue(): void
+    {
+        $this->subject->setIsQuestionTrue(true);
+
+        self::assertEquals(true, $this->subject->_get('isQuestionTrue'));
+    }
+
+    /**
+     * @test
+     */
+    public function getFurtherInformationReturnsInitialValueForString(): void
+    {
+        self::assertSame(
+            '',
+            $this->subject->getFurtherInformation()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setFurtherInformationForStringSetsFurtherInformation(): void
+    {
+        $this->subject->setFurtherInformation('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('furtherInformation'));
     }
 }
