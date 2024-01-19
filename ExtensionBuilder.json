@@ -1,5 +1,206 @@
 {
-    "modules": [],
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    338,
+                    242
+                ]
+            },
+            "name": "QuizSessions",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "QuizSessions",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "This stores the sessions",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "cf435302-3273-4929-9e2e-4e412fee0953"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    787,
+                    223
+                ]
+            },
+            "name": "AnswerReport",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "AnswerReport",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "This stores the answer report",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "29605a78-3cdc-44e0-b082-f5b9ec848702"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    338,
+                    629
+                ]
+            },
+            "name": "Quiz",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "Quiz",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "Quiz which the user should answer",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "838d811c-c909-4a15-accb-a4412902b1e2"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    797,
+                    624
+                ]
+            },
+            "name": "Question",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "Question",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "Single Question for each quiz",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "5bc7a63a-3c38-408a-a18b-fa1fc119ace6"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        },
+        {
+            "config": {
+                "position": [
+                    1255,
+                    621
+                ]
+            },
+            "name": "Answer",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": false,
+                    "_default1_list": false,
+                    "_default2_show": false,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": []
+                },
+                "name": "Answer",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "Single Answer, right or wrong",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "5c0aeb42-8a0c-4871-aa70-d9f7da8caaae"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
     "properties": {
         "backendModules": [],
         "description": "This extension provides a simple quiz with plugins and a backend module.",
@@ -33,11 +234,222 @@
         "vendorName": "Wacon"
     },
     "wires": [],
-    "nodes": [],
+    "nodes": [
+        {
+            "id": "dndnode_0",
+            "type": "customModel",
+            "position": {
+                "x": 338,
+                "y": 242
+            },
+            "data": {
+                "label": "QuizSessions",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "This stores the sessions",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": false,
+            "positionAbsolute": {
+                "x": 338,
+                "y": 242
+            },
+            "dragging": false
+        },
+        {
+            "id": "dndnode_1",
+            "type": "customModel",
+            "position": {
+                "x": 787,
+                "y": 223
+            },
+            "data": {
+                "label": "AnswerReport",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "This stores the answer report",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": false,
+            "positionAbsolute": {
+                "x": 787,
+                "y": 223
+            },
+            "dragging": false
+        },
+        {
+            "id": "dndnode_2",
+            "type": "customModel",
+            "position": {
+                "x": 338,
+                "y": 629
+            },
+            "data": {
+                "label": "Quiz",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "Quiz which the user should answer",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": false,
+            "positionAbsolute": {
+                "x": 338,
+                "y": 629
+            },
+            "dragging": false
+        },
+        {
+            "id": "dndnode_3",
+            "type": "customModel",
+            "position": {
+                "x": 797,
+                "y": 624
+            },
+            "data": {
+                "label": "Question",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "Single Question for each quiz",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": false,
+            "positionAbsolute": {
+                "x": 797,
+                "y": 624
+            },
+            "dragging": false
+        },
+        {
+            "id": "dndnode_4",
+            "type": "customModel",
+            "position": {
+                "x": 1255,
+                "y": 621
+            },
+            "data": {
+                "label": "Answer",
+                "objectType": "",
+                "isAggregateRoot": true,
+                "enableSorting": false,
+                "addDeletedField": true,
+                "addHiddenField": true,
+                "addStarttimeEndtimeFields": true,
+                "enableCategorization": false,
+                "description": "Single Answer, right or wrong",
+                "mapToExistingTable": "",
+                "extendExistingModelClass": "",
+                "actions": {
+                    "actionIndex": false,
+                    "actionList": false,
+                    "actionShow": false,
+                    "actionNewCreate": false,
+                    "actionEditUpdate": false,
+                    "actionDelete": false
+                },
+                "customActions": [],
+                "properties": [],
+                "relations": []
+            },
+            "dragHandle": ".drag-handle",
+            "draggable": true,
+            "width": 300,
+            "height": 257,
+            "selected": true,
+            "positionAbsolute": {
+                "x": 1255,
+                "y": 621
+            },
+            "dragging": false
+        }
+    ],
     "edges": [],
     "storagePath": "\/var\/www\/html\/Packages\/",
     "log": {
-        "last_modified": "2024-01-16 09:25",
+        "last_modified": "2024-01-19 12:26",
         "extension_builder_version": "dev-typo3-12-reactjs",
         "be_user": " (1)"
     }

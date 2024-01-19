@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang.xlf" date="2024-01-19T12:26:51Z" product-name="simplequiz">
+		<header/>
+		<body>
+			<trans-unit id="tx_simplequiz_domain_model_quizsessions" resname="tx_simplequiz_domain_model_quizsessions">
+				<source>Quiz Sessions</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quizsessions.description" resname="tx_simplequiz_domain_model_quizsessions.description">
+				<source>This Stores The Sessions</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answerreport" resname="tx_simplequiz_domain_model_answerreport">
+				<source>Answer Report</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answerreport.description" resname="tx_simplequiz_domain_model_answerreport.description">
+				<source>This Stores The Answer Report</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz" resname="tx_simplequiz_domain_model_quiz">
+				<source>Quiz</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz.description" resname="tx_simplequiz_domain_model_quiz.description">
+				<source>Quiz Which The User Should Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question" resname="tx_simplequiz_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_question.description" resname="tx_simplequiz_domain_model_question.description">
+				<source>Single Question For Each Quiz</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer" resname="tx_simplequiz_domain_model_answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_answer.description" resname="tx_simplequiz_domain_model_answer.description">
+				<source>Single Answer, Right Or Wrong</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
