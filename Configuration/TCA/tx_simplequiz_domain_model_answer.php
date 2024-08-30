@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'answer,further_information',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/tx_simplequiz_domain_model_answer.gif',
+        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -133,6 +133,6 @@ return [
                 'default' => ''
             ]
         ],
-    
+
     ],
 ];

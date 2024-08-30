@@ -8,8 +8,7 @@ CREATE TABLE tx_simplequiz_domain_model_answerreport (
 
 CREATE TABLE tx_simplequiz_domain_model_quiz (
 	name varchar(255) NOT NULL DEFAULT '',
-	possible_questions int(11) NOT NULL DEFAULT '0',
-	questions varchar(255) DEFAULT '' NOT NULL
+	number_of_questions int(11) NOT NULL DEFAULT '0'
 );
 
 CREATE TABLE tx_simplequiz_domain_model_answer (

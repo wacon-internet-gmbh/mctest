@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'session_key',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/tx_simplequiz_domain_model_quizsessions.gif',
+        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -109,6 +109,6 @@ return [
                 'default' => ''
             ],
         ],
-    
+
     ],
 ];

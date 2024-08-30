@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'text',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/tx_simplequiz_domain_model_question.gif',
+        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -97,7 +97,7 @@ return [
             ],
         ],
 
-        'text' => [
+        'question' => [
             'exclude' => false,
             'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question.text',
             'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question.text.description',
@@ -120,6 +120,6 @@ return [
                 'size' => 5,
             ],
         ],
-    
+
     ],
 ];
