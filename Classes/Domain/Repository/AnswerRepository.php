@@ -19,4 +19,17 @@ namespace Wacon\Simplequiz\Domain\Repository;
  */
 class AnswerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     * findByUid but with array of uids
+     * @param array $uids
+     * @return array[]|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findByUids(array $uids) {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->in('uid', $uids)
+        );
+
+        return $query->execute();
+    }
 }

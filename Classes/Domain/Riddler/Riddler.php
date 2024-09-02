@@ -15,6 +15,7 @@ namespace Wacon\Simplequiz\Domain\Riddler;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
+use Wacon\Simplequiz\Domain\Model\Answer;
 use Wacon\Simplequiz\Domain\Model\Question;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
@@ -274,9 +275,9 @@ class Riddler
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach($answers as $answer) {
-            foreach($selectedAnswers  as $selectedAnswer) {
-                if ($selectedAnswer->getUid() == $answer->getUid()) {
-                    return true;
+            foreach($selectedAnswers  as $selectedAnswerId) {
+                if ($selectedAnswerId == $answer->getUid()) {
+                    return $answer->getIsCorrect();
                 }
             }
         }
@@ -291,5 +292,53 @@ class Riddler
     public function getCurrentQuestion(): Question
     {
         return $this->quizSession->getQuiz()->getQuestions()->offsetGet($this->currentStep-1);
+    }
+
+    /**
+     * Return the question of current step
+     * @return Answer
+     */
+    public function getSelectedAnswerOfCurrentQuestion(): ?Answer
+    {
+        $question = $this->quizSession->getQuestions()[$this->currentStep-1];
+        $answers = $question->getAnswers();
+        $selectedAnswers = $this->quizSession->getSelectedAnswers();
+
+        foreach($answers as $answer) {
+            foreach($selectedAnswers  as $selectedAnswerId) {
+                if ($selectedAnswerId == $answer->getUid()) {
+                    return $answer;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Return the question of current step
+     * @return Answer
+     */
+    public function getCorrectAnswerOfCurrentQuestion(): ?Answer
+    {
+        $question = $this->quizSession->getQuestions()[$this->currentStep-1];
+        $answers = $question->getAnswers();
+
+        foreach($answers as $answer) {
+            if ($answer->getIsCorrect()) {
+                return $answer;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Check if quiz is over
+     * @return bool
+     */
+    public function isQuizOver(): bool
+    {
+        return $this->currentStep+1 >= $this->quizSession->getAmountOfQuestions();
     }
 }

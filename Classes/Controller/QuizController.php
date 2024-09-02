@@ -83,7 +83,6 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function answeringAction(QuizSession $quizSession): \Psr\Http\Message\ResponseInterface
     {
         $riddler = GeneralUtility::makeInstance(Riddler::class);
-        $riddler->init($quizSession, $this->settings);
 
         // check if session exist
         if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
@@ -91,7 +90,13 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
 
         $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
+        $riddler->getQuizSession()->setSelectedAnswers($quizSession->getSelectedAnswers());
         $riddler->incrementStep();
+
+        // check if quiz is over
+        if ($riddler->isQuizOver()) {
+            return $this->redirect('complete');
+        }
 
         $this->view->assign('riddler', $riddler);
 
@@ -100,10 +105,9 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * action complete to end the quiz and show some statistics
-     * @param QuizSession $quizSession
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function completeAction(QuizSession $quizSession): \Psr\Http\Message\ResponseInterface
+    public function completeAction(): \Psr\Http\Message\ResponseInterface
     {
         // @TODO
         // Create statistics
