@@ -1,0 +1,16 @@
+mod {
+    wizards.newContentElement.wizardItems.plugins {
+      elements {
+        simplequiz {
+          iconIdentifier = simplequiz-plugin-simplequiz
+          title = LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_simplequiz.name
+          description = LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_simplequiz.description
+          tt_content_defValues {
+              CType = list
+              list_type = simplequiz_simplequiz
+          }
+        }
+      }
+      show = *
+    }
+}

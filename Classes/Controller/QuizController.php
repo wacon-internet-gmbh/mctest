@@ -6,6 +6,7 @@ namespace Wacon\Simplequiz\Controller;
 
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -22,53 +23,17 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
-    /**
-     * quizRepository
-     *
-     * @var \Wacon\Simplequiz\Domain\Repository\QuizRepository
-     */
-    protected $quizRepository = null;
-
-    /**
-     * @param \Wacon\Simplequiz\Domain\Repository\QuizRepository $quizRepository
-     */
-    public function injectQuizRepository(\Wacon\Simplequiz\Domain\Repository\QuizRepository $quizRepository)
-    {
-        $this->quizRepository = $quizRepository;
-    }
+    public function __construct(
+        private readonly QuizRepository $quizRepository
+    ) {}
 
     /**
      * action index
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function indexAction(): \Psr\Http\Message\ResponseInterface
+    public function showAction(): \Psr\Http\Message\ResponseInterface
     {
-        return $this->htmlResponse();
-    }
-
-    /**
-     * action list
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function listAction(): \Psr\Http\Message\ResponseInterface
-    {
-        $quizzes = $this->quizRepository->findAll();
-        DebuggerUtility::var_dump($quizzes, 'quizzes');
-        $this->view->assign('quizzes', $quizzes);
-        return $this->htmlResponse();
-    }
-
-    /**
-     * action show
-     *
-     * @param \Wacon\Simplequiz\Domain\Model\Quiz $quiz
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function showAction(\Wacon\Simplequiz\Domain\Model\Quiz $quiz): \Psr\Http\Message\ResponseInterface
-    {
-        $this->view->assign('quiz', $quiz);
         return $this->htmlResponse();
     }
 }

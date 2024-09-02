@@ -21,9 +21,10 @@ return [
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
+        'hideTable' => true
     ],
     'types' => [
-        '1' => ['showitem' => 'answer, is_question_true, further_information, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'answer, is_correct, further_information, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -96,7 +97,6 @@ return [
                 ]
             ],
         ],
-
         'answer' => [
             'exclude' => false,
             'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_answer.answer',
@@ -109,10 +109,9 @@ return [
                 'default' => ''
             ]
         ],
-        'is_question_true' => [
+        'is_correct' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_answer.is_question_true',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_answer.is_question_true.description',
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_answer.is_correct',
             'config' => [
                 'type' => 'check',
                 'items' => [
@@ -131,8 +130,7 @@ return [
                 'rows' => 15,
                 'eval' => 'trim',
                 'default' => ''
-            ]
+            ],
         ],
-
     ],
 ];

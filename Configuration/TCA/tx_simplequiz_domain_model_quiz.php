@@ -23,7 +23,7 @@ return [
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'name, number_of_questions, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'name, questions, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -96,11 +96,9 @@ return [
                 ]
             ],
         ],
-
         'name' => [
             'exclude' => false,
             'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.name',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.name.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -109,17 +107,19 @@ return [
                 'default' => ''
             ],
         ],
-        'number_of_questions' => [
+        'questions' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.number_of_questions',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.number_of_questions.description',
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.questions',
             'config' => [
-                'type' => 'number',
-                'size' => 2,
-                'required' => true,
-                'default' => 1
-
-            ]
+                'type' => 'inline',
+                'foreign_table' => 'tx_simplequiz_domain_model_question',
+                'appearance' => [
+                    'showSynchronizationLink' => true,
+                    'showAllLocalizationLink' => true,
+                    'showPossibleLocalizationRecords' => true,
+                ],
+                'minitems' => 1
+            ],
         ],
     ],
 ];

@@ -2,7 +2,18 @@
     "name": "wacon/simplequiz",
     "type": "typo3-cms-extension",
     "description": "This extension provides a simple quiz with plugins and a backend module.",
-    "authors": [],
+    "authors": [
+		{
+            "name": "Philipp Kuhlmay",
+            "role": "Former Developer"
+        },
+		{
+            "name": "Kevin Chileong Lee",
+            "role": "Developer",
+            "email": "info@wacon.de",
+            "homepage": "https://wacon.de/"
+        }
+	],
     "license": "GPL-2.0-or-later",
     "require": {
         "typo3/cms-core": "^12.4"

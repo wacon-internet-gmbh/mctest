@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_plugins.xlf" date="2024-09-02T09:20:51Z" product-name="simplequiz">
+        <header/>
+        <body>
+			<trans-unit id="simplequiz.title" resname="simplequiz.title">
+				<source>Simple Quiz</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

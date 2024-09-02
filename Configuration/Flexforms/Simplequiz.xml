@@ -1,0 +1,31 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>
+                    LLL:EXT:filetransfer/Resources/Private/Language/locallang_flexforms.xlf:sheetGeneral
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.amountOfQuestions>
+                        <label>
+                            LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.amountOfQuestions
+                        </label>
+                        <config>
+                            <type>number</type>
+                            <format>int</format>
+                            <size>2</size>
+                            <required>1</required>
+                            <range>
+                                <lower>1</lower>
+                            </range>
+                            <slider>
+                                <step>1</step>
+                            </slider>
+                        </config>
+                    </settings.amountOfQuestions>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

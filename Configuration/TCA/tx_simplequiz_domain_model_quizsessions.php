@@ -96,19 +96,15 @@ return [
                 ]
             ],
         ],
-
-        'session_key' => [
+        'data' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quizsessions.session_key',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quizsessions.session_key.description',
+            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quizsessions.data',
+            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quizsessions.data.description',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
+                'type' => 'json',
                 'eval' => 'trim',
                 'required' => true,
-                'default' => ''
             ],
         ],
-
     ],
 ];
