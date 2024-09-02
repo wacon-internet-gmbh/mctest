@@ -1,0 +1,12 @@
+pageWaconQuizSolving = PAGE
+pageWaconQuizSolving {
+  typeNum = {$plugin.tx_simplequiz_simplequiz.settings.pageTypes.solving}
+
+  10 < tt_content.list.20.simplequiz_simplequiz
+  10 {
+    settings < plugin.tx_simplequiz_simplequiz.settings
+    settings {
+      step = 2
+    }
+  }
+}

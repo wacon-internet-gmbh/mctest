@@ -37,12 +37,12 @@ class ExtLocalconf extends Base
     {
         ExtensionUtility::configurePlugin(
             $this->getExtensionKeyAsNamespace(),
-            'Upload',
+            'Simplequiz',
             [
-                QuizController::class => 'show',
+                QuizController::class => 'show,solving,complete,answering',
             ],
             [
-                QuizController::class => 'show',
+                QuizController::class => 'solving,complete,answering',
             ]
         );
     }

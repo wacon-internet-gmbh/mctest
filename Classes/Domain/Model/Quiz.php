@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 
 /**
@@ -24,24 +25,20 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Name of the quiz
      *
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $name = '';
 
     /**
-     * Number of possible questions which are shown in the frontend.
+     * Questions
      *
-     * @var int
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
      */
-    protected $possibleQuestions = 0;
+    protected $questions;
 
-    /**
-     * questions
-     *
-     * @var int
-     */
-    protected $questions = 0;
+    public function __construct()
+    {
+        $this->questions = new ObjectStorage();
+    }
 
     /**
      * Returns the name
@@ -65,30 +62,9 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the possibleQuestions
+     * Get questions
      *
-     * @return int
-     */
-    public function getPossibleQuestions()
-    {
-        return $this->possibleQuestions;
-    }
-
-    /**
-     * Sets the possibleQuestions
-     *
-     * @param int $possibleQuestions
-     * @return void
-     */
-    public function setPossibleQuestions(int $possibleQuestions)
-    {
-        $this->possibleQuestions = $possibleQuestions;
-    }
-
-    /**
-     * Returns the questions
-     *
-     * @return int
+     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
      */
     public function getQuestions()
     {
@@ -96,13 +72,38 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the questions
+     * Set questions
      *
-     * @param int $questions
-     * @return void
+     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>  $questions
+     *
+     * @return  self
      */
-    public function setQuestions(int $questions)
+    public function setQuestions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $questions)
     {
         $this->questions = $questions;
+
+        return $this;
+    }
+
+    /**
+     * Add a Question
+     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @return self
+     */
+    public function addQuestion(Question $question)
+    {
+        $this->questions->attach($question);
+        return $this;
+    }
+
+    /**
+     * Remove a Question
+     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @return self
+     */
+    public function removeQuestion(Question $question)
+    {
+        $this->questions->detach($question);
+        return $this;
     }
 }

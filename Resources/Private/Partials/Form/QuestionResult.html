@@ -1,0 +1,30 @@
+<div class="quiz-questionresult-item">
+    <f:if condition="{riddler.isCurrentStepAnsweredCorrectly}">
+        <f:then>
+            <div class="alert alert-success quiz-questionresult-success">
+                <p class="lead">
+                    <strong><f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/></strong>
+                </p>
+                <div class="quiz-furtherinformation">
+                    <f:format.html>{riddler.currentQuestion.selectedAnswer.furtherInformation}</f:format.html>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="alert alert-danger quiz-questionresult-success">
+                <p class="lead">
+                    <strong><f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/></strong>
+                </p>
+                <div class="quiz-furtherinformation">
+                    <f:format.html>{riddler.currentQuestion.selectedAnswer.furtherInformation}</f:format.html>
+                </div>
+            </div>
+            <div class="quiz-questionresult-correctanswer">
+                <p><f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" /></p>
+                <div class="quiz-furtherinformation">
+                    <f:format.html>{riddler.currentQuestion.correctAnswer.furtherInformation}</f:format.html>
+                </div>
+            </div>
+        </f:else>
+    </f:if>
+</div>

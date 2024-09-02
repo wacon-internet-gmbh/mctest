@@ -1,8 +1,8 @@
 <?php
-defined('TYPO3') || die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Simplequiz',
-    'Simplequiz',
-    'Simplequiz'
-);
+defined('TYPO3') or die();
+
+call_user_func(function () {
+    $obj = new \Wacon\Simplequiz\Bootstrap\TCA\TtContent();
+    $obj->invoke();
+});

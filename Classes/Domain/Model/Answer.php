@@ -28,11 +28,11 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $answer = '';
 
     /**
-     * Is this question true?
+     * Is this question correct?
      *
      * @var bool
      */
-    protected $isQuestionTrue = false;
+    protected $isCorrect = false;
 
     /**
      * Further information which are shown after answering the question.
@@ -63,34 +63,34 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the isQuestionTrue
+     * Returns the isCorrect
      *
      * @return bool
      */
-    public function getIsQuestionTrue()
+    public function getIsCorrect()
     {
-        return $this->isQuestionTrue;
+        return $this->isCorrect;
     }
 
     /**
-     * Sets the isQuestionTrue
+     * Sets the isCorrect
      *
-     * @param bool $isQuestionTrue
+     * @param bool $isCorrect
      * @return void
      */
-    public function setIsQuestionTrue(bool $isQuestionTrue)
+    public function setIsCorrect(bool $isCorrect)
     {
-        $this->isQuestionTrue = $isQuestionTrue;
+        $this->isCorrect = $isCorrect;
     }
 
     /**
-     * Returns the boolean state of isQuestionTrue
+     * Returns the boolean state of isCorrect
      *
      * @return bool
      */
-    public function isIsQuestionTrue()
+    public function isCorrect()
     {
-        return $this->isQuestionTrue;
+        return $this->isCorrect;
     }
 
     /**

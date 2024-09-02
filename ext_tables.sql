@@ -1,4 +1,4 @@
-CREATE TABLE tx_simplequiz_domain_model_quizsessions (
+CREATE TABLE tx_simplequiz_domain_model_quizsession (
 	data varchar(255) NOT NULL DEFAULT ''
 );
 
@@ -17,5 +17,3 @@ CREATE TABLE tx_simplequiz_domain_model_question (
 	question text NOT NULL DEFAULT '',
 	answers varchar(255) DEFAULT '' NOT NULL
 );
-
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder

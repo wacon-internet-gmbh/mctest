@@ -1,0 +1,16 @@
+plugin.tx_simplequiz_simplequiz {
+    view {
+        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:simplequiz/Resources/Private/Templates/
+        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:simplequiz/Resources/Private/Partials/
+        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:simplequiz/Resources/Private/Layouts/
+    }
+
+    settings {
+      pageTypes {
+        solving = 20240902
+      }
+    }
+}
