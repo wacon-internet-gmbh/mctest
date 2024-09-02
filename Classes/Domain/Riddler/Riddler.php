@@ -46,7 +46,7 @@ class Riddler
      * Current step
      * @var int
      */
-    protected int $currentStep = 1;
+    protected int $currentStep = 0;
 
     public function __construct(
         private readonly QuizRepository $quizRepository,
@@ -178,7 +178,7 @@ class Riddler
 
         $selectedAnswers = [];
 
-        foreach($selectedAnswers as $answerId) {
+        foreach($sessionData['selectedAnswers'] as $answerId) {
             $selectedAnswers[] = $this->answerRepository->findByUid($answerId);
         }
 
@@ -200,7 +200,7 @@ class Riddler
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach($selectedAnswers as $selectedAnswer) {
-            $selectedAnswersUidList[] = $selectedAnswer->getUid();
+            $selectedAnswersUidList[] = $selectedAnswer;
         }
 
         $randomQuestionsUidList = [];
@@ -339,6 +339,6 @@ class Riddler
      */
     public function isQuizOver(): bool
     {
-        return $this->currentStep+1 >= $this->quizSession->getAmountOfQuestions();
+        return $this->currentStep >= $this->quizSession->getAmountOfQuestions() && count($this->randomQuestions) == count($this->quizSession->getSelectedAnswers());
     }
 }

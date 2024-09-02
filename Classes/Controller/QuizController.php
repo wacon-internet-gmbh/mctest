@@ -64,8 +64,6 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
 
         $riddler->getQuizSession()->setQuizStarted(true);
-        $riddler->setCurrentStep();
-        $riddler->incrementStep();
 
         // store state in session
         $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
@@ -97,6 +95,11 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         if ($riddler->isQuizOver()) {
             return $this->redirect('complete');
         }
+
+        $riddler->setCurrentStep();
+
+        // store state in session
+        $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
 
         $this->view->assign('riddler', $riddler);
 

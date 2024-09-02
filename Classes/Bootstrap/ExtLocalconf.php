@@ -42,7 +42,7 @@ class ExtLocalconf extends Base
                 QuizController::class => 'show,solving,complete,answering',
             ],
             [
-                QuizController::class => 'solving,complete,answering',
+                QuizController::class => 'show,solving,complete,answering',
             ]
         );
     }
