@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
+ * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
 namespace Wacon\Simplequiz\Domain\Riddler;

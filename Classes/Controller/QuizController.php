@@ -8,14 +8,14 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
+ * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
 namespace Wacon\Simplequiz\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Wacon\Simplequiz\Domain\Model\Quiz;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
+use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
 
@@ -24,7 +24,8 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $extensionKey = 'simplequiz';
 
     public function __construct(
-        private readonly QuizRepository $quizRepository
+        private readonly QuizRepository $quizRepository,
+        private readonly QuizSessionRepository $quizSessionRepository
     ) {}
 
     /**
@@ -112,9 +113,21 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function completeAction(): \Psr\Http\Message\ResponseInterface
     {
-        // @TODO
         // Create statistics
-        // End session
+        $riddler = GeneralUtility::makeInstance(Riddler::class);
+
+        // check if session exist
+        if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
+            return $this->redirect('show');
+        }
+
+        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
+        $quizSession = $riddler->getQuizSession();
+        $quizSession->finalizeForDBStorage();
+
+        $this->quizSessionRepository->add($quizSession);
+
+        // @TODO End session
 
         return $this->htmlResponse();
     }

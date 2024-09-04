@@ -3,10 +3,13 @@
 	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_db.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
 		<header/>
 		<body>
-			<trans-unit id="tx_simplequiz_domain_model_quizsessions.data" resname="tx_simplequiz_domain_model_quizsessions.data">
+			<trans-unit id="tx_simplequiz_domain_model_quiz_session.name" resname="tx_simplequiz_domain_model_quiz_session.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz_session.data" resname="tx_simplequiz_domain_model_quiz_session.data">
 				<source>Data</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quizsessions.data.description" resname="tx_simplequiz_domain_model_quizsessions.data.description">
+			<trans-unit id="tx_simplequiz_domain_model_quiz_session.data.description" resname="tx_simplequiz_domain_model_quiz_session.data.description">
 				<source>Contains all information for the filled quiz of a single user in JSON format</source>
 			</trans-unit>
 			<trans-unit id="tx_simplequiz_domain_model_quiz" resname="tx_simplequiz_domain_model_quiz">

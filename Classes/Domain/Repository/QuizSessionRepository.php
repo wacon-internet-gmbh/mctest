@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Repository;
 
-
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
  *
@@ -15,8 +14,6 @@ namespace Wacon\Simplequiz\Domain\Repository;
  */
 
 /**
- * The repository for Questions
+ * The repository for Answers
  */
-class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
-{
-}
+class QuizSessionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {}

@@ -27,6 +27,12 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected Quiz $quiz;
 
     /**
+     * Current step we are in
+     * @var string
+     */
+    protected string $name = '';
+
+    /**
      * Amount of chosen questions in plugin as it started
      * @var int
      */
@@ -231,5 +237,74 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->selectedAnswers = $selectedAnswers;
 
         return $this;
+    }
+
+    /**
+     * Get current step we are in
+     *
+     * @return  string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set current step we are in
+     *
+     * @param  string  $name  Current step we are in
+     *
+     * @return  self
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Write all necessary info in $data, which is persisted
+     */
+    public function finalizeForDBStorage()
+    {
+        $answers = [];
+
+        foreach($this->questions as $question) {
+            /**
+             * @var Question $question
+             */
+            $answersOfQuestions = $question->getAnswers();
+
+            $record = [
+                'question' => [
+                    'uid' => $question->getUid(),
+                    'question' => $question->getQuestion()
+                ],
+                'selectedAnswers' => []
+            ];
+
+            foreach($this->selectedAnswers as $answer) {
+                /**
+                 * @var Answer $answer
+                 */
+                foreach($answersOfQuestions as $answerOfQuestions) {
+                    if ($answerOfQuestions->getUid() == $answer->getUid()) {
+                        $record['selectedAnswers'][] = [
+                            'uid' => $answer->getUid(),
+                            'answer' => $answer->getAnswer(),
+                            'isCorrect' => $answer->isCorrect()
+                        ];
+                    }
+                }
+            }
+        }
+
+        $this->name = $this->quiz->getName();
+
+        $this->data = \json_encode([
+            'quiz' => $this->quiz->getUid(),
+            'report' => $record
+        ]);
     }
 }

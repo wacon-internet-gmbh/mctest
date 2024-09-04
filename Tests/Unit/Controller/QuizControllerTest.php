@@ -12,7 +12,7 @@ use TYPO3Fluid\Fluid\View\ViewInterface;
 /**
  * Test case
  *
- * @author Philipp Kuhlmay <info@wacon.de>
+ * @author Kevin Chileong Lee <info@wacon.de>
  */
 class QuizControllerTest extends UnitTestCase
 {
