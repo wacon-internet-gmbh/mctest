@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
 
-
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
  *
@@ -14,12 +13,9 @@ namespace Wacon\Simplequiz\Domain\Model;
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-/**
- * Single Answer, right or wrong
- */
+
 class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * Text of the answer
      *
@@ -55,11 +51,14 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the answer
      *
      * @param string $answer
-     * @return void
+     *
+     * @return Answer
      */
     public function setAnswer(string $answer)
     {
         $this->answer = $answer;
+
+        return $this;
     }
 
     /**
@@ -76,11 +75,13 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the isCorrect
      *
      * @param bool $isCorrect
-     * @return void
+     * @return Answer
      */
     public function setIsCorrect(bool $isCorrect)
     {
         $this->isCorrect = $isCorrect;
+
+        return $this;
     }
 
     /**
@@ -107,10 +108,12 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the furtherInformation
      *
      * @param string $furtherInformation
-     * @return void
+     * @return Answer
      */
     public function setFurtherInformation(string $furtherInformation)
     {
         $this->furtherInformation = $furtherInformation;
+
+        return $this;
     }
 }

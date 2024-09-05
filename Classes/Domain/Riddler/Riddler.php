@@ -80,7 +80,7 @@ class Riddler
         $selectedQuestions = [];
         $generatedNumbers = [];
 
-        for($i = 0; $i < $amountOfQuestions; $i++) {
+        for ($i = 0; $i < $amountOfQuestions; $i++) {
             $randomQuestionIndex = $this->getUniqueRandomNumber(0, $totalQuestionsCount - 1, $generatedNumbers);
             $selectedQuestions[] = $questions->offsetGet($randomQuestionIndex);
             $generatedNumbers[] = $randomQuestionIndex;
@@ -170,7 +170,7 @@ class Riddler
 
         $this->randomQuestions = [];
 
-        foreach($sessionData['randomQuestions'] as $questionId) {
+        foreach ($sessionData['randomQuestions'] as $questionId) {
             $this->randomQuestions[] = $this->questionRepository->findByUid($questionId);
         }
 
@@ -178,7 +178,7 @@ class Riddler
 
         $selectedAnswers = [];
 
-        foreach($sessionData['selectedAnswers'] as $answerId) {
+        foreach ($sessionData['selectedAnswers'] as $answerId) {
             $selectedAnswers[] = $this->answerRepository->findByUid($answerId);
         }
 
@@ -199,14 +199,14 @@ class Riddler
         $selectedAnswersUidList = [];
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
-        foreach($selectedAnswers as $selectedAnswer) {
+        foreach ($selectedAnswers as $selectedAnswer) {
             $selectedAnswersUidList[] = $selectedAnswer;
         }
 
         $randomQuestionsUidList = [];
         $randomQuestions = $this->randomQuestions;
 
-        foreach($randomQuestions as $randomQuestion) {
+        foreach ($randomQuestions as $randomQuestion) {
             $randomQuestionsUidList[] = $randomQuestion->getUid();
         }
 
@@ -218,7 +218,7 @@ class Riddler
             'step' => $this->quizSession->getStep(),
             'quizStarted' => $this->quizSession->getQuizStarted(),
             'amountOfQuestions' => $this->quizSession->getAmountOfQuestions(),
-            'currentStep' => $this->currentStep
+            'currentStep' => $this->currentStep,
         ]);
         $frontendUserAuthentication->storeSessionData();
     }
@@ -235,8 +235,10 @@ class Riddler
     /**
      * Return TRUE if there is a riddle session
      * @param \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication $frontendUserAuthentication
+     * @return array|false
      */
-    public static function hasSession(FrontendUserAuthentication $frontendUserAuthentication) {
+    public static function hasSession(FrontendUserAuthentication $frontendUserAuthentication)
+    {
         $sessionData = $frontendUserAuthentication->getSessionData(QuizSession::class);
 
         return $sessionData ?? false;
@@ -270,12 +272,12 @@ class Riddler
      */
     public function getIsCurrentStepAnsweredCorrectly(): bool
     {
-        $questions = $this->quizSession->getQuestions()[$this->currentStep-1];
+        $questions = $this->quizSession->getQuestions()[$this->currentStep - 1];
         $answers = $questions->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
-        foreach($answers as $answer) {
-            foreach($selectedAnswers  as $selectedAnswerId) {
+        foreach ($answers as $answer) {
+            foreach ($selectedAnswers  as $selectedAnswerId) {
                 if ($selectedAnswerId == $answer->getUid()) {
                     return $answer->getIsCorrect();
                 }
@@ -291,7 +293,7 @@ class Riddler
      */
     public function getCurrentQuestion(): Question
     {
-        return $this->quizSession->getQuiz()->getQuestions()->offsetGet($this->currentStep-1);
+        return $this->quizSession->getQuiz()->getQuestions()->offsetGet($this->currentStep - 1);
     }
 
     /**
@@ -300,12 +302,12 @@ class Riddler
      */
     public function getSelectedAnswerOfCurrentQuestion(): ?Answer
     {
-        $question = $this->quizSession->getQuestions()[$this->currentStep-1];
+        $question = $this->quizSession->getQuestions()[$this->currentStep - 1];
         $answers = $question->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
-        foreach($answers as $answer) {
-            foreach($selectedAnswers  as $selectedAnswerId) {
+        foreach ($answers as $answer) {
+            foreach ($selectedAnswers  as $selectedAnswerId) {
                 if ($selectedAnswerId == $answer->getUid()) {
                     return $answer;
                 }
@@ -324,7 +326,7 @@ class Riddler
         $question = $this->quizSession->getQuestions()[$this->currentStep-1];
         $answers = $question->getAnswers();
 
-        foreach($answers as $answer) {
+        foreach ($answers as $answer) {
             if ($answer->getIsCorrect()) {
                 return $answer;
             }

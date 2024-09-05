@@ -23,7 +23,7 @@ class Quiz
               this.containerElement.innerHTML = data.html;
             }
           });
-        }else {
+        } else {
           console.error('Error in simple quiz form ajax request. Status: ' + response.status);
         }
       });

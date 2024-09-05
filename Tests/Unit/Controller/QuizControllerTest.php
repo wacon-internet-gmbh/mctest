@@ -48,7 +48,7 @@ class QuizControllerTest extends UnitTestCase
             ->onlyMethods(['findAll'])
             ->disableOriginalConstructor()
             ->getMock();
-        $quizRepository->expects(self::once())->method('findAll')->will(self::returnValue($allQuizzes));
+            $quizRepository->expects(self::once())->method('findAll')->willReturn($allQuizzes);
         $this->subject->_set('quizRepository', $quizRepository);
 
         $view = $this->getMockBuilder(ViewInterface::class)->getMock();

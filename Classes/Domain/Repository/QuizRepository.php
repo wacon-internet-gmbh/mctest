@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Repository;
 
-
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
  *

@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -15,9 +13,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
  */
 
-/**
- * This stores the sessions
- */
 class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -168,11 +163,13 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Increment step
-     * @return void
+     * @return self
      */
     public function incrementStep()
     {
         $this->step++;
+
+        return $this;
     }
 
     /**
@@ -274,7 +271,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $answers = [];
 
-        foreach($this->questions as $question) {
+        foreach ($this->questions as $question) {
             /**
              * @var Question $question
              */
@@ -288,16 +285,16 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 'selectedAnswers' => []
             ];
 
-            foreach($this->selectedAnswers as $answer) {
+            foreach ($this->selectedAnswers as $answer) {
                 /**
                  * @var Answer $answer
                  */
-                foreach($answersOfQuestions as $answerOfQuestions) {
+                foreach ($answersOfQuestions as $answerOfQuestions) {
                     if ($answerOfQuestions->getUid() == $answer->getUid()) {
                         $record['selectedAnswers'][] = [
                             'uid' => $answer->getUid(),
                             'answer' => $answer->getAnswer(),
-                            'isCorrect' => $answer->isCorrect()
+                            'isCorrect' => $answer->isCorrect(),
                         ];
                     }
                 }
@@ -308,7 +305,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         $this->data = \json_encode([
             'quiz' => $this->quiz->getUid(),
-            'report' => $record
+            'report' => $record,
         ]);
     }
 }

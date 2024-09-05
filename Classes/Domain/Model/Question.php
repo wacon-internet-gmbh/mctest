@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -20,7 +20,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * text
      *

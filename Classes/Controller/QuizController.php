@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
+use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
 
 class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -63,7 +62,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         // check if session exist
         if (Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
             $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
-        }else {
+        } else {
             $riddler->init($quizSession, $this->settings);
         }
 
@@ -75,7 +74,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->view->assign('riddler', $riddler);
 
         return $this->jsonResponse(\json_encode([
-            'html' => $this->view->render()
+            'html' => $this->view->render(),
         ]));
     }
 
@@ -116,7 +115,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->view->assign('riddler', $riddler);
 
         return $this->jsonResponse(\json_encode([
-            'html' => $this->view->render()
+            'html' => $this->view->render(),
         ]));
     }
 
@@ -132,7 +131,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         // check if session exist
         if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
             return $this->jsonResponse(\json_encode([
-                'html' => $this->view->render()
+                'html' => $this->view->render(),
             ]));
         }
 
@@ -146,7 +145,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         Riddler::resetSession($this->request->getAttribute('frontend.user'));
 
         return $this->jsonResponse(\json_encode([
-            'html' => $this->view->render()
+            'html' => $this->view->render(),
         ]));
     }
 }

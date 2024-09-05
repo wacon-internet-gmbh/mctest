@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -15,12 +15,8 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-/**
- * Quiz which the user should answer
- */
 class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * Name of the quiz
      *
@@ -54,11 +50,13 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the name
      *
      * @param string $name
-     * @return void
+     * @return Quiz
      */
     public function setName(string $name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
