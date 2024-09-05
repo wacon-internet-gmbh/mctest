@@ -64,6 +64,10 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $data = [];
 
+    /**
+     * Answers that user has selected
+     * @var array
+     */
     protected $selectedAnswers = [];
 
     /**

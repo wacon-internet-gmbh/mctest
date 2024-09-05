@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Controller;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
@@ -44,6 +46,7 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $quizSession->setAmountOfQuestions((int)$this->settings['amountOfQuestions']);
 
         $this->view->assign('quizSession', $quizSession);
+        $this->view->assign('contentObjectData', $this->request->getAttribute('currentContentObject')->data);
 
         return $this->htmlResponse();
     }
@@ -71,7 +74,9 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $this->view->assign('riddler', $riddler);
 
-        return $this->htmlResponse();
+        return $this->jsonResponse(\json_encode([
+            'html' => $this->view->render()
+        ]));
     }
 
     /**
@@ -85,7 +90,10 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         // check if session exist
         if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
-            return $this->redirect('show');
+            return (new ForwardResponse('complete'))
+                ->withControllerName('Quiz')
+                ->withExtensionName($this->extensionKey)
+                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
         }
 
         $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
@@ -94,7 +102,10 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         // check if quiz is over
         if ($riddler->isQuizOver()) {
-            return $this->redirect('complete');
+            return (new ForwardResponse('complete'))
+                ->withControllerName('Quiz')
+                ->withExtensionName($this->extensionKey)
+                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
         }
 
         $riddler->setCurrentStep();
@@ -104,7 +115,9 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $this->view->assign('riddler', $riddler);
 
-        return $this->htmlResponse();
+        return $this->jsonResponse(\json_encode([
+            'html' => $this->view->render()
+        ]));
     }
 
     /**
@@ -118,7 +131,9 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         // check if session exist
         if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
-            return $this->redirect('show');
+            return $this->jsonResponse(\json_encode([
+                'html' => $this->view->render()
+            ]));
         }
 
         $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
@@ -127,8 +142,11 @@ class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $this->quizSessionRepository->add($quizSession);
 
-        // @TODO End session
+        // End session
+        Riddler::resetSession($this->request->getAttribute('frontend.user'));
 
-        return $this->htmlResponse();
+        return $this->jsonResponse(\json_encode([
+            'html' => $this->view->render()
+        ]));
     }
 }
