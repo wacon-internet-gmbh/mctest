@@ -308,7 +308,7 @@ class Riddler
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach ($answers as $answer) {
-            foreach ($selectedAnswers  as $selectedAnswerId) {
+            foreach ($selectedAnswers as $selectedAnswerId) {
                 if ($selectedAnswerId == $answer->getUid()) {
                     return $answer;
                 }
