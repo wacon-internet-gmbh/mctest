@@ -347,7 +347,7 @@ services:
         php -v | grep '^PHP';
         if [ ${PHP_XDEBUG_ON} -eq 0 ]; then
           php -dxdebug.mode=off \
-            .Build/php-cs-fixer/php-cs-fixer fix \
+            .Build/php-cs-fixer/php-cs-fixer.php fix \
               -v \
               ${CGLCHECK_DRY_RUN} \
               --config=Build/php-cs-fixer/php-cs-fixer.php \
