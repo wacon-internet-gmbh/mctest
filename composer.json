@@ -37,19 +37,24 @@
     "config": {
         "vendor-dir": ".Build/vendor",
         "bin-dir": ".Build/bin",
-		"allow-plugins": {
-			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
-		}
+        "lock": false,
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true,
+            "sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true
+        }
     },
     "scripts": {
+        "cs": "php ./.Build/bin/php-cs-fixer fix  --dry-run -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./",
+        "csfix": "php ./.Build/bin/php-cs-fixer fix  -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./",
         "post-autoload-dump": [
             "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
         ]
     },
     "extra": {
         "typo3/cms": {
-            "web-dir": ".Build/public",
+            "app-dir": ".Build",
+            "web-dir": ".Build/Web",
             "extension-key": "simplequiz"
         }
     }
