@@ -20,10 +20,8 @@ use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
 
-class QuizController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class QuizController extends BaseActionController
 {
-    protected $extensionKey = 'simplequiz';
-
     public function __construct(
         private readonly QuizRepository $quizRepository,
         private readonly QuizSessionRepository $quizSessionRepository

@@ -54,39 +54,15 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Data as json
      *
-     * @var array
+     * @var string
      */
-    protected $data = [];
+    protected $data = '';
 
     /**
      * Answers that user has selected
      * @var array
      */
     protected $selectedAnswers = [];
-
-    /**
-     * Get data as json
-     *
-     * @return  array
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * Set data as json
-     *
-     * @param  array  $data  Data as json
-     *
-     * @return  self
-     */
-    public function setData(array $data)
-    {
-        $this->data = $data;
-
-        return $this;
-    }
 
     /**
      * Get related quiz
@@ -306,5 +282,29 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             'quiz' => $this->quiz->getUid(),
             'report' => $record,
         ]);
+    }
+
+    /**
+     * Get data as json
+     *
+     * @return  string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set data as json
+     *
+     * @param  string  $data  Data as json
+     *
+     * @return  self
+     */
+    public function setData(string $data)
+    {
+        $this->data = $data;
+
+        return $this;
     }
 }
