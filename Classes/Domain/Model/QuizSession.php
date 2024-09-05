@@ -12,7 +12,6 @@ namespace Wacon\Simplequiz\Domain\Model;
  *
  * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
  */
-
 class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -280,9 +279,9 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             $record = [
                 'question' => [
                     'uid' => $question->getUid(),
-                    'question' => $question->getQuestion()
+                    'question' => $question->getQuestion(),
                 ],
-                'selectedAnswers' => []
+                'selectedAnswers' => [],
             ];
 
             foreach ($this->selectedAnswers as $answer) {

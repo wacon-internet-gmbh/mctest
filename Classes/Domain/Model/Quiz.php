@@ -14,7 +14,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  *
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
-
 class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**

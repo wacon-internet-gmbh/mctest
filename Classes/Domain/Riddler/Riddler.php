@@ -227,7 +227,8 @@ class Riddler
      * Reset riddle sessions
      * @param \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication $frontendUserAuthentication
      */
-    public static function resetSession(FrontendUserAuthentication $frontendUserAuthentication) {
+    public static function resetSession(FrontendUserAuthentication $frontendUserAuthentication)
+    {
         $frontendUserAuthentication->setSessionData(QuizSession::class, null);
         $frontendUserAuthentication->storeSessionData();
     }
@@ -277,7 +278,7 @@ class Riddler
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach ($answers as $answer) {
-            foreach ($selectedAnswers  as $selectedAnswerId) {
+            foreach ($selectedAnswers as $selectedAnswerId) {
                 if ($selectedAnswerId == $answer->getUid()) {
                     return $answer->getIsCorrect();
                 }
@@ -323,7 +324,7 @@ class Riddler
      */
     public function getCorrectAnswerOfCurrentQuestion(): ?Answer
     {
-        $question = $this->quizSession->getQuestions()[$this->currentStep-1];
+        $question = $this->quizSession->getQuestions()[$this->currentStep - 1];
         $answers = $question->getAnswers();
 
         foreach ($answers as $answer) {

@@ -12,8 +12,6 @@ namespace Wacon\Simplequiz\Domain\Model;
  *
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
-
-
 class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
