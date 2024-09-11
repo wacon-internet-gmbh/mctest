@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
+use Wacon\Simplequiz\Domain\Repository\QuestionRepository;
+use Wacon\Simplequiz\Domain\Repository\QuizRepository;
+use Wacon\Simplequiz\Utility\PersistenceUtility;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -196,9 +201,42 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Get the value of selectedAnswers
+     * Add a question
+     *
+     * @param  array  $questions  Questions
+     *
+     * @return  self
      */
-    public function getSelectedAnswers()
+    public function addQuestion(Question $question)
+    {
+        if (!$this->containInQuestions($question)) {
+            $this->questions[] = $question;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Return true, if given Question contains in $this->questions
+     * @param \Wacon\Simplequiz\Domain\Model\Question $questionToSearchFor
+     * @return bool
+     */
+    public function containInQuestions(Question $questionToSearchFor): bool
+    {
+        foreach($this->questions as $question) {
+            if ($question->getUid() == $questionToSearchFor->getUid()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the value of selectedAnswers
+     * @return array
+     */
+    public function getSelectedAnswers(): array
     {
         return $this->selectedAnswers;
     }
@@ -208,11 +246,43 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return  self
      */
-    public function setSelectedAnswers($selectedAnswers)
+    public function setSelectedAnswers(array $selectedAnswers)
     {
         $this->selectedAnswers = $selectedAnswers;
 
         return $this;
+    }
+
+    /**
+     * Add a question
+     *
+     * @param  array  $questions  Questions
+     *
+     * @return  self
+     */
+    public function addSelectedAnswer(Answer $answer)
+    {
+        if (!$this->containInSelectedAnswer($answer)) {
+            $this->selectedAnswers[] = $answer;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Return true, if given Answer contains in $this->selectedAnswer
+     * @param \Wacon\Simplequiz\Domain\Model\Answer $answerToSearchFor
+     * @return bool
+     */
+    public function containInSelectedAnswer(Answer $answerToSearchFor): bool
+    {
+        foreach($this->selectedAnswers as $answer) {
+            if ($answer->getUid() == $answerToSearchFor->getUid()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -244,7 +314,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function finalizeForDBStorage()
     {
-        $answers = [];
+        $report = [];
 
         foreach ($this->questions as $question) {
             /**
@@ -274,13 +344,15 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                     }
                 }
             }
+
+            $report[] = $record;
         }
 
         $this->name = $this->quiz->getName();
 
         $this->data = \json_encode([
             'quiz' => $this->quiz->getUid(),
-            'report' => $record,
+            'records' => $report,
         ]);
     }
 
@@ -304,6 +376,63 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setData(string $data)
     {
         $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Read the data json and assign all values to its properties
+     * @return self
+     */
+    public function wakeUp()
+    {
+        $this->questions = [];
+
+        // Example data
+        // {"quiz":1,"report":{"question":{"uid":2,"question":"Frage 1"},"selectedAnswers":[{"uid":4,"answer":"<p>Antwort 2<\/p>","isCorrect":true}]}}
+        $report = \json_decode($this->data, true);
+
+        if (empty($report)) {
+            return $this;
+        }
+
+        $quizRepository = GeneralUtility::makeInstance(QuizRepository::class);
+        PersistenceUtility::disableStoragePid($quizRepository);
+        $this->setQuiz($quizRepository->findByUid((int)$report['quiz']));
+
+        foreach($report['records'] as $record) {
+            $questionRepository = GeneralUtility::makeInstance(QuestionRepository::class);
+            PersistenceUtility::disableStoragePid($questionRepository);
+            PersistenceUtility::disableEnabledFields($questionRepository);
+            $question = $questionRepository->findByUid((int)$record['question']['uid']);
+
+            if (!$question) {
+                // If question was removed from db,
+                // then add a virtual Question
+                $question = new Question();
+                $question->setQuestion($record['question']['question']);
+            }
+
+            $this->addQuestion($question);
+
+            foreach($record['selectedAnswers'] as $selectedAnswer) {
+                $answerRepository = GeneralUtility::makeInstance(AnswerRepository::class);
+                PersistenceUtility::disableStoragePid($answerRepository);
+                PersistenceUtility::disableEnabledFields($answerRepository);
+
+                $answer = $answerRepository->findByUid((int)$selectedAnswer['uid']);
+
+                if (!$answer) {
+                    // If answer was removed in db,
+                    // then add virtual Answer
+                    $answer = new Answer();
+                    $answer->setAnswer($selectedAnswer['answer']);
+                    $answer->setIsCorrect((bool)$selectedAnswer['isCorrect']);
+                }
+
+                $this->addSelectedAnswer($answer);
+            }
+        }
 
         return $this;
     }

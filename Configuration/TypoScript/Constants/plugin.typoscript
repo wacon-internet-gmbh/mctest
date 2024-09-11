@@ -8,8 +8,14 @@ plugin.tx_simplequiz_simplequiz {
         layoutRootPath = EXT:simplequiz/Resources/Private/Layouts/
     }
 
+    persistence {
+      # cat=plugin.tx_simplequiz_simplequiz/persistence/storagePid; type=int+; label=Persistence: Storage Page
+      storagePid =
+    }
+
     settings {
       pageTypes {
+        # cat=plugin.tx_simplequiz_simplequiz/settings/pageTypes; type=int+; label=Page Type: Solving
         solving = 20240902
       }
     }

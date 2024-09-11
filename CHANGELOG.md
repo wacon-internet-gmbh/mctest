@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [dev-2.0.0-9]
+- [FEATURE] Calculate percentage correct and wrong
+- [BUGFIX] Avoid double init in JavaScript of the form during mutation observer
+
 ## [dev-2.0.0-7]
 - [FEATURE] Create backend module with Dashboard statistics
 - [WIP] Calculate percentage correct and wrong

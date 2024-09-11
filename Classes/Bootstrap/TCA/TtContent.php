@@ -42,6 +42,7 @@ class TtContent extends Base
             $this->getLLL('locallang_plugins.xlf:simplequiz.title'),
         );
 
+        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'pages,recursive';
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 
         ExtensionManagementUtility::addPiFlexFormValue(

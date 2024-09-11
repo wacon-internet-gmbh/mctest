@@ -27,6 +27,6 @@ class Quiz
           console.error('Error in simple quiz form ajax request. Status: ' + response.status);
         }
       });
-    });
+    }, {once: true});
   }
 }

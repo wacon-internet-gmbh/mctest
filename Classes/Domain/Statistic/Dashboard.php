@@ -12,7 +12,9 @@ declare(strict_types=1);
  */
 
 namespace Wacon\Simplequiz\Domain\Statistic;
+
 use Wacon\Simplequiz\Domain\Model\QuizSession;
+use Wacon\Simplequiz\Utility\MathUtility;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
 
 class Dashboard
@@ -60,14 +62,14 @@ class Dashboard
      */
     protected function parseQuizSessions()
     {
-        $this->parsed = true;
+        // $this->parsed = true;
         $this->statistics = [
-            'quizzes' => []
+            'quizzes' => [],
         ];
 
-        foreach($this->quizSessions as $quizSession) {
+        foreach ($this->quizSessions as $quizSession) {
             // @TODO, parse data and init the object
-            //$quizSession->wakeUp();
+            $quizSession->wakeUp();
 
             if (!\array_key_exists($quizSession->getQuiz()->getUid(), $this->statistics['quizzes'])) {
                 [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
@@ -76,16 +78,16 @@ class Dashboard
                     'sessionCount' => 1,
                     'correctAnswersCount' => $correctAnswersCount,
                     'incorrectAnswerCount' => $incorrectAnswerCount,
-                    'percentageCorrect' => $correctAnswersCount / 1,
-                    'percentageWrong' => $incorrectAnswerCount / 1
+                    'percentageCorrect' => MathUtility::calculatePercentage($correctAnswersCount, 1),
+                    'percentageWrong' => MathUtility::calculatePercentage($incorrectAnswerCount, 1),
                 ];
             } else {
                 [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
                 $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount']++;
                 $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'] += $correctAnswersCount;
                 $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnswerCount'] += $incorrectAnswerCount;
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['percentageCorrect'] = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'] / $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'];
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['percentageWrong'] = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnswerCount'] / $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'];
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['percentageCorrect'] = MathUtility::calculatePercentage($this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'], $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount']);
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['percentageWrong'] = MathUtility::calculatePercentage($this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnswerCount'], $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount']);
             }
         }
     }

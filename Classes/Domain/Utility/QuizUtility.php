@@ -23,7 +23,7 @@ class QuizUtility
      */
     public static function getNumberOfCorrectAndIncorrectAnswers(array $answers): array
     {
-        $data = [0,0];
+        $data = [0, 0];
 
         foreach ($answers as $answer) {
             if ($answer->isCorrect()) {

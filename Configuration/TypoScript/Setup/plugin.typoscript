@@ -7,6 +7,9 @@ plugin.tx_simplequiz_simplequiz {
         layoutRootPaths.0 = EXT:simplequiz/Resources/Private/Layouts/
         layoutRootPaths.1 = {$plugin.tx_simplequiz_simplequiz.view.layoutRootPath}
     }
+    persistence {
+      storagePid = {$plugin.tx_simplequiz_simplequiz.persistence.storagePid}
+    }
     features {
         #skipDefaultArguments = 1
         # if set to 1, the enable fields are ignored in BE context
