@@ -1,4 +1,8 @@
 page {
+  includeCSS {
+    simplequiz_quiz = EXT:simplequiz/Resources/Public/Css/style.css
+  }
+
   includeJSFooterlibs {
     simplequiz_quiz = EXT:simplequiz/Resources/Public/JavaScript/Quiz.js
   }

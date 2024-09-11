@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [dev-2.0.0-11]
+- [FEATURE] Add style.css with basic styling
+- [FEATURE] Add PageType Route for AJAX call
+- [BUGIFX] Rename to change loading order of TypoScript files
+- [WIP] Bugfix Error, when question count is higher than 1
+
 ## [dev-2.0.0-10]
 - [FEATURE] Show UserStatistics
 

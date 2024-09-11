@@ -57,6 +57,9 @@
 			<trans-unit id="tx_simplequiz_simplequiz.description" resname="tx_simplequiz_simplequiz.description">
 				<source>This shows a quiz in the frontend</source>
 			</trans-unit>
+			<trans-unit id="tx_simplequiz_domain_model_quiz_session" resname="tx_simplequiz_domain_model_quiz_session">
+				<source>Quiz Session</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

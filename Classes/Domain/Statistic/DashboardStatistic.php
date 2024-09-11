@@ -82,7 +82,7 @@ class DashboardStatistic
 
             if (!\array_key_exists($quizSession->getQuiz()->getUid(), $this->statistics['quizzes'])) {
                 [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] = self::parseQuizSession($quizSession);
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] = self::parseQuizSession($quizSession, 1, $correctAnswersCount, $incorrectAnswerCount);
             } else {
                 [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
                 $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] =

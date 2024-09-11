@@ -2,6 +2,9 @@
 ## Basic Routing setup
 ```
 routeEnhancers:
+PageTypeSuffix:
+    map:
+      '.json': 20240902
   SimpleQuiz:
     type: Extbase
     extension: Simplequiz
