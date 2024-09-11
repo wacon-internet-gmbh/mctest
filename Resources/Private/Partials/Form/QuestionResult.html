@@ -32,6 +32,6 @@
     </f:if>
 </div>
 <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: riddler.quizSession}" />
-<f:for each="{riddler.quizSession.selectedAnswers}" as="answer">
-    <f:form.hidden name="quizSession[selectedAnswers][]" value="{answer}" />
+<f:for each="{riddler.quizSession.selectedAnswers}" as="answer" key="questionId">
+    <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" />
 </f:for>

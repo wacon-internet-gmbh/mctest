@@ -32,7 +32,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     public function __construct()
     {
-        $this->questions = new ObjectStorage();
+        $this->answers = new ObjectStorage();
     }
 
     /**

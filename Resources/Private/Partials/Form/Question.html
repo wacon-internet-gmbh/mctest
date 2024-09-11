@@ -3,7 +3,7 @@
     <div class="quiz-answers">
         <f:for each="{question.answers}" as="answer">
             <div class="quiz-answer-item form-check">
-                <f:form.radio class="form-check-input" name="quizSession[selectedAnswers][]" value="{answer.uid}" id="answer{answer.uid}"/>
+                <f:form.radio class="form-check-input" name="quizSession[selectedAnswers][{question.uid}]" value="{answer.uid}" id="answer{answer.uid}"/>
                 <label class="form-check-label" for="answer{answer.uid}">
                     <f:format.html>{answer.answer}</f:format.html>
                 </label>

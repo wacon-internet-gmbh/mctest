@@ -54,15 +54,17 @@ class QuizController extends BaseActionController
      * @param QuizSession $quizSession
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function solvingAction(QuizSession $quizSession): \Psr\Http\Message\ResponseInterface
+    public function solvingAction(QuizSession $quizSession = null): \Psr\Http\Message\ResponseInterface
     {
         $riddler = GeneralUtility::makeInstance(Riddler::class);
 
         // check if session exist
         if (Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
             $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
-        } else {
+        } else if($quizSession) {
             $riddler->init($quizSession, $this->settings);
+        }else {
+            throw new \RuntimeException('Invalid Quiz session', time());
         }
 
         $riddler->getQuizSession()->setQuizStarted(true);
@@ -113,9 +115,10 @@ class QuizController extends BaseActionController
 
         $this->view->assign('riddler', $riddler);
 
-        return $this->jsonResponse(\json_encode([
-            'html' => $this->view->render(),
-        ]));
+        return (new ForwardResponse('solving'))
+                ->withControllerName('Quiz')
+                ->withExtensionName($this->extensionKey)
+                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
     }
 
     /**

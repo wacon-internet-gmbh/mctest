@@ -46,7 +46,7 @@ class Riddler
      * Current step
      * @var int
      */
-    protected int $currentStep = 0;
+    protected int $currentStep = 1;
 
     public function __construct(
         private readonly QuizRepository $quizRepository,
@@ -139,7 +139,7 @@ class Riddler
      */
     public function getIsLastStep(): bool
     {
-        return $this->getQuizSession()->getStep() + 1 > \count($this->getQuizSession()->getQuestions());
+        return $this->getQuizSession()->getStep() >= \count($this->getQuizSession()->getQuestions());
     }
 
     /**
@@ -199,8 +199,13 @@ class Riddler
         $selectedAnswersUidList = [];
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
-        foreach ($selectedAnswers as $selectedAnswer) {
-            $selectedAnswersUidList[] = $selectedAnswer;
+        foreach ($selectedAnswers as $questionId => $selectedAnswer) {
+
+            if (is_object($selectedAnswer)) {
+                $selectedAnswersUidList[$this->fetchQuestionIdForAnswer($selectedAnswer)] = $selectedAnswer->getUid();
+            }else {
+                $selectedAnswersUidList[$questionId] = $selectedAnswer;
+            }
         }
 
         $randomQuestionsUidList = [];
@@ -343,5 +348,18 @@ class Riddler
     public function isQuizOver(): bool
     {
         return $this->currentStep >= $this->quizSession->getAmountOfQuestions() && count($this->randomQuestions) == count($this->quizSession->getSelectedAnswers());
+    }
+
+    /**
+     * Fetch the question id for given answer
+     * @param mixed $selectedAnswer
+     * @return int
+     */
+    protected function fetchQuestionIdForAnswer($selectedAnswer): int
+    {
+        $question = $this->questionRepository->findOneByAnswer($selectedAnswer);
+        $question = $question ? $question->current() : null;
+
+        return $question ? $question->getUid() : 0;
     }
 }
