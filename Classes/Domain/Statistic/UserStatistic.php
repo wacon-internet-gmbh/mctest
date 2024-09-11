@@ -15,7 +15,6 @@ namespace Wacon\Simplequiz\Domain\Statistic;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Utility\MathUtility;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
 
 class UserStatistic
@@ -48,6 +47,9 @@ class UserStatistic
     {
         $this->quizSessionOfUser = $quizSessionOfUser;
         $this->dashboardStatistic = GeneralUtility::makeInstance(DashboardStatistic::class, $quizSessions);
+
+        // we call get to let the dashboard statistic parse
+        $this->dashboardStatistic->getGet();
     }
 
     /**
@@ -72,8 +74,9 @@ class UserStatistic
     protected function parseQuizSession()
     {
         $this->parsed = true;
+        [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($this->quizSessionOfUser->getSelectedAnswers());
         $this->statistics = [
-            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser),
+            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, $correctAnswersCount, $incorrectAnswerCount),
         ];
     }
 
@@ -96,5 +99,14 @@ class UserStatistic
         $this->dashboardStatistic = $dashboardStatistic;
 
         return $this;
+    }
+
+    /**
+     * Return the statistic for the quiz that user has made
+     * @return array
+     */
+    public function getStatisticForUserQuiz(): array
+    {
+        return $this->dashboardStatistic->getStatisticsForQuiz($this->quizSessionOfUser->getQuiz());
     }
 }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Statistic;
 
+use Wacon\Simplequiz\Domain\Model\Quiz;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Utility\MathUtility;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
@@ -73,11 +74,10 @@ class DashboardStatistic
             'quizzes' => [],
         ];
         $this->total = new \stdClass();
-        $this->total->correctAnswers = 0;
+        $this->total->correctAnswersCount = 0;
         $this->total->sessionCount = 0;
 
         foreach ($this->quizSessions as $quizSession) {
-            // @TODO, parse data and init the object
             $quizSession->wakeUp();
 
             if (!\array_key_exists($quizSession->getQuiz()->getUid(), $this->statistics['quizzes'])) {
@@ -92,10 +92,10 @@ class DashboardStatistic
                         $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'] + $correctAnswersCount,
                         $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnswerCount'] + $incorrectAnswerCount,
                     );
-
-                    $this->total->correctAnswers += $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'];
-                    $this->total->sessionCount += $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'];
             }
+
+            $this->total->correctAnswersCount = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'];
+            $this->total->sessionCount = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'];
         }
     }
 
@@ -147,5 +147,19 @@ class DashboardStatistic
     public function getTotalPercentageCorrect(): float
     {
         return MathUtility::calculatePercentage($this->total->correctAnswersCount, $this->total->sessionCount);
+    }
+
+    /**
+     * Return statistics for a specific quiz
+     * @param \Wacon\Simplequiz\Domain\Model\Quiz $quiz
+     * @return array
+     */
+    public function getStatisticsForQuiz(Quiz $quiz): array
+    {
+        if (!array_key_exists($quiz->getUid(), $this->statistics['quizzes'])) {
+            return [];
+        }
+
+        return $this->statistics['quizzes'][$quiz->getUid()];
     }
 }
