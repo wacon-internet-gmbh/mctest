@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Repository\QuestionRepository;
@@ -223,7 +224,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function containInQuestions(Question $questionToSearchFor): bool
     {
-        foreach($this->questions as $question) {
+        foreach ($this->questions as $question) {
             if ($question->getUid() == $questionToSearchFor->getUid()) {
                 return true;
             }
@@ -276,7 +277,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function containInSelectedAnswer(Answer $answerToSearchFor): bool
     {
-        foreach($this->selectedAnswers as $answer) {
+        foreach ($this->selectedAnswers as $answer) {
             if ($answer->getUid() == $answerToSearchFor->getUid()) {
                 return true;
             }
@@ -400,7 +401,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         PersistenceUtility::disableStoragePid($quizRepository);
         $this->setQuiz($quizRepository->findByUid((int)$report['quiz']));
 
-        foreach($report['records'] as $record) {
+        foreach ($report['records'] as $record) {
             $questionRepository = GeneralUtility::makeInstance(QuestionRepository::class);
             PersistenceUtility::disableStoragePid($questionRepository);
             PersistenceUtility::disableEnabledFields($questionRepository);
@@ -415,7 +416,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
             $this->addQuestion($question);
 
-            foreach($record['selectedAnswers'] as $selectedAnswer) {
+            foreach ($record['selectedAnswers'] as $selectedAnswer) {
                 $answerRepository = GeneralUtility::makeInstance(AnswerRepository::class);
                 PersistenceUtility::disableStoragePid($answerRepository);
                 PersistenceUtility::disableEnabledFields($answerRepository);

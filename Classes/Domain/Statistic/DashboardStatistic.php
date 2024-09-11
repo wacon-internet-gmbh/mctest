@@ -15,8 +15,8 @@ namespace Wacon\Simplequiz\Domain\Statistic;
 
 use Wacon\Simplequiz\Domain\Model\Quiz;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Utility\MathUtility;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
+use Wacon\Simplequiz\Utility\MathUtility;
 
 class DashboardStatistic
 {
@@ -133,7 +133,7 @@ class DashboardStatistic
      *
      * @return  self
      */
-    public function setQuizSessions(array$quizSessions)
+    public function setQuizSessions(array $quizSessions)
     {
         $this->quizSessions = $quizSessions;
 

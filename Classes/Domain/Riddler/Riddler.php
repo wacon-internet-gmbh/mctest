@@ -218,7 +218,7 @@ class Riddler
             'step' => $this->quizSession->getStep(),
             'quizStarted' => $this->quizSession->getQuizStarted(),
             'amountOfQuestions' => $this->quizSession->getAmountOfQuestions(),
-            'currentStep' => $this->currentStep
+            'currentStep' => $this->currentStep,
         ]);
         $frontendUserAuthentication->storeSessionData();
     }

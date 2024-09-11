@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace Wacon\Simplequiz\Utility;
+
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 class PersistenceUtility
