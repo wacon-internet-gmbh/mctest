@@ -19,6 +19,7 @@ use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
+use Wacon\Simplequiz\Domain\Statistic\UserStatistic;
 
 class QuizController extends BaseActionController
 {
@@ -141,6 +142,14 @@ class QuizController extends BaseActionController
 
         // End session
         Riddler::resetSession($this->request->getAttribute('frontend.user'));
+
+        // Create user statistics to show it in frontend
+        // fetch data from current page
+        $quizSessions = $this->quizSessionRepository->findAll();
+
+        // Process statistics to easily display statistics
+        $statistic = GeneralUtility::makeInstance(UserStatistic::class, $quizSession, $quizSessions->toArray());
+        $this->view->assign('statistic', $statistic);
 
         return $this->jsonResponse(\json_encode([
             'html' => $this->view->render(),

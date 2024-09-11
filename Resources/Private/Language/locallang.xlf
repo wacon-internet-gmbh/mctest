@@ -24,7 +24,7 @@
 			</trans-unit>
 
 			<trans-unit id="module.dashboard.title" resname="module.dashboard.title">
-				<source>Simple Quiz Dashboard</source>
+				<source>Simple Quiz dashboard</source>
 			</trans-unit>
 			<trans-unit id="module.dashboard.nopageselected" resname="module.dashboard.nopageselected">
 				<source>Please select a folder, where the quiz data is stored.</source>
@@ -43,6 +43,19 @@
 			</trans-unit>
 			<trans-unit id="module.dashboard.statistic.percentageWrong" resname="module.dashboard.statistic.percentageWrong">
 				<source>Wrong answers in %</source>
+			</trans-unit>
+
+			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">
+				<source>Your quiz session has expired.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.intro" resname="plugin.simplequiz.complete.intro">
+				<source>Congratulations, you have completed the quiz.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.result" resname="plugin.simplequiz.complete.result">
+				<source>You have %s questions answered correctly.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.result.overall" resname="plugin.simplequiz.complete.result.overall">
+				<source>The average amount of correct answers is %s.</source>
 			</trans-unit>
 		</body>
 	</file>

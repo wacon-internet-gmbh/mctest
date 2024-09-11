@@ -6,6 +6,19 @@
 			<trans-unit id="simplequiz.start_quiz" resname="simplequiz.start_quiz">
 				<target>Quiz starten</target>
 			</trans-unit>
+
+			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">
+				<source>Deine Quiz Session ist abgelaufen.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.intro" resname="plugin.simplequiz.complete.intro">
+				<source>Gratulation, du hast das Quiz beendet.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.result" resname="plugin.simplequiz.complete.result">
+				<source>Du hast %s Fragen richtig beantwort.</source>
+			</trans-unit>
+			<trans-unit id="plugin.simplequiz.complete.result.overall" resname="plugin.simplequiz.complete.result.overall">
+				<source>Durchschnittlich werden %s Fragen richtig beantwortet.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

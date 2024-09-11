@@ -5,11 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [dev-2.0.0-9]
+- [WIP] Show UserStatistics
 - [FEATURE] Calculate percentage correct and wrong
 - [BUGFIX] Avoid double init in JavaScript of the form during mutation observer
 
 ## [dev-2.0.0-7]
-- [FEATURE] Create backend module with Dashboard statistics
+- [FEATURE] Create backend module with DashboardStatistic statistics
 - [WIP] Calculate percentage correct and wrong
 
 ## [dev-2.0.0-6]

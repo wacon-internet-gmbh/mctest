@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Wacon\Simplequiz\Controller\BaseActionController;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
-use Wacon\Simplequiz\Domain\Statistic\Dashboard;
+use Wacon\Simplequiz\Domain\Statistic\DashboardStatistic;
 
 #[AsController]
 final class DashboardController extends BaseActionController
@@ -39,7 +39,7 @@ final class DashboardController extends BaseActionController
     ) {}
 
     /**
-     * Start page of the dashboard
+     * Start page of the DashboardStatistic
      * @return ResponseInterface
      */
     public function showAction(): ResponseInterface
@@ -58,7 +58,7 @@ final class DashboardController extends BaseActionController
         }
 
         // Process statistics to easily display statistics
-        $dashboardStatistic = GeneralUtility::makeInstance(Dashboard::class, $quizSessions->toArray());
+        $dashboardStatistic = GeneralUtility::makeInstance(DashboardStatistic::class, $quizSessions->toArray());
         $this->view->assign('dashboardStatistic', $dashboardStatistic);
 
         // Render template
