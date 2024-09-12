@@ -3,3 +3,6 @@
 </div>
 
 <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: quizSession}" />
+<f:for each="{quizSession.selectedAnswers}" as="answer" key="questionId">
+    <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" />
+</f:for>

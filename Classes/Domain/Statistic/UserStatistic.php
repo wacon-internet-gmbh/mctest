@@ -14,8 +14,11 @@ declare(strict_types=1);
 namespace Wacon\Simplequiz\Domain\Statistic;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
+use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
+use Wacon\Simplequiz\Utility\PersistenceUtility;
 
 class UserStatistic
 {
@@ -38,18 +41,25 @@ class UserStatistic
     protected QuizSession $quizSessionOfUser;
 
     /**
+     * @var AnswerRepository
+     */
+    protected AnswerRepository $answerRepository;
+
+    /**
      * Is TRUE, when quizSession was parsed once
      * @var bool
      */
     private bool $parsed = false;
 
-    public function __construct(QuizSession $quizSessionOfUser, array $quizSessions)
+    public function __construct(QuizSession $quizSessionOfUser, array $quizSessions, AnswerRepository $answerRepository)
     {
         $this->quizSessionOfUser = $quizSessionOfUser;
         $this->dashboardStatistic = GeneralUtility::makeInstance(DashboardStatistic::class, $quizSessions);
 
         // we call get to let the dashboard statistic parse
         $this->dashboardStatistic->getGet();
+
+        $this->answerRepository = $answerRepository;
     }
 
     /**
@@ -74,7 +84,7 @@ class UserStatistic
     protected function parseQuizSession()
     {
         $this->parsed = true;
-        [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($this->quizSessionOfUser->getSelectedAnswers());
+        [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($this->convertAsAnswerModelList($this->quizSessionOfUser->getSelectedAnswers())->toArray());
         $this->statistics = [
             'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, $correctAnswersCount, $incorrectAnswerCount),
         ];
@@ -108,5 +118,15 @@ class UserStatistic
     public function getStatisticForUserQuiz(): array
     {
         return $this->dashboardStatistic->getStatisticsForQuiz($this->quizSessionOfUser->getQuiz());
+    }
+
+    /**
+     * Return a QueryResult of all Answers
+     * @param array $selectedAnswers
+     * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
+     */
+    public function convertAsAnswerModelList(array $selectedAnswers): QueryResult
+    {
+        return $this->answerRepository->findByUids($selectedAnswers);
     }
 }

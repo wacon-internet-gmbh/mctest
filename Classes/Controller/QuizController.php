@@ -16,6 +16,7 @@ namespace Wacon\Simplequiz\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
+use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
@@ -25,7 +26,8 @@ class QuizController extends BaseActionController
 {
     public function __construct(
         private readonly QuizRepository $quizRepository,
-        private readonly QuizSessionRepository $quizSessionRepository
+        private readonly QuizSessionRepository $quizSessionRepository,
+        private readonly AnswerRepository $answerRepository
     ) {}
 
     /**
@@ -60,7 +62,7 @@ class QuizController extends BaseActionController
 
         // check if session exist
         if (Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
-            $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
+            $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
         } else if($quizSession) {
             $riddler->init($quizSession, $this->settings);
         }else {
@@ -96,12 +98,15 @@ class QuizController extends BaseActionController
                 ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
         }
 
-        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
+        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
         $riddler->getQuizSession()->setSelectedAnswers($quizSession->getSelectedAnswers());
         $riddler->incrementStep();
 
         // check if quiz is over
         if ($riddler->isQuizOver()) {
+            // store in session before we leave
+            $riddler->storeSessionData($this->request->getAttribute('frontend.user'), $quizSession);
+
             return (new ForwardResponse('complete'))
                 ->withControllerName('Quiz')
                 ->withExtensionName($this->extensionKey)
@@ -151,7 +156,7 @@ class QuizController extends BaseActionController
         $quizSessions = $this->quizSessionRepository->findAll();
 
         // Process statistics to easily display statistics
-        $statistic = GeneralUtility::makeInstance(UserStatistic::class, $quizSession, $quizSessions->toArray());
+        $statistic = GeneralUtility::makeInstance(UserStatistic::class, $quizSession, $quizSessions->toArray(), $this->answerRepository);
         $this->view->assign('statistic', $statistic);
 
         return $this->jsonResponse(\json_encode([

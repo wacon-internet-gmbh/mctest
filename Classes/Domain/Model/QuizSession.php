@@ -264,6 +264,20 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Add a list of selectedAnswers
+     *
+     * @return  self
+     */
+    public function addSelectedAnswers(array $selectedAnswersToAdd)
+    {
+        foreach ($selectedAnswersToAdd as $questionId => $answerId) {
+            $this->selectedAnswers[$questionId] = $answerId;
+        }
+
+        return $this;
+    }
+
+    /**
      * Add a question
      *
      * @param  array  $questions  Questions
@@ -325,6 +339,8 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function finalizeForDBStorage()
     {
         $report = [];
+        $answerRepository = GeneralUtility::makeInstance(AnswerRepository::class);
+        PersistenceUtility::disableStoragePid($answerRepository);
 
         foreach ($this->questions as $question) {
             /**
@@ -340,10 +356,16 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 'selectedAnswers' => [],
             ];
 
-            foreach ($this->selectedAnswers as $answer) {
+            foreach ($this->selectedAnswers as $answerId) {
                 /**
                  * @var Answer $answer
                  */
+                $answer = $answerRepository->findByUid($answerId);
+
+                if (!$answer) {
+                    throw new \LogicException('Invalid answer in Quiz Session', time());
+                }
+
                 foreach ($answersOfQuestions as $answerOfQuestions) {
                     if ($answerOfQuestions->getUid() == $answer->getUid()) {
                         $record['selectedAnswers'][] = [

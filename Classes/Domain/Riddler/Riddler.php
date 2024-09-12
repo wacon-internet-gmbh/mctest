@@ -155,9 +155,10 @@ class Riddler
     /**
      * Load data from session and assign to riddler
      * @param \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication $frontendUserAuthentication
+     * @param QuizSession $quizSession
      * @throws \RuntimeException
      */
-    public function recreateFromSession(FrontendUserAuthentication $frontendUserAuthentication)
+    public function recreateFromSession(FrontendUserAuthentication $frontendUserAuthentication, QuizSession $quizSession = null)
     {
         $sessionData = $frontendUserAuthentication->getSessionData(QuizSession::class);
 
@@ -165,7 +166,12 @@ class Riddler
             throw new \RuntimeException('No Quiz session started.', time());
         }
 
-        $this->quizSession = GeneralUtility::makeInstance(QuizSession::class);
+        if ($quizSession) {
+            $this->quizSession = $quizSession;
+        }else {
+            $this->quizSession = GeneralUtility::makeInstance(QuizSession::class);
+        }
+
         $this->settings = $sessionData['settings'];
 
         $this->randomQuestions = [];
@@ -175,14 +181,7 @@ class Riddler
         }
 
         $this->quizSession->setQuestions($this->randomQuestions);
-
-        $selectedAnswers = [];
-
-        foreach ($sessionData['selectedAnswers'] as $answerId) {
-            $selectedAnswers[] = $this->answerRepository->findByUid($answerId);
-        }
-
-        $this->quizSession->setSelectedAnswers($selectedAnswers);
+        $this->quizSession->addSelectedAnswers($sessionData['selectedAnswers']);
         $this->quizSession->setQuiz($this->quizRepository->findByUid($sessionData['quiz']));
         $this->quizSession->setStep((int)$sessionData['step']);
         $this->quizSession->setQuizStarted((bool)$sessionData['quizStarted']);
