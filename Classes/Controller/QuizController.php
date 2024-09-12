@@ -63,10 +63,23 @@ class QuizController extends BaseActionController
         // check if session exist
         if (Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
             $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
-        } else if($quizSession) {
+        } elseif($quizSession) {
             $riddler->init($quizSession, $this->settings);
-        }else {
+        } else {
             throw new \RuntimeException('Invalid Quiz session', time());
+        }
+
+        // check if quiz is over
+        if ($riddler->isQuizOver()) {
+            // store in session before we leave
+            if ($quizSession) {
+                $riddler->storeSessionData($this->request->getAttribute('frontend.user'), $quizSession);
+            }
+
+            return (new ForwardResponse('complete'))
+                ->withControllerName('Quiz')
+                ->withExtensionName($this->extensionKey)
+                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
         }
 
         $riddler->getQuizSession()->setQuizStarted(true);
@@ -99,20 +112,7 @@ class QuizController extends BaseActionController
         }
 
         $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
-        $riddler->getQuizSession()->setSelectedAnswers($quizSession->getSelectedAnswers());
         $riddler->incrementStep();
-
-        // check if quiz is over
-        if ($riddler->isQuizOver()) {
-            // store in session before we leave
-            $riddler->storeSessionData($this->request->getAttribute('frontend.user'), $quizSession);
-
-            return (new ForwardResponse('complete'))
-                ->withControllerName('Quiz')
-                ->withExtensionName($this->extensionKey)
-                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
-        }
-
         $riddler->setCurrentStep();
 
         // store state in session
@@ -120,10 +120,9 @@ class QuizController extends BaseActionController
 
         $this->view->assign('riddler', $riddler);
 
-        return (new ForwardResponse('solving'))
-                ->withControllerName('Quiz')
-                ->withExtensionName($this->extensionKey)
-                ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
+        return $this->jsonResponse(\json_encode([
+            'html' => $this->view->render(),
+        ]));
     }
 
     /**

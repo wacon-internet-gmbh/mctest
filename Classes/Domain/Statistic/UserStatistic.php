@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
-use Wacon\Simplequiz\Utility\PersistenceUtility;
 
 class UserStatistic
 {
@@ -86,7 +85,7 @@ class UserStatistic
         $this->parsed = true;
         [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($this->convertAsAnswerModelList($this->quizSessionOfUser->getSelectedAnswers())->toArray());
         $this->statistics = [
-            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, $correctAnswersCount, $incorrectAnswerCount),
+            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, \count($this->quizSessionOfUser->getSelectedAnswers()), $correctAnswersCount, $incorrectAnswerCount),
         ];
     }
 

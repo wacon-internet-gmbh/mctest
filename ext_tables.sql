@@ -1,7 +1,7 @@
 CREATE TABLE tx_simplequiz_domain_model_quizsession (
 	quiz INT(11) DEFAULT '0' NOT NULL,
 	name varchar(255) NOT NULL DEFAULT '',
-	data varchar(255) NOT NULL DEFAULT ''
+	data TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE tx_simplequiz_domain_model_quiz (

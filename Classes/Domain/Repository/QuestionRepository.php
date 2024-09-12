@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Repository;
+
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use Wacon\Simplequiz\Domain\Model\Answer;
 
@@ -18,7 +19,8 @@ use Wacon\Simplequiz\Domain\Model\Answer;
 /**
  * The repository for Questions
  */
-class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
     /**
      * Find one question record by answer
      * @param \Wacon\Simplequiz\Domain\Model\Answer $answer

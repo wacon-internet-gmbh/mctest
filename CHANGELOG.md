@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [dev-2.0.0-14]
+- [FEATURE] Debugging error on DB saving. Data too long
+- [BUGFIX] Correcty Loop through question and answer until complete
+- [BUGFIX] Calculation of UserStatistic and DashboardStatistic due amount of questions
+
 ## [dev-2.0.0-13]
 - [WIP] Debugging error on DB saving. Data too long
 - [FEATURE] Loop solving->answer until all questions are completet

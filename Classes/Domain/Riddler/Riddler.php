@@ -168,7 +168,7 @@ class Riddler
 
         if ($quizSession) {
             $this->quizSession = $quizSession;
-        }else {
+        } else {
             $this->quizSession = GeneralUtility::makeInstance(QuizSession::class);
         }
 
@@ -199,10 +199,9 @@ class Riddler
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach ($selectedAnswers as $questionId => $selectedAnswer) {
-
             if (is_object($selectedAnswer)) {
                 $selectedAnswersUidList[$this->fetchQuestionIdForAnswer($selectedAnswer)] = $selectedAnswer->getUid();
-            }else {
+            } else {
                 $selectedAnswersUidList[$questionId] = $selectedAnswer;
             }
         }
