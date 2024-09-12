@@ -193,7 +193,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getNextQuestion(): ?Question
     {
-        return \array_key_exists($this->step - 1, $this->questions) ? $this->questions[$this->step-1] : null;
+        return \array_key_exists($this->step - 1, $this->questions) ? $this->questions[$this->step - 1] : null;
     }
 
     /**

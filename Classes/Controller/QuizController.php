@@ -63,7 +63,7 @@ class QuizController extends BaseActionController
         // check if session exist
         if (Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
             $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
-        } elseif($quizSession) {
+        } elseif ($quizSession) {
             $riddler->init($quizSession, $this->settings);
         } else {
             throw new \RuntimeException('Invalid Quiz session', time());
