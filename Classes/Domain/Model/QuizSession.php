@@ -197,6 +197,15 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Deliver the question of the current step
+     * @return \Wacon\Simplequiz\Domain\Model\Question
+     */
+    public function getCurrentQuestion(): ?Question
+    {
+        return \array_key_exists($this->step, $this->questions) ? $this->questions[$this->step] : null;
+    }
+
+    /**
      * Set questions
      *
      * @param  array  $questions  Questions

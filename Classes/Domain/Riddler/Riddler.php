@@ -276,8 +276,8 @@ class Riddler
      */
     public function getIsCurrentStepAnsweredCorrectly(): bool
     {
-        $questions = $this->quizSession->getQuestions()[$this->currentStep - 1];
-        $answers = $questions->getAnswers();
+        $question = $this->getCurrentQuestion();
+        $answers = $question->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
         foreach ($answers as $answer) {
@@ -297,7 +297,7 @@ class Riddler
      */
     public function getCurrentQuestion(): Question
     {
-        return $this->quizSession->getQuiz()->getQuestions()->offsetGet($this->currentStep - 1);
+        return $this->quizSession->getCurrentQuestion();
     }
 
     /**
@@ -306,7 +306,7 @@ class Riddler
      */
     public function getSelectedAnswerOfCurrentQuestion(): ?Answer
     {
-        $question = $this->quizSession->getQuestions()[$this->currentStep - 1];
+        $question = $this->getCurrentQuestion();
         $answers = $question->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
 
