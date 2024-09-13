@@ -26,8 +26,8 @@ class IncrementStepViewHelper extends AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext): string
-    {
+        RenderingContextInterface $renderingContext
+    ): string {
 
         // increment step
         $riddler = GeneralUtility::makeInstance(Riddler::class);
