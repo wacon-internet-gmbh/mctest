@@ -33,14 +33,17 @@
 
  .tx-simplequiz-ajax .quiz-questionresult-success {
     background-color: #d1e7dd;
+    color: #198754;
  }
 
  .tx-simplequiz-ajax .quiz-questionresult-danger {
     background-color: #f8d7da;
+    color: #dc3545;
  }
 
  .tx-simplequiz-ajax .quiz-questionresult-correctanswer {
     background-color: #cff4fc;
+    color: #0dcaf0;
  }
 
  .tx-simplequiz-ajax .quiz-furtherinformation > .quiz-subtitle
