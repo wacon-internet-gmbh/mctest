@@ -28,7 +28,6 @@ class IncrementStepViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ): string {
-
         // increment step
         $riddler = GeneralUtility::makeInstance(Riddler::class);
         $riddler->recreateFromSession($renderingContext->getRequest()->getAttribute('frontend.user'));
