@@ -1,10 +1,53 @@
 /*****************************************************
+ * FORM - START
+ ****************************************************/
+.tx-simplequiz-ajax .form-buttons {
+    margin-top: 1rem;
+}
+/*****************************************************
+ * FORM - END
+ ****************************************************/
+
+/*****************************************************
  * ANSWERS - START
  ****************************************************/
-.quiz-answer-item.form-check > * {
+.tx-simplequiz-ajax .quiz-answer-item.form-check > * {
     display: inline-block;
     width: auto;
 }
 /*****************************************************
  * ANSWERS - END
+ ****************************************************/
+
+/*****************************************************
+ * RESULTS - START
+ ****************************************************/
+ .tx-simplequiz-ajax .quiz-questionresult-item > div + div
+ {
+    margin-top: 1rem;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-item > div {
+    padding: 1rem;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-success {
+    background-color: #d1e7dd;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-danger {
+    background-color: #f8d7da;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-correctanswer {
+    background-color: #cff4fc;
+ }
+
+ .tx-simplequiz-ajax .quiz-furtherinformation > .quiz-subtitle
+ {
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+ }
+/*****************************************************
+ * RESULTS - END
  ****************************************************/

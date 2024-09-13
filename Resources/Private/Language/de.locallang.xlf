@@ -22,6 +22,9 @@
 			<trans-unit id="simplequiz.correct_answer.info" resname="simplequiz.correct_answer.info">
 				<target>Die richtige Antwort lautet...</target>
 			</trans-unit>
+			<trans-unit id="simplequiz.furtherinformation" resname="simplequiz.furtherinformation">
+				<source>Hinweis</source>
+			</trans-unit>
 
 			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">
 				<target>Deine Quiz Session ist abgelaufen.</target>

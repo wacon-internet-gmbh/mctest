@@ -22,6 +22,10 @@
 			<trans-unit id="simplequiz.correct_answer.info" resname="simplequiz.correct_answer.info">
 				<source>The correct answer is...</source>
 			</trans-unit>
+			<trans-unit id="simplequiz.furtherinformation" resname="simplequiz.furtherinformation">
+				<source>Hint</source>
+			</trans-unit>
+
 
 			<trans-unit id="module.dashboard.title" resname="module.dashboard.title">
 				<source>Simple Quiz dashboard</source>
