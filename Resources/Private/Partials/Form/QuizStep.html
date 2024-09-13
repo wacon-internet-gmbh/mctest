@@ -1,5 +1,5 @@
 <div class="quiz-questions">
-    <f:render partial="Form/Question" arguments="{question: quizSession.nextQuestion}" />
+    <f:render partial="Form/Question" arguments="{question: quizSession.currentQuestion}" />
 </div>
 
 <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: quizSession}" />

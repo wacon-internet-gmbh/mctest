@@ -111,16 +111,8 @@ class QuizController extends BaseActionController
                 ->withArguments(['type' => $this->settings['pageTypes']['solving']]);
         }
 
-        /* Its wrong to increment here,
-            We want to increment after
-            the QuestionResult of this question has been shown
-            @TODO
-        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
-        $riddler->incrementStep();
-        $riddler->setCurrentStep();
-         */
-
         // store state in session
+        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
         $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
 
         $this->view->assign('riddler', $riddler);
