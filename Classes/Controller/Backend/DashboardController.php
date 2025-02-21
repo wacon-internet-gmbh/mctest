@@ -44,7 +44,7 @@ final class DashboardController extends BaseActionController
      */
     public function showAction(): ResponseInterface
     {
-        $currentPageId = (int)GeneralUtility::_GET('id');
+        $currentPageId = (int)($this->request->getQueryParams()['id'] ?? 0);
 
         if ($currentPageId == 0) {
             return new ForwardResponse('noPageSelected');
@@ -59,13 +59,12 @@ final class DashboardController extends BaseActionController
 
         // Process statistics to easily display statistics
         $dashboardStatistic = GeneralUtility::makeInstance(DashboardStatistic::class, $quizSessions->toArray());
-        $this->view->assign('dashboardStatistic', $dashboardStatistic);
 
         // Render template
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        $moduleTemplate->setContent($this->view->render());
+        $moduleTemplate->assign('dashboardStatistic', $dashboardStatistic);
 
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $moduleTemplate->renderResponse('Backend/Dashboard/Show');
     }
 
     /**
@@ -76,9 +75,7 @@ final class DashboardController extends BaseActionController
     {
         // Render template
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        $moduleTemplate->setContent($this->view->render());
-
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $moduleTemplate->renderResponse('Backend/Dashboard/NoPageSelected');
     }
 
     /**
@@ -89,8 +86,6 @@ final class DashboardController extends BaseActionController
     {
         // Render template
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        $moduleTemplate->setContent($this->view->render());
-
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $moduleTemplate->renderResponse('Backend/Dashboard/NoQuizSessionsFound');
     }
 }
