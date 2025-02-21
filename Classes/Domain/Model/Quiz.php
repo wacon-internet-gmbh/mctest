@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -11,37 +12,28 @@ namespace Wacon\Simplequiz\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
- */
-
-/**
- * Quiz which the user should answer
+ * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * Name of the quiz
      *
      * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $name = '';
 
     /**
-     * Number of possible questions which are shown in the frontend.
+     * Questions
      *
-     * @var int
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
      */
-    protected $possibleQuestions = 0;
+    protected $questions;
 
-    /**
-     * questions
-     *
-     * @var int
-     */
-    protected $questions = 0;
+    public function __construct()
+    {
+        $this->questions = new ObjectStorage();
+    }
 
     /**
      * Returns the name
@@ -57,38 +49,19 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the name
      *
      * @param string $name
-     * @return void
+     * @return Quiz
      */
     public function setName(string $name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * Returns the possibleQuestions
+     * Get questions
      *
-     * @return int
-     */
-    public function getPossibleQuestions()
-    {
-        return $this->possibleQuestions;
-    }
-
-    /**
-     * Sets the possibleQuestions
-     *
-     * @param int $possibleQuestions
-     * @return void
-     */
-    public function setPossibleQuestions(int $possibleQuestions)
-    {
-        $this->possibleQuestions = $possibleQuestions;
-    }
-
-    /**
-     * Returns the questions
-     *
-     * @return int
+     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
      */
     public function getQuestions()
     {
@@ -96,13 +69,38 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the questions
+     * Set questions
      *
-     * @param int $questions
-     * @return void
+     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>  $questions
+     *
+     * @return  self
      */
-    public function setQuestions(int $questions)
+    public function setQuestions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $questions)
     {
         $this->questions = $questions;
+
+        return $this;
+    }
+
+    /**
+     * Add a Question
+     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @return self
+     */
+    public function addQuestion(Question $question)
+    {
+        $this->questions->attach($question);
+        return $this;
+    }
+
+    /**
+     * Remove a Question
+     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @return self
+     */
+    public function removeQuestion(Question $question)
+    {
+        $this->questions->detach($question);
+        return $this;
     }
 }

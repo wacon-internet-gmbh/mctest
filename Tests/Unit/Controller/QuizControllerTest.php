@@ -12,7 +12,7 @@ use TYPO3Fluid\Fluid\View\ViewInterface;
 /**
  * Test case
  *
- * @author Philipp Kuhlmay <info@wacon.de>
+ * @author Kevin Chileong Lee <info@wacon.de>
  */
 class QuizControllerTest extends UnitTestCase
 {
@@ -48,7 +48,7 @@ class QuizControllerTest extends UnitTestCase
             ->onlyMethods(['findAll'])
             ->disableOriginalConstructor()
             ->getMock();
-        $quizRepository->expects(self::once())->method('findAll')->will(self::returnValue($allQuizzes));
+        $quizRepository->expects(self::once())->method('findAll')->willReturn($allQuizzes);
         $this->subject->_set('quizRepository', $quizRepository);
 
         $view = $this->getMockBuilder(ViewInterface::class)->getMock();

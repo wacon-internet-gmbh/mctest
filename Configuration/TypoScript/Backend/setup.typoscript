@@ -1,0 +1,13 @@
+module.tx_simplequiz_web_simplequiz_dashboard {
+    view {
+      templateRootPaths {
+        0 = EXT:simplequiz/Resources/Private/Templates/Backend/
+      }
+      partialRootPaths {
+        0 = EXT:simplequiz/Resources/Private/Partials/Backend/
+      }
+      layoutRootPaths {
+        0 = EXT:simplequiz/Resources/Private/Layouts/Backend/
+      }
+    }
+}

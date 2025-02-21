@@ -7,3 +7,6 @@ services:
   Wacon\Simplequiz\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
+
+  Wacon\Simplequiz\Domain\Riddler\Riddler:
+    public: true

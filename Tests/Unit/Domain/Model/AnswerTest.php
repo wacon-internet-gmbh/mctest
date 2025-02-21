@@ -11,7 +11,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * Test case
  *
- * @author Philipp Kuhlmay <info@wacon.de>
+ * @author Kevin Chileong Lee <info@wacon.de>
  */
 class AnswerTest extends UnitTestCase
 {
@@ -61,7 +61,7 @@ class AnswerTest extends UnitTestCase
      */
     public function getIsQuestionTrueReturnsInitialValueForBool(): void
     {
-        self::assertFalse($this->subject->getIsQuestionTrue());
+        self::assertFalse($this->subject->_get('isQuestionTrue'));
     }
 
     /**
@@ -71,7 +71,7 @@ class AnswerTest extends UnitTestCase
     {
         $this->subject->setIsQuestionTrue(true);
 
-        self::assertEquals(true, $this->subject->_get('isQuestionTrue'));
+        self::assertTrue($this->subject->_get('isQuestionTrue'));
     }
 
     /**

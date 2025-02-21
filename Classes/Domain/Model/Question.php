@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
@@ -11,68 +12,96 @@ namespace Wacon\Simplequiz\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
- */
-
-/**
- * Question
+ * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * text
      *
      * @var string
      */
-    protected $text = '';
+    protected $question = '';
 
     /**
      * rightAnswer
      *
-     * @var int
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer>
      */
-    protected $rightAnswer = 0;
+    protected $answers;
 
-    /**
-     * Returns the text
-     *
-     * @return string
-     */
-    public function getText()
+    public function __construct()
     {
-        return $this->text;
+        $this->answers = new ObjectStorage();
     }
 
     /**
-     * Sets the text
+     * Get text
      *
-     * @param string $text
-     * @return void
+     * @return  string
      */
-    public function setText(string $text)
+    public function getQuestion()
     {
-        $this->text = $text;
+        return $this->question;
     }
 
     /**
-     * Returns the rightAnswer
+     * Set text
      *
-     * @return int
+     * @param  string  $question  text
+     *
+     * @return  self
      */
-    public function getRightAnswer()
+    public function setQuestion(string $question)
     {
-        return $this->rightAnswer;
+        $this->question = $question;
+
+        return $this;
     }
 
     /**
-     * Sets the rightAnswer
+     * Get rightAnswer
      *
-     * @param int $rightAnswer
-     * @return void
+     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer>
      */
-    public function setRightAnswer(int $rightAnswer)
+    public function getAnswers()
     {
-        $this->rightAnswer = $rightAnswer;
+        return $this->answers;
+    }
+
+    /**
+     * Set rightAnswer
+     *
+     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer> $answers
+     *
+     * @return  self
+     */
+    public function setAnswers(ObjectStorage $answers)
+    {
+        $this->answers = $answers;
+
+        return $this;
+    }
+
+    /**
+     * Add a Answer
+     * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
+     * @return self;
+     */
+    public function addAnswer(Answer $answer)
+    {
+        $this->answers->attach($answer);
+        return $this;
+    }
+
+    /**
+     * Remove a Answer
+     * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
+     * @return self
+     */
+    public function removeAnswer(Answer $answer)
+    {
+        $this->answers->detach($answer);
+        return $this;
     }
 }

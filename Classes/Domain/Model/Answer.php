@@ -4,22 +4,16 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Model;
 
-
 /**
  * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2024 Philipp Kuhlmay <info@wacon.de>, Wacon Internet GmbH
- */
-
-/**
- * Single Answer, right or wrong
+ * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * Text of the answer
      *
@@ -28,11 +22,11 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $answer = '';
 
     /**
-     * Is this question true?
+     * Is this question correct?
      *
      * @var bool
      */
-    protected $isQuestionTrue = false;
+    protected $isCorrect = false;
 
     /**
      * Further information which are shown after answering the question.
@@ -55,42 +49,47 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the answer
      *
      * @param string $answer
-     * @return void
+     *
+     * @return Answer
      */
     public function setAnswer(string $answer)
     {
         $this->answer = $answer;
+
+        return $this;
     }
 
     /**
-     * Returns the isQuestionTrue
+     * Returns the isCorrect
      *
      * @return bool
      */
-    public function getIsQuestionTrue()
+    public function getIsCorrect()
     {
-        return $this->isQuestionTrue;
+        return $this->isCorrect;
     }
 
     /**
-     * Sets the isQuestionTrue
+     * Sets the isCorrect
      *
-     * @param bool $isQuestionTrue
-     * @return void
+     * @param bool $isCorrect
+     * @return Answer
      */
-    public function setIsQuestionTrue(bool $isQuestionTrue)
+    public function setIsCorrect(bool $isCorrect)
     {
-        $this->isQuestionTrue = $isQuestionTrue;
+        $this->isCorrect = $isCorrect;
+
+        return $this;
     }
 
     /**
-     * Returns the boolean state of isQuestionTrue
+     * Returns the boolean state of isCorrect
      *
      * @return bool
      */
-    public function isIsQuestionTrue()
+    public function isCorrect()
     {
-        return $this->isQuestionTrue;
+        return $this->isCorrect;
     }
 
     /**
@@ -107,10 +106,12 @@ class Answer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the furtherInformation
      *
      * @param string $furtherInformation
-     * @return void
+     * @return Answer
      */
     public function setFurtherInformation(string $furtherInformation)
     {
         $this->furtherInformation = $furtherInformation;
+
+        return $this;
     }
 }

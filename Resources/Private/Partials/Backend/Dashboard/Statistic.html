@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td class="quiz"><f:translate key="module.dashboard.statistic.quiz" /></td>
+            <td class="session-count"><f:translate key="module.dashboard.statistic.sessionCount" /></td>
+            <td class="percentage-correct"><f:translate key="module.dashboard.statistic.percentageCorrect" /></td>
+            <td class="percentage-wrong"><f:translate key="module.dashboard.statistic.percentageWrong" /></td>
+        </tr>
+    </thead>
+    <tbody>
+        <f:for each="{statistic.get.quizzes}" as="record">
+            <tr>
+                <td class="quiz">{record.quiz.name}</td>
+                <td class="session-count">{record.sessionCount}</td>
+                <td class="percentage-correct">{record.percentageCorrect}</td>
+                <td class="percentage-wrong">{record.percentageWrong}</td>
+            </tr>
+        </f:for>
+    </tbody>
+</table>

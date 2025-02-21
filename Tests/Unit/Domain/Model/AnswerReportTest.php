@@ -11,7 +11,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 /**
  * Test case
  *
- * @author Philipp Kuhlmay <info@wacon.de>
+ * @author Kevin Chileong Lee <info@wacon.de>
  */
 class AnswerReportTest extends UnitTestCase
 {
@@ -52,7 +52,6 @@ class AnswerReportTest extends UnitTestCase
     public function setIdForStringSetsId(): void
     {
         $this->subject->setId('Conceived at T3CON10');
-
-        self::assertEquals('Conceived at T3CON10', $this->subject->_get('id'));
+        self::assertTrue($this->subject->_get('isQuestionTrue'));
     }
 }

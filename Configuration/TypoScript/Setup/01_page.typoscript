@@ -1,0 +1,32 @@
+page {
+  includeCSS {
+    simplequiz_quiz = EXT:simplequiz/Resources/Public/Css/style.css
+  }
+
+  includeJSFooterlibs {
+    simplequiz_quiz = EXT:simplequiz/Resources/Public/JavaScript/Quiz.js
+  }
+
+  includeJSFooter {
+    simplequiz_riddler = EXT:simplequiz/Resources/Public/JavaScript/Riddler.js
+  }
+}
+
+pageWaconQuizSolving = PAGE
+pageWaconQuizSolving {
+  typeNum = {$plugin.tx_simplequiz_simplequiz.settings.pageTypes.solving}
+
+  config {
+      disableAllHeaderCode = 1
+      additionalHeaders.10.header = Content-type:application/json
+      admPanel = 0
+   }
+
+  10 < tt_content.list.20.simplequiz_simplequiz
+  10 {
+    settings < plugin.tx_simplequiz_simplequiz.settings
+    settings {
+      step = 2
+    }
+  }
+}

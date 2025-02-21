@@ -1,0 +1,16 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:layout name="Default" />
+
+    <f:section name="content">
+        <f:form action="solving" name="quizSession" object="{riddler.quizSession}" method="post" pageType="{settings.pageTypes.solving}" absolute="1">
+            <f:render partial="Form/QuestionResult" arguments="{riddler: riddler}" />
+            <sq:riddler.incrementStep />
+            <div class="form-buttons">
+                <button class="btn btn-primary btn-nextstep"><f:translate key="simplequiz.next_step" extensionName="simplequiz" /></button>
+            </div>
+        </f:form>
+    </f:section>
+</html>

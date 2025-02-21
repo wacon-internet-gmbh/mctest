@@ -2,13 +2,25 @@
     "name": "wacon/simplequiz",
     "type": "typo3-cms-extension",
     "description": "This extension provides a simple quiz with plugins and a backend module.",
-    "authors": [],
+    "authors": [
+		{
+            "name": "Philipp Kuhlmay",
+            "role": "Former Developer"
+        },
+		{
+            "name": "Kevin Chileong Lee",
+            "role": "Developer",
+            "email": "info@wacon.de",
+            "homepage": "https://wacon.de/"
+        }
+	],
     "license": "GPL-2.0-or-later",
     "require": {
         "typo3/cms-core": "^12.4"
     },
     "require-dev": {
-        "typo3/testing-framework": "^8.0"
+        "typo3/testing-framework": "^8.0",
+		"typo3/coding-standards": "^0.8"
     },
     "autoload": {
         "psr-4": {
@@ -25,16 +37,25 @@
     },
     "config": {
         "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin"
+        "bin-dir": ".Build/bin",
+        "lock": false,
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true,
+            "sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true
+        }
     },
     "scripts": {
+        "cs": "php ./.Build/bin/php-cs-fixer fix  --dry-run -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./",
+        "csfix": "php ./.Build/bin/php-cs-fixer fix  -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./",
         "post-autoload-dump": [
             "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
         ]
     },
     "extra": {
         "typo3/cms": {
-            "web-dir": ".Build/public",
+            "app-dir": ".Build",
+            "web-dir": ".Build/Web",
             "extension-key": "simplequiz"
         }
     }
