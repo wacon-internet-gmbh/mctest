@@ -99,9 +99,26 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
      * @return self
      */
-    public function removeAnswer(Answer $answer)
+    public function removeAnswer(Answer $answer): self
     {
         $this->answers->detach($answer);
         return $this;
+    }
+
+    /**
+     * Return amount of correct answers
+     * @return int
+     */
+    public function getAmountOfCorrectAnswers(): int
+    {
+        $correctAnswers = 0;
+
+        foreach ($this->answers as $answer) {
+            if ($answer->isCorrect()) {
+                $correctAnswers++;
+            }
+        }
+
+        return $correctAnswers;
     }
 }
