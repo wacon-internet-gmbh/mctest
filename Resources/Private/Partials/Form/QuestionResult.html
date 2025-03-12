@@ -1,40 +1,54 @@
-<div class="quiz-questionresult-item">
-    <f:if condition="{riddler.isCurrentStepAnsweredCorrectly}">
-        <f:then>
-            <div class="quiz-questionresult-success">
-                <p class="lead">
-                    <strong><f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/></strong>
-                </p>
-                <div class="quiz-furtherinformation">
-                    <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                    <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
-                </div>
-            </div>
-        </f:then>
-        <f:else>
-            <div class="quiz-questionresult-danger">
-                <p class="lead">
-                    <strong><f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/></strong>
-                </p>
-                <div class="quiz-furtherinformation">
-                    <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                    <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
-                </div>
-            </div>
-            <div class="quiz-questionresult-correctanswer">
-                <p><strong><f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" /></strong></p>
-                <f:alias map="{correctAnswer: riddler.correctAnswerOfCurrentQuestion}">
-                    <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <div class="quiz-questionresult-item">
+        <f:if condition="{riddler.isCurrentStepAnsweredCorrectly}">
+            <f:then>
+                <div class="quiz-questionresult-success">
+                    <p class="lead">
+                        <strong><f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/></strong>
+                    </p>
                     <div class="quiz-furtherinformation">
                         <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                        <f:format.html>{correctAnswer.furtherInformation}</f:format.html>
+                        <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
                     </div>
-                </f:alias>
-            </div>
-        </f:else>
-    </f:if>
-</div>
-<f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: riddler.quizSession}" />
-<f:for each="{riddler.quizSession.selectedAnswers}" as="answer" key="questionId">
-    <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" />
-</f:for>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="quiz-questionresult-danger">
+                    <p class="lead">
+                        <strong><f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/></strong>
+                    </p>
+                    <div class="quiz-furtherinformation">
+                        <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
+                        <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
+                    </div>
+                </div>
+                <div class="quiz-questionresult-correctanswer">
+                    <p><strong><f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" /></strong></p>
+                    <f:alias map="{correctAnswer: riddler.correctAnswerOfCurrentQuestion}">
+                        <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
+                        <div class="quiz-furtherinformation">
+                            <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
+                            <f:format.html>{correctAnswer.furtherInformation}</f:format.html>
+                        </div>
+                    </f:alias>
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+    <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: riddler.quizSession}" />
+    <f:for each="{riddler.quizSession.selectedAnswers}" as="answer" key="questionId">
+        <sq:isArray value="{answer}">
+            <f:then>
+                <f:for each="{answer}" as="singleAnswer">
+                    <f:form.hidden name="quizSession[selectedAnswers][{questionId}][]" value="{singleAnswer}" />
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" />
+            </f:else>
+        </sq:isArray>
+    </f:for>
+</html>
