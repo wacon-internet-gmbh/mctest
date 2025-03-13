@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Statistic;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Wacon\Simplequiz\Domain\Model\Quiz;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;

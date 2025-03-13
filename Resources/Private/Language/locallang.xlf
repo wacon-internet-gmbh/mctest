@@ -52,10 +52,10 @@
 				<source>Session count</source>
 			</trans-unit>
 			<trans-unit id="module.dashboard.statistic.percentageCorrect" resname="module.dashboard.statistic.percentageCorrect">
-				<source>Correct answers in %</source>
+				<source>Correct answered questions in %</source>
 			</trans-unit>
 			<trans-unit id="module.dashboard.statistic.percentageWrong" resname="module.dashboard.statistic.percentageWrong">
-				<source>Wrong answers in %</source>
+				<source>Wrong answered questions in %</source>
 			</trans-unit>
 
 			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">
