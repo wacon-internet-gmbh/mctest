@@ -16,11 +16,20 @@
 			<trans-unit id="simplequiz.answer.correct" resname="simplequiz.answer.correct">
 				<target>Richtig</target>
 			</trans-unit>
+			<trans-unit id="simplequiz.answers.correct" resname="simplequiz.answers.correct">
+				<target>Alle Antworten sind korrekt</target>
+			</trans-unit>
 			<trans-unit id="simplequiz.answer.incorrect" resname="simplequiz.answer.incorrect">
 				<target>Die Antwort ist leider falsch.</target>
 			</trans-unit>
+			<trans-unit id="simplequiz.answers.incorrect" resname="simplequiz.answers.incorrect">
+				<target>Mindestens eine Antwort ist leider falsch.</target>
+			</trans-unit>
 			<trans-unit id="simplequiz.correct_answer.info" resname="simplequiz.correct_answer.info">
 				<target>Die richtige Antwort lautet...</target>
+			</trans-unit>
+			<trans-unit id="simplequiz.correct_answers.info" resname="simplequiz.correct_answers.info">
+				<target>Die richtigen Antworten lauten...</target>
 			</trans-unit>
 			<trans-unit id="simplequiz.furtherinformation" resname="simplequiz.furtherinformation">
 				<source>Hinweis</source>

@@ -83,9 +83,19 @@ class UserStatistic
     protected function parseQuizSession()
     {
         $this->parsed = true;
-        [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($this->convertAsAnswerModelList($this->quizSessionOfUser->getSelectedAnswers())->toArray());
+        $questions = $this->quizSessionOfUser->getQuestions();
+        $questionsCount = \count($questions);
+        $selectedAnswers = $this->quizSessionOfUser->getSelectedAnswers();
+        $amountOfCorrectlyAnsweredQuestions = 0;
+
+        foreach ($questions as $question) {
+            if (QuizUtility::isQuestionAnsweredCorrectly($question, $selectedAnswers)) {
+                $amountOfCorrectlyAnsweredQuestions++;
+            }
+        }
+
         $this->statistics = [
-            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, \count($this->quizSessionOfUser->getSelectedAnswers()), $correctAnswersCount, $incorrectAnswerCount),
+            'quiz' => DashboardStatistic::parseQuizSession($this->quizSessionOfUser, 1, $questionsCount, $amountOfCorrectlyAnsweredQuestions, $questionsCount - $amountOfCorrectlyAnsweredQuestions),
         ];
     }
 

@@ -262,7 +262,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $subArrayCheck = current($selectedAnswers);
 
         if (\is_array($subArrayCheck)) {
-            foreach($subArrayCheck as $subArrayItem) {
+            foreach ($subArrayCheck as $subArrayItem) {
                 $this->selectedAnswers[] = $subArrayItem;
             }
         } else {
@@ -279,8 +279,10 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function addSelectedAnswers(array $selectedAnswersToAdd)
     {
-        foreach ($selectedAnswersToAdd as $questionId => $answerId) {
-            $this->selectedAnswers[$questionId] = $answerId;
+        foreach ($selectedAnswersToAdd as $answerId) {
+            if (!in_array($answerId, $this->selectedAnswers)) {
+                $this->selectedAnswers[] = $answerId;
+            }
         }
 
         return $this;

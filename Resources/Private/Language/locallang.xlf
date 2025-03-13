@@ -68,7 +68,7 @@
 				<source>You have %s questions answered correctly.</source>
 			</trans-unit>
 			<trans-unit id="plugin.simplequiz.complete.result.overall" resname="plugin.simplequiz.complete.result.overall">
-				<source>The average amount of correct answers for this Quiz is %s.</source>
+				<source>The average amount of correct answered questions for this Quiz is %s.</source>
 			</trans-unit>
 		</body>
 	</file>

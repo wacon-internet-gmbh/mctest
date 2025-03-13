@@ -21,6 +21,7 @@ use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Repository\QuestionRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
+use Wacon\Simplequiz\Domain\Utility\QuizUtility;
 
 class Riddler
 {
@@ -276,21 +277,7 @@ class Riddler
      */
     public function getIsCurrentStepAnsweredCorrectly(): bool
     {
-        $question = $this->getCurrentQuestion();
-        $answers = $question->getAnswers();
-        $selectedAnswers = $this->quizSession->getSelectedAnswers();
-        $amountOfCorrectAnswers = $question->getAmountOfCorrectAnswers();
-        $correctAnswers = 0;
-
-        foreach ($answers as $answer) {
-            foreach ($selectedAnswers as $selectedAnswerId) {
-                if ($selectedAnswerId == $answer->getUid() && $answer->getIsCorrect()) {
-                    $correctAnswers++;
-                }
-            }
-        }
-
-        return $correctAnswers == $amountOfCorrectAnswers;
+        return QuizUtility::isQuestionAnsweredCorrectly($this->getCurrentQuestion(), $this->quizSession->getSelectedAnswers());
     }
 
     /**
@@ -349,7 +336,8 @@ class Riddler
      */
     public function isQuizOver(): bool
     {
-        return $this->currentStep >= $this->quizSession->getAmountOfQuestions() && count($this->randomQuestions) == count($this->quizSession->getSelectedAnswers());
+        $questionsCount = $this->questionRepository->findByAnswers($this->quizSession->getSelectedAnswers())->count();
+        return $this->currentStep >= $this->quizSession->getAmountOfQuestions() && count($this->randomQuestions) == $questionsCount;
     }
 
     /**

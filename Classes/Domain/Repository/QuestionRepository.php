@@ -35,4 +35,27 @@ class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         return $query->execute();
     }
+
+    /**
+     * Find one question record by answer
+     * @param array $answerIds
+     * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
+     */
+    public function findByAnswers(array $answerIds): QueryResult
+    {
+        $query = $this->createQuery();
+        $constraints = [];
+
+        foreach ($answerIds as $answerId) {
+            $constraints[] = $query->contains('answers', $answerId);
+        }
+
+        $query->matching(
+            $query->logicalOr(
+                ...$constraints
+            )
+        );
+
+        return $query->execute();
+    }
 }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Wacon\Simplequiz\Domain\Statistic;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Wacon\Simplequiz\Domain\Model\Quiz;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Utility\QuizUtility;
@@ -74,30 +75,30 @@ class DashboardStatistic
             'quizzes' => [],
         ];
         $this->total = new \stdClass();
-        $this->total->correctAnswersCount = 0;
+        $this->total->correctAnsweredQuestions = 0;
         $this->total->sessionCount = 0;
-        $this->total->answersCount = 0;
+        $this->total->questionsCount = 0;
 
         foreach ($this->quizSessions as $quizSession) {
             $quizSession->wakeUp();
 
             if (!\array_key_exists($quizSession->getQuiz()->getUid(), $this->statistics['quizzes'])) {
-                [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] = self::parseQuizSession($quizSession, 1, \count($quizSession->getSelectedAnswers()), $correctAnswersCount, $incorrectAnswerCount);
+                [$correctAnsweredQuestions, $incorrectAnsweredQuestions] = QuizUtility::getNumberOfCorrectAndIncorrectAnsweredQuestions($quizSession->getQuestions(), $quizSession->getSelectedAnswers());
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] = self::parseQuizSession($quizSession, 1, \count($quizSession->getSelectedAnswers()), $correctAnsweredQuestions, $incorrectAnsweredQuestions);
             } else {
-                [$correctAnswersCount, $incorrectAnswerCount] = QuizUtility::getNumberOfCorrectAndIncorrectAnswers($quizSession->getSelectedAnswers());
+                [$correctAnsweredQuestions, $incorrectAnsweredQuestions] = QuizUtility::getNumberOfCorrectAndIncorrectAnsweredQuestions($quizSession->getQuestions(), $quizSession->getSelectedAnswers());
                 $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] =
                     self::parseQuizSession(
                         $quizSession,
                         $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'] + 1,
-                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['answerCount'] + \count($quizSession->getSelectedAnswers()),
-                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'] + $correctAnswersCount,
-                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnswerCount'] + $incorrectAnswerCount,
+                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['questionsCount'] + \count($quizSession->getQuestions()),
+                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnsweredQuestions'] + $correctAnsweredQuestions,
+                        $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['incorrectAnsweredQuestions'] + $incorrectAnsweredQuestions,
                     );
             }
 
-            $this->total->correctAnswersCount = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnswersCount'];
-            $this->total->answersCount += \count($quizSession->getSelectedAnswers());
+            $this->total->correctAnsweredQuestions = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['correctAnsweredQuestions'];
+            $this->total->questionsCount += \count($quizSession->getQuestions());
             $this->total->sessionCount = $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'];
         }
     }
@@ -106,21 +107,21 @@ class DashboardStatistic
      * Parse a QuizSession and return parsed data as array
      * @param \Wacon\Simplequiz\Domain\Model\QuizSession $quizSession
      * @param int $sessionCount
-     * @param int $answerCount
-     * @param int $correctAnswersCount
-     * @param int $incorrectAnswersCount
+     * @param int $questionsCount
+     * @param int $correctAnsweredQuestions
+     * @param int $incorrectAnsweredQuestions
      * @return array
      */
-    public static function parseQuizSession(QuizSession $quizSession, int $sessionCount = 1, int $answerCount = 0, int $correctAnswersCount = 0, int $incorrectAnswersCount = 0): array
+    public static function parseQuizSession(QuizSession $quizSession, int $sessionCount = 1, int $questionsCount = 0, int $correctAnsweredQuestions = 0, int $incorrectAnsweredQuestions = 0): array
     {
         return [
             'quiz' => $quizSession->getQuiz(),
             'sessionCount' => $sessionCount,
-            'answerCount' => $answerCount,
-            'correctAnswersCount' => $correctAnswersCount,
-            'incorrectAnswerCount' => $incorrectAnswersCount,
-            'percentageCorrect' => MathUtility::calculatePercentage($correctAnswersCount, $answerCount),
-            'percentageWrong' => MathUtility::calculatePercentage($incorrectAnswersCount, $answerCount),
+            'questionsCount' => $questionsCount,
+            'correctAnsweredQuestions' => $correctAnsweredQuestions,
+            'incorrectAnsweredQuestions' => $incorrectAnsweredQuestions,
+            'percentageCorrect' => MathUtility::calculatePercentage($correctAnsweredQuestions, $questionsCount),
+            'percentageWrong' => MathUtility::calculatePercentage($incorrectAnsweredQuestions, $questionsCount),
         ];
     }
 

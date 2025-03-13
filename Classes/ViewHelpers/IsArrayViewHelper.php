@@ -27,8 +27,9 @@ class IsArrayViewHelper extends AbstractConditionViewHelper
         $this->registerArgument('value', 'mixed', 'Value to check', false, false);
     }
 
-    public function render(): string {
-        $value = $this->arguments['value'] ?  $this->arguments['value']: $this->renderChildren();
+    public function render(): string
+    {
+        $value = $this->arguments['value'] ? $this->arguments['value'] : $this->renderChildren();
         return \is_array($value) ? $this->renderThenChild() : $this->renderElseChild();
     }
 }
