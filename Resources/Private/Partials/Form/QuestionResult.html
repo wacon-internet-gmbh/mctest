@@ -2,37 +2,83 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
     data-namespace-typo3-fluid="true">
+    <f:cache.disable />
     <div class="quiz-questionresult-item">
         <f:if condition="{riddler.isCurrentStepAnsweredCorrectly}">
             <f:then>
                 <div class="quiz-questionresult-success">
                     <p class="lead">
-                        <strong><f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/></strong>
+                        <strong>
+                            <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
+                                <f:then>
+                                    <f:translate key="simplequiz.answers.correct" extensionName="simplequiz"/>
+                                </f:then>
+                                <f:else>
+                                    <f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/>
+                                </f:else>
+                            </f:if>
+                        </strong>
                     </p>
-                    <div class="quiz-furtherinformation">
+                    <div class="quiz-furtherinformations">
                         <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                        <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
+                        <f:for each="{riddler.selectedAnswersOfCurrentQuestion}" as="selectedAnswerOfCurrentQuestion">
+                            <div class="quiz-furtherinformation">
+                                <div class="quiz-answer"><f:format.html>{selectedAnswerOfCurrentQuestion.answer}</f:format.html></div>
+                                <f:format.html>{selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
+                            </div>
+                        </f:for>
                     </div>
                 </div>
             </f:then>
             <f:else>
                 <div class="quiz-questionresult-danger">
                     <p class="lead">
-                        <strong><f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/></strong>
+                        <strong>
+                            <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
+                                <f:then>
+                                    <f:translate key="simplequiz.answers.incorrect" extensionName="simplequiz"/>
+                                </f:then>
+                                <f:else>
+                                    <f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/>
+                                </f:else>
+                            </f:if>
+                        </strong>
                     </p>
-                    <div class="quiz-furtherinformation">
+                    <div class="quiz-furtherinformations">
                         <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                        <f:format.html>{riddler.selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
+                        <f:for each="{riddler.selectedAnswersOfCurrentQuestion}" as="selectedAnswerOfCurrentQuestion">
+                            <f:if condition="{selectedAnswerOfCurrentQuestion.isCorrect}">
+                                <f:else>
+                                    <div class="quiz-furtherinformation">
+                                        <div class="quiz-answer"><f:format.html>{selectedAnswerOfCurrentQuestion.answer}</f:format.html></div>
+                                        <f:format.html>{selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </f:for>
                     </div>
                 </div>
-                <div class="quiz-questionresult-correctanswer">
-                    <p><strong><f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" /></strong></p>
-                    <f:alias map="{correctAnswer: riddler.correctAnswerOfCurrentQuestion}">
-                        <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
-                        <div class="quiz-furtherinformation">
-                            <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                            <f:format.html>{correctAnswer.furtherInformation}</f:format.html>
-                        </div>
+                <div class="quiz-questionresult-correctanswers">
+                    <p><strong>
+                        <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
+                            <f:then>
+                                <f:translate key="simplequiz.correct_answers.info" extensionName="simplequiz" />
+                            </f:then>
+                            <f:else>
+                                <f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" />
+                            </f:else>
+                        </f:if>
+                    </strong></p>
+                    <f:alias map="{correctAnswers: riddler.correctAnswersOfCurrentQuestion}">
+                        <f:for each="{correctAnswers}" as="correctAnswer">
+                            <div class="quiz-questionresult-correctanswer">
+                                <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
+                                <div class="quiz-furtherinformation">
+                                    <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
+                                    <f:format.html>{correctAnswer.furtherInformation}</f:format.html>
+                                </div>
+                            </div>
+                        </f:for>
                     </f:alias>
                 </div>
             </f:else>

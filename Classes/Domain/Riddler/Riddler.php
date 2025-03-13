@@ -279,16 +279,18 @@ class Riddler
         $question = $this->getCurrentQuestion();
         $answers = $question->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
+        $amountOfCorrectAnswers = $question->getAmountOfCorrectAnswers();
+        $correctAnswers = 0;
 
         foreach ($answers as $answer) {
             foreach ($selectedAnswers as $selectedAnswerId) {
-                if ($selectedAnswerId == $answer->getUid()) {
-                    return $answer->getIsCorrect();
+                if ($selectedAnswerId == $answer->getUid() && $answer->getIsCorrect()) {
+                    $correctAnswers++;
                 }
             }
         }
 
-        return false;
+        return $correctAnswers == $amountOfCorrectAnswers;
     }
 
     /**
@@ -302,41 +304,43 @@ class Riddler
 
     /**
      * Return the question of current step
-     * @return Answer
+     * @return array
      */
-    public function getSelectedAnswerOfCurrentQuestion(): ?Answer
+    public function getSelectedAnswersOfCurrentQuestion(): array
     {
         $question = $this->getCurrentQuestion();
         $answers = $question->getAnswers();
         $selectedAnswers = $this->quizSession->getSelectedAnswers();
+        $selectedAnswersOfCurrentQuestion = [];
 
         foreach ($answers as $answer) {
             foreach ($selectedAnswers as $selectedAnswerId) {
                 if ($selectedAnswerId == $answer->getUid()) {
-                    return $answer;
+                    $selectedAnswersOfCurrentQuestion[] = $answer;
                 }
             }
         }
 
-        return null;
+        return $selectedAnswersOfCurrentQuestion;
     }
 
     /**
-     * Return the question of current step
-     * @return Answer
+     * Return all correct answers of current question
+     * @return array
      */
-    public function getCorrectAnswerOfCurrentQuestion(): ?Answer
+    public function getCorrectAnswersOfCurrentQuestion(): array
     {
         $question = $this->quizSession->getQuestions()[$this->currentStep - 1];
         $answers = $question->getAnswers();
+        $correctAnswersOfCurrentQuestion = [];
 
         foreach ($answers as $answer) {
             if ($answer->getIsCorrect()) {
-                return $answer;
+                $correctAnswersOfCurrentQuestion[] = $answer;
             }
         }
 
-        return null;
+        return $correctAnswersOfCurrentQuestion;
     }
 
     /**
@@ -359,5 +363,15 @@ class Riddler
         $question = $question ? $question->current() : null;
 
         return $question ? $question->getUid() : 0;
+    }
+
+    /**
+     * Return amount of correct answers of selected question
+     * @return int
+     */
+    public function getAmountOfCorrectAnswersOfCurrentQuestion(): int
+    {
+        $question = $this->getCurrentQuestion();
+        return $question->getAmountOfCorrectAnswers();
     }
 }

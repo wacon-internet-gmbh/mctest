@@ -258,7 +258,16 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function setSelectedAnswers(array $selectedAnswers)
     {
-        $this->selectedAnswers = $selectedAnswers;
+        // check if we want to assign multiple answers
+        $subArrayCheck = current($selectedAnswers);
+
+        if (\is_array($subArrayCheck)) {
+            foreach($subArrayCheck as $subArrayItem) {
+                $this->selectedAnswers[] = $subArrayItem;
+            }
+        } else {
+            $this->selectedAnswers = $selectedAnswers;
+        }
 
         return $this;
     }

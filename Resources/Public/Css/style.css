@@ -41,15 +41,29 @@
     color: #dc3545;
  }
 
- .tx-simplequiz-ajax .quiz-questionresult-correctanswer {
+ .tx-simplequiz-ajax .quiz-questionresult-correctanswers {
     background-color: #cff4fc;
     color: #0dcaf0;
  }
 
- .tx-simplequiz-ajax .quiz-furtherinformation > .quiz-subtitle
+ .tx-simplequiz-ajax .quiz-questionresult-correctanswers .quiz-questionresult-correctanswer + .quiz-questionresult-correctanswer {
+    margin-top: 1rem;
+    border-top: 1px solid currentColor;
+ }
+
+ .tx-simplequiz-ajax .quiz-furtherinformations > .quiz-subtitle
  {
     font-weight: bolder;
     margin-bottom: 0.5rem;
+ }
+
+ .tx-simplequiz-ajax .quiz-furtherinformations .quiz-furtherinformation + .quiz-furtherinformation {
+    margin-top: 1rem;
+    border-top: 1px solid currentColor;
+ }
+
+ .tx-simplequiz-ajax .quiz-furtherinformations .quiz-furtherinformation .quiz-answer {
+    font-weight: 600;
  }
 /*****************************************************
  * RESULTS - END
