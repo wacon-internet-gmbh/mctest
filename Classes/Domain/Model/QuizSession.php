@@ -447,13 +447,13 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         $quizRepository = GeneralUtility::makeInstance(QuizRepository::class);
         PersistenceUtility::disableStoragePid($quizRepository);
-        $this->setQuiz($quizRepository->findByUid((int) $report['quiz']));
+        $this->setQuiz($quizRepository->findByUid((int)$report['quiz']));
 
         foreach ($report['records'] as $record) {
             $questionRepository = GeneralUtility::makeInstance(QuestionRepository::class);
             PersistenceUtility::disableStoragePid($questionRepository);
             PersistenceUtility::disableEnabledFields($questionRepository);
-            $question = $questionRepository->findByUid((int) $record['question']['uid']);
+            $question = $questionRepository->findByUid((int)$record['question']['uid']);
 
             if (!$question) {
                 // If question was removed from db,
@@ -469,14 +469,14 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 PersistenceUtility::disableStoragePid($answerRepository);
                 PersistenceUtility::disableEnabledFields($answerRepository);
 
-                $answer = $answerRepository->findByUid((int) $selectedAnswer['uid']);
+                $answer = $answerRepository->findByUid((int)$selectedAnswer['uid']);
 
                 if (!$answer) {
                     // If answer was removed in db,
                     // then add virtual Answer
                     $answer = new Answer();
                     $answer->setAnswer($selectedAnswer['answer']);
-                    $answer->setIsCorrect((bool) $selectedAnswer['isCorrect']);
+                    $answer->setIsCorrect((bool)$selectedAnswer['isCorrect']);
                 }
 
                 $this->addSelectedAnswer($answer);
