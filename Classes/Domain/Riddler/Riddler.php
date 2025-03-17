@@ -53,7 +53,8 @@ class Riddler
         private readonly QuizRepository $quizRepository,
         private readonly QuestionRepository $questionRepository,
         private readonly AnswerRepository $answerRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Init the riddler
@@ -184,9 +185,9 @@ class Riddler
         $this->quizSession->setQuestions($this->randomQuestions);
         $this->quizSession->addSelectedAnswers($sessionData['selectedAnswers']);
         $this->quizSession->setQuiz($this->quizRepository->findByUid($sessionData['quiz']));
-        $this->quizSession->setStep((int)$sessionData['step']);
-        $this->quizSession->setQuizStarted((bool)$sessionData['quizStarted']);
-        $this->quizSession->setAmountOfQuestions((int)$sessionData['amountOfQuestions']);
+        $this->quizSession->setStep((int) $sessionData['step']);
+        $this->quizSession->setQuizStarted((bool) $sessionData['quizStarted']);
+        $this->quizSession->setAmountOfQuestions((int) $sessionData['amountOfQuestions']);
         $this->currentStep = $sessionData['currentStep'];
     }
 
@@ -384,12 +385,14 @@ class Riddler
         $incorrectAnswers = [];
 
         foreach ($answers as $answer) {
-            if ((
+            if (
+                (
                     \in_array($answer->getUid(), $selectedAnswers) && !$answer->isCorrect()
                 ) ||
                 (
                     !\in_array($answer->getUid(), $selectedAnswers) && $answer->isCorrect()
-                )) {
+                )
+            ) {
                 $incorrectAnswers[] = $answer;
             }
         }
