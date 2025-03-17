@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0]
+- [FEATURE] Add quizType to FlexForm to toggle form radio or checkbox
+- [CHANGE] Remove listing below wrong answers, because it needs more distinction between wrong answers and missing correct answers, which may confuse the user. I think its sufficient to say that question is wrong answered with listing of all correct answers.
+- [CHANGE] Change extension description
+
 ## [3.1.0]
 - [IMPORTANT] Release of 3.1.0 with multiple answer feature
 

@@ -44,6 +44,7 @@ class QuizController extends BaseActionController
         $quizSession = GeneralUtility::makeInstance(QuizSession::class);
         $quizSession->setQuiz($this->quizRepository->findByUid($this->settings['quiz']));
         $quizSession->setAmountOfQuestions((int)$this->settings['amountOfQuestions']);
+        $quizSession->setQuizType($this->settings['quizType']);
 
         $this->view->assign('quizSession', $quizSession);
         $this->view->assign('contentObjectData', $this->request->getAttribute('currentContentObject')->data);

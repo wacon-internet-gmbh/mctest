@@ -71,6 +71,12 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $selectedAnswers = [];
 
     /**
+     * Quiz type
+     * @var string
+     */
+    protected $quizType = 'single';
+
+    /**
      * Get related quiz
      *
      * @return  Quiz
@@ -479,4 +485,28 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         return $this;
     }
+
+	/**
+	 * Get quiz type
+	 *
+	 * @return string
+	 */
+	public function getQuizType(): string
+	{
+		return $this->quizType;
+	}
+
+	/**
+	 * Set quiz type
+	 *
+	 * @param string  $quizType
+	 *
+	 * @return self
+	 */
+	public function setQuizType(string $quizType): self
+	{
+		$this->quizType = $quizType;
+
+		return $this;
+	}
 }

@@ -362,4 +362,38 @@ class Riddler
         $question = $this->getCurrentQuestion();
         return $question->getAmountOfCorrectAnswers();
     }
+
+    /**
+     * Return amount of correct answers of selected question
+     * @return int
+     */
+    public function getAmountOfIncorrectAnswersOfCurrentQuestion(): int
+    {
+        $question = $this->getCurrentQuestion();
+        return \count($this->getCurrentQuestion()->getAnswers()) - $question->getAmountOfCorrectAnswers();
+    }
+
+    /**
+     * Return all incorrect answers of current question
+     * @return array
+     */
+    public function getIncorrectAnswersOfCurrentQuestion(): array
+    {
+        $answers = $this->getCurrentQuestion()->getAnswers();
+        $selectedAnswers = $this->quizSession->getSelectedAnswers();
+        $incorrectAnswers = [];
+
+        foreach ($answers as $answer) {
+            if ((
+                    \in_array($answer->getUid(), $selectedAnswers) && !$answer->isCorrect()
+                ) ||
+                (
+                    !\in_array($answer->getUid(), $selectedAnswers) && $answer->isCorrect()
+                )) {
+                $incorrectAnswers[] = $answer;
+            }
+        }
+
+        return $incorrectAnswers;
+    }
 }

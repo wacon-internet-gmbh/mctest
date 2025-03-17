@@ -32,7 +32,10 @@
 				<target>Die richtigen Antworten lauten...</target>
 			</trans-unit>
 			<trans-unit id="simplequiz.furtherinformation" resname="simplequiz.furtherinformation">
-				<source>Hinweis</source>
+				<target>Hinweis</target>
+			</trans-unit>
+			<trans-unit id="simplequiz.quizType" resname="simplequiz.quizType">
+				<target>Quiz Typ</target>
 			</trans-unit>
 
 			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">

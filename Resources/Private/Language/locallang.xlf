@@ -20,10 +20,10 @@
 				<source>All answers are correct</source>
 			</trans-unit>
 			<trans-unit id="simplequiz.answer.incorrect" resname="simplequiz.answer.incorrect">
-				<source>The answer is unfortunately wrong</source>
+				<source>The question is not correctly answered</source>
 			</trans-unit>
 			<trans-unit id="simplequiz.answers.incorrect" resname="simplequiz.answers.incorrect">
-				<source>At least one answer is wrong</source>
+				<source>The question is not correctly answered</source>
 			</trans-unit>
 			<trans-unit id="simplequiz.correct_answer.info" resname="simplequiz.correct_answer.info">
 				<source>The correct answer is...</source>

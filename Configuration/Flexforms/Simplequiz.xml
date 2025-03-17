@@ -39,6 +39,25 @@
                             </slider>
                         </config>
                     </settings.amountOfQuestions>
+                    <settings.quizType>
+                        <label>
+                            LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <label>LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType.I.single</label>
+                                    <value>single</value>
+                                </numIndex>
+                                <numIndex index="1" type="array">
+                                    <label>LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType.I.multiple</label>
+                                    <value>multiple</value>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.quizType>
                 </el>
             </ROOT>
         </sDEF>

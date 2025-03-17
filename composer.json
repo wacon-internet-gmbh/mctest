@@ -1,7 +1,7 @@
 {
     "name": "wacon/simplequiz",
     "type": "typo3-cms-extension",
-    "description": "This extension provides a simple quiz with plugins and a backend module.",
+    "description": "Single and multiple-choice tests to improve user experience (UX) and increase visitor dwelling time. Ideal for learning platforms, training sessions, or simply for entertainment.",
     "authors": [
 		{
             "name": "Philipp Kuhlmay",
@@ -15,7 +15,7 @@
         }
 	],
     "license": "GPL-2.0-or-later",
-	"version": "3.1.0",
+	"version": "3.2.0",
     "require": {
         "typo3/cms-core": "^12.4 | ^13.4"
     },

@@ -9,6 +9,15 @@
 			<trans-unit id="simplequiz.amountOfQuestions" resname="simplequiz.amountOfQuestions">
 				<source>Amount of questions</source>
 			</trans-unit>
+			<trans-unit id="simplequiz.quizType" resname="simplequiz.quizType">
+				<source>Quiz Type</source>
+			</trans-unit>
+			<trans-unit id="simplequiz.quizType.I.single" resname="simplequiz.quizType.I.single">
+				<source>Single choice</source>
+			</trans-unit>
+			<trans-unit id="simplequiz.quizType.I.multiple" resname="simplequiz.quizType.I.multiple">
+				<source>Multiple choice</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

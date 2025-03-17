@@ -1,8 +1,24 @@
 /*****************************************************
+ * INIT - START
+ ****************************************************/
+.quiz-subtitle
+{
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
+}
+/*****************************************************
+ * INIT - END
+ ****************************************************/
+/*****************************************************
  * FORM - START
  ****************************************************/
 .tx-simplequiz-ajax .form-buttons {
     margin-top: 1rem;
+}
+
+.tx-simplequiz-ajax .form-buttons > button {
+    padding: 0.33rem 0.66rem;
 }
 /*****************************************************
  * FORM - END
@@ -43,7 +59,7 @@
 
  .tx-simplequiz-ajax .quiz-questionresult-correctanswers {
     background-color: #cff4fc;
-    color: #0dcaf0;
+    color: #097187;
  }
 
  .tx-simplequiz-ajax .quiz-questionresult-correctanswers .quiz-questionresult-correctanswer + .quiz-questionresult-correctanswer {
@@ -51,18 +67,12 @@
     border-top: 1px solid currentColor;
  }
 
- .tx-simplequiz-ajax .quiz-furtherinformations > .quiz-subtitle
- {
-    font-weight: bolder;
-    margin-bottom: 0.5rem;
- }
-
  .tx-simplequiz-ajax .quiz-furtherinformations .quiz-furtherinformation + .quiz-furtherinformation {
     margin-top: 1rem;
     border-top: 1px solid currentColor;
  }
 
- .tx-simplequiz-ajax .quiz-furtherinformations .quiz-furtherinformation .quiz-answer {
+ .tx-simplequiz-ajax .quiz-furtherinformation .quiz-answer {
     font-weight: 600;
  }
 /*****************************************************

@@ -3,7 +3,7 @@
     xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
     data-namespace-typo3-fluid="true">
     <div class="quiz-questions">
-        <f:render partial="Form/Question" arguments="{question: quizSession.currentQuestion}" />
+        <f:render partial="Form/Question" arguments="{question: quizSession.currentQuestion, quizType: quizSession.quizType}" />
     </div>
 
     <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: quizSession}" />

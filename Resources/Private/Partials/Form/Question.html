@@ -1,10 +1,10 @@
 <div class="quiz-question-item">
-    <p class="quiz-question"><strong>{question.question}</strong></p>
+    <p class="quiz-question quiz-subtitle"><strong>{question.question}</strong></p>
     <div class="quiz-answers">
         <f:variable name="amountOfCorrectAnswers">{question.amountOfCorrectAnswers}</f:variable>
         <f:for each="{question.answers}" as="answer">
             <div class="quiz-answer-item form-check">
-                <f:if condition="{amountOfCorrectAnswers} > 1">
+                <f:if condition="{quizType} == 'multiple'">
                     <f:then>
                         <f:form.checkbox class="form-check-input" name="quizSession[selectedAnswers][{question.uid}][]" value="{answer.uid}" id="answer{answer.uid}"/>
                     </f:then>
