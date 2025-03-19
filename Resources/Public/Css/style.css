@@ -7,6 +7,19 @@
     margin-bottom: 0.5rem;
     font-size: 1.1em;
 }
+
+.tx-simplequiz-ajax p {
+    margin: 0;
+}
+
+.tx-simplequiz-ajax .quiz-legend {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.tx-simplequiz-ajax .quiz-complete > p + p {
+    margin-top: 1rem;
+}
 /*****************************************************
  * INIT - END
  ****************************************************/
@@ -20,6 +33,15 @@
 .tx-simplequiz-ajax .form-buttons > button {
     padding: 0.33rem 0.66rem;
 }
+
+.tx-simplequiz-ajax .quiz-answer-item,
+.tx-simplequiz-ajax .quiz-question.quiz-subtitle {
+    margin-bottom: 1rem;
+}
+
+.tx-simplequiz-ajax input {
+    margin: 0;
+}
 /*****************************************************
  * FORM - END
  ****************************************************/
@@ -30,6 +52,7 @@
 .tx-simplequiz-ajax .quiz-answer-item.form-check > * {
     display: inline-block;
     width: auto;
+    max-width: calc(100% - 20px);
 }
 /*****************************************************
  * ANSWERS - END
@@ -57,6 +80,27 @@
     color: #dc3545;
  }
 
+ /* Answers - START */
+ .tx-simplequiz-ajax .quiz-questionresult-answers > .quiz-subtitle {
+    margin-bottom: 1rem;
+ }
+
+ .tx-simplequiz-ajax .quiz-answer {
+    font-weight: 600;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-answer > .quiz-answer,
+ .tx-simplequiz-ajax .quiz-questionresult-answer .quiz-answer + .quiz-furtherinformation {
+    margin-top: 0.5rem;
+ }
+
+ .tx-simplequiz-ajax .quiz-questionresult-answer .quiz-furtherinformation {
+    font-size: 0.9em;
+ }
+
+ /* Answers - END */
+
+ /* Correct / Wrong Answers- START */
  .tx-simplequiz-ajax .quiz-questionresult-correctanswers {
     background-color: #cff4fc;
     color: #097187;
@@ -64,6 +108,7 @@
 
  .tx-simplequiz-ajax .quiz-questionresult-correctanswers .quiz-questionresult-correctanswer + .quiz-questionresult-correctanswer {
     margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid currentColor;
  }
 
@@ -72,9 +117,7 @@
     border-top: 1px solid currentColor;
  }
 
- .tx-simplequiz-ajax .quiz-furtherinformation .quiz-answer {
-    font-weight: 600;
- }
+/* Correct / Wrong Answers- END */
 /*****************************************************
  * RESULTS - END
  ****************************************************/

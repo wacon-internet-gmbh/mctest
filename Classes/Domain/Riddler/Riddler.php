@@ -271,6 +271,11 @@ class Riddler
         return $this;
     }
 
+    public function getMaxStep(): int
+    {
+        return \count($this->randomQuestions);
+    }
+
     /**
      * Return true, if user has answered the current question correctly
      * @return bool

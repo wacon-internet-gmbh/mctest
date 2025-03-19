@@ -6,7 +6,7 @@
     <div class="quiz-questionresult-item">
         <f:if condition="{riddler.isCurrentStepAnsweredCorrectly}">
             <f:then>
-                <div class="quiz-questionresult-success">
+                <div class="quiz-questionresult quiz-questionresult-success">
                     <p class="lead">
                         <strong>
                             <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
@@ -19,19 +19,10 @@
                             </f:if>
                         </strong>
                     </p>
-                    <div class="quiz-furtherinformations">
-                        <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
-                        <f:for each="{riddler.selectedAnswersOfCurrentQuestion}" as="selectedAnswerOfCurrentQuestion">
-                            <div class="quiz-furtherinformation">
-                                <div class="quiz-answer"><f:format.html>{selectedAnswerOfCurrentQuestion.answer}</f:format.html></div>
-                                <f:format.html>{selectedAnswerOfCurrentQuestion.furtherInformation}</f:format.html>
-                            </div>
-                        </f:for>
-                    </div>
                 </div>
             </f:then>
             <f:else>
-                <div class="quiz-questionresult-danger">
+                <div class="quiz-questionresult quiz-questionresult-danger">
                     <p class="lead">
                         <strong>
                             <f:if condition="{riddler.amountOfIncorrectAnswersOfCurrentQuestion} > 1">
@@ -45,7 +36,7 @@
                         </strong>
                     </p>
                 </div>
-                <div class="quiz-questionresult-correctanswers">
+                <div class="quiz-questionresult-answers quiz-questionresult-correctanswers">
                     <p class="quiz-subtitle"><strong>
                         <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
                             <f:then>
@@ -58,7 +49,7 @@
                     </strong></p>
                     <f:alias map="{correctAnswers: riddler.correctAnswersOfCurrentQuestion}">
                         <f:for each="{correctAnswers}" as="correctAnswer">
-                            <div class="quiz-questionresult-correctanswer">
+                            <div class="quiz-questionresult-answer quiz-questionresult-correctanswer">
                                 <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
                                 <f:if condition="{correctAnswer.furtherInformation}">
                                     <div class="quiz-furtherinformation">
