@@ -48,7 +48,7 @@
                         </f:if>
                     </strong></p>
                     <f:alias map="{correctAnswers: riddler.correctAnswersOfCurrentQuestion}">
-                        <f:for each="{correctAnswers}" as="correctAnswer">
+                        <f:for each="{correctAnswers}" as="correctAnswer" iteration="iteration">
                             <div class="quiz-questionresult-answer quiz-questionresult-correctanswer">
                                 <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
                                 <f:if condition="{correctAnswer.furtherInformation}">
