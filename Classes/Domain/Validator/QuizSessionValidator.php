@@ -11,7 +11,7 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
- namespace Wacon\Simplequiz\Domain\Validator;
+namespace Wacon\Simplequiz\Domain\Validator;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -19,8 +19,8 @@ use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 use Wacon\Simplequiz\Bootstrap\Traits\ExtensionTrait;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
 
- class QuizSessionValidator extends AbstractValidator
- {
+class QuizSessionValidator extends AbstractValidator
+{
     use ExtensionTrait;
 
     public function isValid(mixed $value): void
@@ -43,4 +43,4 @@ use Wacon\Simplequiz\Domain\Riddler\Riddler;
             $this->addError(LocalizationUtility::translate('validation.quizsession.selectedAnswers', $this->extensionKey), time());
         }
     }
- }
+}

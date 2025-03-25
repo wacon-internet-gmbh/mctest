@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Wacon\Simplequiz\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;

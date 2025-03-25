@@ -286,11 +286,11 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             return $this;
         }
 
-        foreach($selectedAnswers as $questionId => $answers) {
+        foreach ($selectedAnswers as $questionId => $answers) {
             if (!array_key_exists($questionId, $this->selectedAnswers)) {
                 $this->selectedAnswers[$questionId] = $answers;
             } else if (is_array($answers)) {
-                foreach($answers as $answer) {
+                foreach ($answers as $answer) {
                     if (!in_array($answer, $this->selectedAnswers[$questionId])) {
                         $this->selectedAnswers[$questionId][] = $answer;
                     }
@@ -309,9 +309,9 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $flatArray = [];
 
-        foreach($this->selectedAnswers as $answers) {
+        foreach ($this->selectedAnswers as $answers) {
             if (\is_array($answers)) {
-                foreach($answers as $answer) {
+                foreach ($answers as $answer) {
                     if (!in_array($answer, $flatArray)) {
                         $flatArray[] = $answer;
                     }
@@ -390,7 +390,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                     continue;
                 }
 
-                foreach($answerIds as $answerId) {
+                foreach ($answerIds as $answerId) {
                     /**
                      * @var Answer $answer
                      */
@@ -488,7 +488,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             }
 
             $this->setSelectedAnswers([
-                $question->getUid() => $selectedAnswerIds
+                $question->getUid() => $selectedAnswerIds,
             ]);
         }
 

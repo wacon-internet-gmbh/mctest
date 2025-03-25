@@ -89,7 +89,7 @@ class UserStatistic
         $amountOfCorrectlyAnsweredQuestions = 0;
 
         foreach ($questions as $question) {
-            foreach($selectedAnswers as $questionId => $selectedAnswerIds) {
+            foreach ($selectedAnswers as $questionId => $selectedAnswerIds) {
                 if ($questionId != $question->getUid()) {
                     continue;
                 }

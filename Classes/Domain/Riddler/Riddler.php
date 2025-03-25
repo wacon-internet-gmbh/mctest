@@ -308,12 +308,12 @@ class Riddler
         foreach ($answers as $answer) {
             foreach ($selectedAnswers as $selectedAnswerId) {
                 if (is_array($selectedAnswerId)) {
-                    foreach($selectedAnswerId as $selectedAnswerIdOfMultipleChoice) {
+                    foreach ($selectedAnswerId as $selectedAnswerIdOfMultipleChoice) {
                         if ($selectedAnswerIdOfMultipleChoice == $answer->getUid()) {
                             $selectedAnswersOfCurrentQuestion[] = $selectedAnswerIdOfMultipleChoice;
                         }
                     }
-                } else if ($selectedAnswerId == $answer->getUid()) {
+                } elseif ($selectedAnswerId == $answer->getUid()) {
                     $selectedAnswersOfCurrentQuestion[] = $answer;
                 }
             }

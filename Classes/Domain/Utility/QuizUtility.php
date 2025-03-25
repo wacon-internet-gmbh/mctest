@@ -51,7 +51,7 @@ class QuizUtility
         $data = [0, 0];
 
         foreach ($questions as $question) {
-            foreach($answers as $questionId => $answerIds) {
+            foreach ($answers as $questionId => $answerIds) {
                 if ($questionId != $question->getUid()) {
                     continue;
                 }
