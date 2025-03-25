@@ -74,7 +74,7 @@ class QuizController extends BaseActionController
         if ($riddler->isQuizOver()) {
             // store in session before we leave
             if ($quizSession) {
-                $riddler->storeSessionData($this->request->getAttribute('frontend.user'), $quizSession);
+                $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
             }
 
             return (new ForwardResponse('complete'))

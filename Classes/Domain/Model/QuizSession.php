@@ -119,7 +119,11 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function setAmountOfQuestions(int $amountOfQuestions)
     {
-        $this->amountOfQuestions = $amountOfQuestions;
+        if ($this->quiz->getQuestions()->count() >= $amountOfQuestions) {
+            $this->amountOfQuestions = $amountOfQuestions;
+        } else {
+            $this->amountOfQuestions = $this->quiz->getQuestions()->count();
+        }
 
         return $this;
     }
@@ -258,36 +262,39 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Return selectedAnswers for current question
+     * @return array
+     */
+    public function getSelectedAnswersForCurrentQuestion(): array
+    {
+        if (\array_key_exists($this->getCurrentQuestion()->getUid(), $this->selectedAnswers) && is_array($this->selectedAnswers[$this->getCurrentQuestion()->getUid()])) {
+            return $this->selectedAnswers[$this->getCurrentQuestion()->getUid()];
+        }
+
+        return [];
+    }
+
+    /**
      * Set the value of selectedAnswers
      *
      * @return  self
      */
     public function setSelectedAnswers(array $selectedAnswers)
     {
-        // check if we want to assign multiple answers
-        $subArrayCheck = current($selectedAnswers);
-
-        if (\is_array($subArrayCheck)) {
-            foreach ($subArrayCheck as $subArrayItem) {
-                $this->selectedAnswers[] = $subArrayItem;
-            }
-        } else {
+        if (count($this->selectedAnswers) == 0) {
             $this->selectedAnswers = $selectedAnswers;
+            return $this;
         }
 
-        return $this;
-    }
-
-    /**
-     * Add a list of selectedAnswers
-     *
-     * @return  self
-     */
-    public function addSelectedAnswers(array $selectedAnswersToAdd)
-    {
-        foreach ($selectedAnswersToAdd as $answerId) {
-            if (!in_array($answerId, $this->selectedAnswers)) {
-                $this->selectedAnswers[] = $answerId;
+        foreach($selectedAnswers as $questionId => $answers) {
+            if (!array_key_exists($questionId, $this->selectedAnswers)) {
+                $this->selectedAnswers[$questionId] = $answers;
+            } else {
+                foreach($answers as $answer) {
+                    if (!in_array($answer, $this->selectedAnswers[$questionId])) {
+                        $this->selectedAnswers[$questionId][] = $answer;
+                    }
+                }
             }
         }
 
@@ -295,19 +302,22 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Add a question
-     *
-     * @param  array  $questions  Questions
-     *
-     * @return  self
+     * Return $this->selectedAnswers as flat, non associative, array
+     * @return array
      */
-    public function addSelectedAnswer(Answer $answer)
+    public function getSelectedAnswersAsFlatArray(): array
     {
-        if (!$this->containInSelectedAnswer($answer)) {
-            $this->selectedAnswers[] = $answer;
+        $flatArray = [];
+
+        foreach($this->selectedAnswers as $answers) {
+            foreach($answers as $answer) {
+                if (!in_array($answer, $flatArray)) {
+                    $flatArray[] = $answer;
+                }
+            }
         }
 
-        return $this;
+        return $flatArray;
     }
 
     /**
@@ -373,23 +383,29 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 'selectedAnswers' => [],
             ];
 
-            foreach ($this->selectedAnswers as $answerId) {
-                /**
-                 * @var Answer $answer
-                 */
-                $answer = $answerRepository->findByUid($answerId);
-
-                if (!$answer) {
-                    throw new \LogicException('Invalid answer in Quiz Session', time());
+            foreach ($this->selectedAnswers as $questionId => $answerIds) {
+                if ($questionId != $question->getUid()) {
+                    continue;
                 }
 
-                foreach ($answersOfQuestions as $answerOfQuestions) {
-                    if ($answerOfQuestions->getUid() == $answer->getUid()) {
-                        $record['selectedAnswers'][] = [
-                            'uid' => $answer->getUid(),
-                            'answer' => $answer->getAnswer(),
-                            'isCorrect' => $answer->isCorrect(),
-                        ];
+                foreach($answerIds as $answerId) {
+                    /**
+                     * @var Answer $answer
+                     */
+                    $answer = $answerRepository->findByUid($answerId);
+
+                    if (!$answer) {
+                        throw new \LogicException('Invalid answer in Quiz Session', time());
+                    }
+
+                    foreach ($answersOfQuestions as $answerOfQuestions) {
+                        if ($answerOfQuestions->getUid() == $answer->getUid()) {
+                            $record['selectedAnswers'][] = [
+                                'uid' => $answer->getUid(),
+                                'answer' => $answer->getAnswer(),
+                                'isCorrect' => $answer->isCorrect(),
+                            ];
+                        }
                     }
                 }
             }
@@ -463,24 +479,15 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             }
 
             $this->addQuestion($question);
+            $selectedAnswerIds = [];
 
             foreach ($record['selectedAnswers'] as $selectedAnswer) {
-                $answerRepository = GeneralUtility::makeInstance(AnswerRepository::class);
-                PersistenceUtility::disableStoragePid($answerRepository);
-                PersistenceUtility::disableEnabledFields($answerRepository);
-
-                $answer = $answerRepository->findByUid((int)$selectedAnswer['uid']);
-
-                if (!$answer) {
-                    // If answer was removed in db,
-                    // then add virtual Answer
-                    $answer = new Answer();
-                    $answer->setAnswer($selectedAnswer['answer']);
-                    $answer->setIsCorrect((bool)$selectedAnswer['isCorrect']);
-                }
-
-                $this->addSelectedAnswer($answer);
+                $selectedAnswerIds[] = (int)$selectedAnswer['uid'];
             }
+
+            $this->setSelectedAnswers([
+                $question->getUid() => $selectedAnswerIds
+            ]);
         }
 
         return $this;

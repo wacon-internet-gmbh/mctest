@@ -6,10 +6,10 @@
             <div class="quiz-answer-item form-check">
                 <f:if condition="{quizType} == 'multiple'">
                     <f:then>
-                        <f:form.checkbox class="form-check-input" name="quizSession[selectedAnswers][{question.uid}][]" value="{answer.uid}" id="answer{answer.uid}"/>
+                        <f:form.checkbox class="form-check-input" name="quizSession[selectedAnswers][{question.uid}][]" value="{answer.uid}" id="answer{answer.uid}" />
                     </f:then>
                     <f:else>
-                        <f:form.radio class="form-check-input" name="quizSession[selectedAnswers][{question.uid}]" value="{answer.uid}" id="answer{answer.uid}"/>
+                        <f:form.radio class="form-check-input" name="quizSession[selectedAnswers][{question.uid}]" value="{answer.uid}" id="answer{answer.uid}" />
                     </f:else>
                 </f:if>
                 <label class="form-check-label" for="answer{answer.uid}">

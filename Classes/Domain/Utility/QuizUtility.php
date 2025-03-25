@@ -51,10 +51,16 @@ class QuizUtility
         $data = [0, 0];
 
         foreach ($questions as $question) {
-            if (self::isQuestionAnsweredCorrectly($question, $answers)) {
-                $data[0]++;
-            } else {
-                $data[1]++;
+            foreach($answers as $questionId => $answerIds) {
+                if ($questionId != $question->getUid()) {
+                    continue;
+                }
+
+                if (self::isQuestionAnsweredCorrectly($question, $answerIds)) {
+                    $data[0]++;
+                } else {
+                    $data[1]++;
+                }
             }
         }
 

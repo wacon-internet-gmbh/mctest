@@ -89,8 +89,13 @@ class UserStatistic
         $amountOfCorrectlyAnsweredQuestions = 0;
 
         foreach ($questions as $question) {
-            if (QuizUtility::isQuestionAnsweredCorrectly($question, $selectedAnswers)) {
-                $amountOfCorrectlyAnsweredQuestions++;
+            foreach($selectedAnswers as $questionId => $selectedAnswerIds) {
+                if ($questionId != $question->getUid()) {
+                    continue;
+                }
+                if (QuizUtility::isQuestionAnsweredCorrectly($question, $selectedAnswerIds)) {
+                    $amountOfCorrectlyAnsweredQuestions++;
+                }
             }
         }
 

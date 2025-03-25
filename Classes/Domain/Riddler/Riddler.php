@@ -182,7 +182,7 @@ class Riddler
         }
 
         $this->quizSession->setQuestions($this->randomQuestions);
-        $this->quizSession->addSelectedAnswers($sessionData['selectedAnswers']);
+        $this->quizSession->setSelectedAnswers($sessionData['selectedAnswers']);
         $this->quizSession->setQuiz($this->quizRepository->findByUid($sessionData['quiz']));
         $this->quizSession->setStep((int)$sessionData['step']);
         $this->quizSession->setQuizStarted((bool)$sessionData['quizStarted']);
@@ -282,7 +282,7 @@ class Riddler
      */
     public function getIsCurrentStepAnsweredCorrectly(): bool
     {
-        return QuizUtility::isQuestionAnsweredCorrectly($this->getCurrentQuestion(), $this->quizSession->getSelectedAnswers());
+        return QuizUtility::isQuestionAnsweredCorrectly($this->getCurrentQuestion(), $this->quizSession->getSelectedAnswersForCurrentQuestion());
     }
 
     /**
@@ -341,7 +341,7 @@ class Riddler
      */
     public function isQuizOver(): bool
     {
-        $questionsCount = $this->questionRepository->findByAnswers($this->quizSession->getSelectedAnswers())->count();
+        $questionsCount = $this->questionRepository->findByAnswers($this->quizSession->getSelectedAnswersAsFlatArray())->count();
         return $this->currentStep >= $this->quizSession->getAmountOfQuestions() && count($this->randomQuestions) == $questionsCount;
     }
 
