@@ -87,7 +87,7 @@ class QuizUtility
                 }
                 if ($selectedAnswerId == $answer->getUid() && $answer->getIsCorrect()) {
                     $correctAnswers++;
-                } else if ($selectedAnswerId == $answer->getUid() && !$answer->getIsCorrect()) {
+                } elseif ($selectedAnswerId == $answer->getUid() && !$answer->getIsCorrect()) {
                     $wrongAnswers++;
                 }
             }

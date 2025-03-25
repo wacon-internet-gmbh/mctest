@@ -289,7 +289,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         foreach ($selectedAnswers as $questionId => $answers) {
             if (!array_key_exists($questionId, $this->selectedAnswers)) {
                 $this->selectedAnswers[$questionId] = $answers;
-            } else if (is_array($answers)) {
+            } elseif (is_array($answers)) {
                 foreach ($answers as $answer) {
                     if (!in_array($answer, $this->selectedAnswers[$questionId])) {
                         $this->selectedAnswers[$questionId][] = $answer;
