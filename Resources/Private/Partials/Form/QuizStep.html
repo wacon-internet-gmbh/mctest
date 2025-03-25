@@ -7,16 +7,5 @@
     </div>
 
     <f:render partial="Form/QuizSessionNotStarted" arguments="{quizSession: quizSession}" />
-    <f:for each="{quizSession.selectedAnswers}" as="answer" key="questionId">
-        <sq:isArray value="{answer}">
-            <f:then>
-                <f:for each="{answer}" as="singleAnswer">
-                    <f:form.hidden name="quizSession[selectedAnswers][{questionId}][]" value="{singleAnswer}" />
-                </f:for>
-            </f:then>
-            <f:else>
-                <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" />
-            </f:else>
-        </sq:isArray>
-    </f:for>
+    <f:render partial="Form/FormHiddenSelectedAnswers" arguments="{selectedAnswers: quizSession.selectedAnswers}" />
 </html>

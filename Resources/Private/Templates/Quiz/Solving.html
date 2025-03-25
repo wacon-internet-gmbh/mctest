@@ -2,12 +2,26 @@
     <f:layout name="Default" />
 
     <f:section name="content">
-        <f:form action="answering" name="quizSession" object="{riddler.quizSession}" method="post" pageType="{settings.pageTypes.solving}" absolute="1">
-            <p class="quiz-legend"><f:translate key="simplequiz.legend" extensionName="simplequiz" arguments="{0: riddler.currentStep, 1: riddler.maxStep}"/></p>
-            <f:render partial="Form/QuizStep" arguments="{quizSession: riddler.quizSession}" />
-            <div class="form-buttons">
-                <button class="btn btn-primary btn-nextstep"><f:translate key="simplequiz.next_step" extensionName="simplequiz" /></button>
-            </div>
-        </f:form>
+        <f:if condition="{validationResults.flattenedErrors}">
+            <f:then>
+                <ul class="errors">
+                    <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                        <f:for each="{errors}" as="error">
+                            <li>{error.code}: {error}</li>
+                        </f:for>
+                    </f:for>
+                </ul>
+            </f:then>
+            <f:else>
+                <f:form action="answering" name="quizSession" object="{riddler.quizSession}" method="post" pageType="{settings.pageTypes.solving}" absolute="1">
+                <div class="tx-simplequiz-errors quiz-questionresult-danger"></div>
+                <p class="quiz-legend"><f:translate key="simplequiz.legend" extensionName="simplequiz" arguments="{0: riddler.currentStep, 1: riddler.maxStep}"/></p>
+                    <f:render partial="Form/QuizStep" arguments="{quizSession: riddler.quizSession}" />
+                    <div class="form-buttons">
+                        <button class="btn btn-primary btn-nextstep"><f:translate key="simplequiz.next_step" extensionName="simplequiz" /></button>
+                    </div>
+                </f:form>
+            </f:else>
+        </f:if>
     </f:section>
 </html>

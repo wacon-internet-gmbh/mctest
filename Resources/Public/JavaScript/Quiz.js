@@ -19,14 +19,29 @@ class Quiz
       ).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
-            if (data.html) {
+            if (!data.hasErrors && data.html) {
               this.containerElement.innerHTML = data.html;
+            } else if (data.hasErrors && data.html) {
+              this.showErrorMessage(data.html);
+            } else {
+              alert('An unexpected error occurred. Please restart the quiz again.');
             }
           });
         } else {
           console.error('Error in simple quiz form ajax request. Status: ' + response.status);
         }
       });
-    }, {once: true});
+    });
+  }
+
+  showErrorMessage(html) {
+    let errorContainer = this.containerElement.querySelector('.tx-simplequiz-errors');
+
+    if (errorContainer) {
+      errorContainer.innerHTML = html;
+      errorContainer.classList.add('show');
+    } else {
+      console.error(html);
+    }
   }
 }

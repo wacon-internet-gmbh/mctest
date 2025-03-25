@@ -1,0 +1,17 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    <f:for each="{selectedAnswers}" as="answer" key="questionId">
+        <sq:isArray value="{answer}">
+            <f:then>
+                <f:for each="{answer}" as="singleAnswer">
+                    <f:form.hidden name="quizSession[selectedAnswers][{questionId}][]" value="{singleAnswer}" respectSubmittedDataValue="false" />
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:form.hidden name="quizSession[selectedAnswers][{questionId}]" value="{answer}" respectSubmittedDataValue="false" />
+            </f:else>
+        </sq:isArray>
+    </f:for>
+</html>

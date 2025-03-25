@@ -15,12 +15,14 @@ namespace Wacon\Simplequiz\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use Wacon\Simplequiz\Domain\Model\QuizSession;
 use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizRepository;
 use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
 use Wacon\Simplequiz\Domain\Riddler\Riddler;
 use Wacon\Simplequiz\Domain\Statistic\UserStatistic;
+use Wacon\Simplequiz\Domain\Validator\QuizSessionValidator;
 
 class QuizController extends BaseActionController
 {
@@ -89,9 +91,12 @@ class QuizController extends BaseActionController
         $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
 
         $this->view->assign('riddler', $riddler);
+        $validationResults = $this->request->getAttribute('extbase')->getOriginalRequestMappingResults();
 
+        $this->view->assign('validationResults', $validationResults);
         return $this->jsonResponse(\json_encode([
             'html' => $this->view->render(),
+            'hasErrors' => $validationResults->hasErrors(),
         ]));
     }
 
@@ -100,6 +105,10 @@ class QuizController extends BaseActionController
      * @param QuizSession $quizSession
      * @return \Psr\Http\Message\ResponseInterface
      */
+    #[Validate([
+        'param' => 'quizSession',
+        'validator' => QuizSessionValidator::class,
+    ])]
     public function answeringAction(QuizSession $quizSession): \Psr\Http\Message\ResponseInterface
     {
         $riddler = GeneralUtility::makeInstance(Riddler::class);

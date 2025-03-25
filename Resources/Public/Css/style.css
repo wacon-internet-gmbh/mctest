@@ -42,6 +42,18 @@
 .tx-simplequiz-ajax input {
     margin: 0;
 }
+
+/* Errors- START */
+.tx-simplequiz-errors {
+    display: none;
+}
+
+.tx-simplequiz-errors.show {
+    display: block;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+/* Errors- END */
 /*****************************************************
  * FORM - END
  ****************************************************/

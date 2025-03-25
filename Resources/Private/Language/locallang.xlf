@@ -73,6 +73,13 @@
 			<trans-unit id="plugin.simplequiz.complete.result.overall" resname="plugin.simplequiz.complete.result.overall">
 				<source>The average amount of correct answered questions for this Quiz is %s.</source>
 			</trans-unit>
+
+			<trans-unit id="validation.quizsession.selectedAnswers" resname="validation.quizsession.selectedAnswers">
+				<source>You must at least choose on answer</source>
+			</trans-unit>
+			<trans-unit id="validation.quizsession.session" resname="validation.quizsession.session">
+				<source>No quiz session found. Please restart the quiz</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
