@@ -78,6 +78,7 @@ class QuizUtility
         $answers = $question->getAnswers();
         $amountOfCorrectAnswers = $question->getAmountOfCorrectAnswers();
         $correctAnswers = 0;
+        $wrongAnswers = 0;
 
         foreach ($answers as $answer) {
             foreach ($selectedAnswers as $selectedAnswerId) {
@@ -86,10 +87,12 @@ class QuizUtility
                 }
                 if ($selectedAnswerId == $answer->getUid() && $answer->getIsCorrect()) {
                     $correctAnswers++;
+                } else if ($selectedAnswerId == $answer->getUid() && !$answer->getIsCorrect()) {
+                    $wrongAnswers++;
                 }
             }
         }
 
-        return $correctAnswers == $amountOfCorrectAnswers;
+        return $correctAnswers == $amountOfCorrectAnswers && $wrongAnswers == 0;
     }
 }

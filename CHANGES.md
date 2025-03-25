@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.3.1]
 - [BUGFIX] Selected Answers are now correctly saved as assoc with question id
 - [BUGFIX] Create QuizSessionValidator to force to select answers and avoid resulting errors
+- [BUGFIX] QuizUtility->isQuestionAnsweredCorrectly: Consider wrong answer selection too
 
 ## [3.3.0]
 - [FEATURE] Add legend to display current and max step
