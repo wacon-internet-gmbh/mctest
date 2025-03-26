@@ -14,11 +14,11 @@
             </f:then>
             <f:else>
                 <f:form action="answering" name="quizSession" object="{riddler.quizSession}" method="post" pageType="{settings.pageTypes.solving}" absolute="1">
-                <div class="tx-simplequiz-errors quiz-questionresult-danger"></div>
-                <p class="quiz-legend"><f:translate key="simplequiz.legend" extensionName="simplequiz" arguments="{0: riddler.currentStep, 1: riddler.maxStep}"/></p>
+                <div class="tx-mctest-errors quiz-questionresult-danger"></div>
+                <p class="quiz-legend"><f:translate key="mctest.legend" extensionName="mctest" arguments="{0: riddler.currentStep, 1: riddler.maxStep}"/></p>
                     <f:render partial="Form/QuizStep" arguments="{quizSession: riddler.quizSession}" />
                     <div class="form-buttons">
-                        <button class="btn btn-primary btn-nextstep"><f:translate key="simplequiz.next_step" extensionName="simplequiz" /></button>
+                        <button class="btn btn-primary btn-nextstep"><f:translate key="mctest.next_step" extensionName="mctest" /></button>
                     </div>
                 </f:form>
             </f:else>

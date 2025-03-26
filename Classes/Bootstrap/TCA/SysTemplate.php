@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 extension: simplequiz.
+ * This file is part of the TYPO3 extension: mctest.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -15,10 +15,10 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Wacon\Simplequiz\Bootstrap\TCA;
+namespace Wacon\Mctest\Bootstrap\TCA;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use Wacon\Simplequiz\Bootstrap\Base;
+use Wacon\Mctest\Bootstrap\Base;
 
 class SysTemplate extends Base
 {
@@ -38,7 +38,7 @@ class SysTemplate extends Base
         ExtensionManagementUtility::addStaticFile(
             $this->extensionKey,
             'Configuration/TypoScript',
-            'Simple Quiz - Base'
+            'McTest - Base'
         );
     }
 }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -11,18 +11,18 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-namespace Wacon\Simplequiz\Controller;
+namespace Wacon\Mctest\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
-use Wacon\Simplequiz\Domain\Repository\QuizRepository;
-use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
-use Wacon\Simplequiz\Domain\Riddler\Riddler;
-use Wacon\Simplequiz\Domain\Statistic\UserStatistic;
-use Wacon\Simplequiz\Domain\Validator\QuizSessionValidator;
+use Wacon\Mctest\Domain\Model\QuizSession;
+use Wacon\Mctest\Domain\Repository\AnswerRepository;
+use Wacon\Mctest\Domain\Repository\QuizRepository;
+use Wacon\Mctest\Domain\Repository\QuizSessionRepository;
+use Wacon\Mctest\Domain\Riddler\Riddler;
+use Wacon\Mctest\Domain\Statistic\UserStatistic;
+use Wacon\Mctest\Domain\Validator\QuizSessionValidator;
 
 class QuizController extends BaseActionController
 {

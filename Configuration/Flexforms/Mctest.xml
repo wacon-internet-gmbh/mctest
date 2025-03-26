@@ -9,11 +9,11 @@
                 <el>
                     <settings.quiz>
                         <label>
-                            LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quiz
+                            LLL:EXT:mctest/Resources/Private/Language/locallang_flexforms.xlf:mctest.quiz
                         </label>
                         <config>
                             <type>group</type>
-                            <allowed>tx_simplequiz_domain_model_quiz</allowed>
+                            <allowed>tx_mctest_domain_model_quiz</allowed>
                             <size>1</size>
                             <required>1</required>
                             <maxitems>1</maxitems>
@@ -22,7 +22,7 @@
                     </settings.quiz>
                     <settings.amountOfQuestions>
                         <label>
-                            LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.amountOfQuestions
+                            LLL:EXT:mctest/Resources/Private/Language/locallang_flexforms.xlf:mctest.amountOfQuestions
                         </label>
                         <config>
                             <type>number</type>
@@ -41,18 +41,18 @@
                     </settings.amountOfQuestions>
                     <settings.quizType>
                         <label>
-                            LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType
+                            LLL:EXT:mctest/Resources/Private/Language/locallang_flexforms.xlf:mctest.quizType
                         </label>
                         <config>
                             <type>select</type>
                             <renderType>selectSingle</renderType>
                             <items type="array">
                                 <numIndex index="0" type="array">
-                                    <label>LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType.I.single</label>
+                                    <label>LLL:EXT:mctest/Resources/Private/Language/locallang_flexforms.xlf:mctest.quizType.I.single</label>
                                     <value>single</value>
                                 </numIndex>
                                 <numIndex index="1" type="array">
-                                    <label>LLL:EXT:simplequiz/Resources/Private/Language/locallang_flexforms.xlf:simplequiz.quizType.I.multiple</label>
+                                    <label>LLL:EXT:mctest/Resources/Private/Language/locallang_flexforms.xlf:mctest.quizType.I.multiple</label>
                                     <value>multiple</value>
                                 </numIndex>
                             </items>

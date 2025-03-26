@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 extension: simplequiz.
+ * This file is part of the TYPO3 extension: mctest.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -15,10 +15,10 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Wacon\Simplequiz\Bootstrap;
+namespace Wacon\Mctest\Bootstrap;
 
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-use Wacon\Simplequiz\Controller\QuizController;
+use Wacon\Mctest\Controller\QuizController;
 
 class ExtLocalconf extends Base
 {
@@ -37,7 +37,7 @@ class ExtLocalconf extends Base
     {
         ExtensionUtility::configurePlugin(
             $this->getExtensionKeyAsNamespace(),
-            'Simplequiz',
+            'Mctest',
             [
                 QuizController::class => 'show,solving,complete,answering',
             ],

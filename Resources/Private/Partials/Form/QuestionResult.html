@@ -1,6 +1,6 @@
 <html
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
+    xmlns:sq="http://typo3.org/ns/Wacon/Mctest/ViewHelpers"
     data-namespace-typo3-fluid="true">
     <f:cache.disable />
     <div class="quiz-questionresult-item">
@@ -11,10 +11,10 @@
                         <strong>
                             <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
                                 <f:then>
-                                    <f:translate key="simplequiz.answers.correct" extensionName="simplequiz"/>
+                                    <f:translate key="mctest.answers.correct" extensionName="mctest"/>
                                 </f:then>
                                 <f:else>
-                                    <f:translate key="simplequiz.answer.correct" extensionName="simplequiz"/>
+                                    <f:translate key="mctest.answer.correct" extensionName="mctest"/>
                                 </f:else>
                             </f:if>
                         </strong>
@@ -27,10 +27,10 @@
                         <strong>
                             <f:if condition="{riddler.amountOfIncorrectAnswersOfCurrentQuestion} > 1">
                                 <f:then>
-                                    <f:translate key="simplequiz.answers.incorrect" extensionName="simplequiz"/>
+                                    <f:translate key="mctest.answers.incorrect" extensionName="mctest"/>
                                 </f:then>
                                 <f:else>
-                                    <f:translate key="simplequiz.answer.incorrect" extensionName="simplequiz"/>
+                                    <f:translate key="mctest.answer.incorrect" extensionName="mctest"/>
                                 </f:else>
                             </f:if>
                         </strong>
@@ -40,10 +40,10 @@
                     <p class="quiz-subtitle"><strong>
                         <f:if condition="{riddler.amountOfCorrectAnswersOfCurrentQuestion} > 1">
                             <f:then>
-                                <f:translate key="simplequiz.correct_answers.info" extensionName="simplequiz" />
+                                <f:translate key="mctest.correct_answers.info" extensionName="mctest" />
                             </f:then>
                             <f:else>
-                                <f:translate key="simplequiz.correct_answer.info" extensionName="simplequiz" />
+                                <f:translate key="mctest.correct_answer.info" extensionName="mctest" />
                             </f:else>
                         </f:if>
                     </strong></p>
@@ -53,7 +53,7 @@
                                 <div class="quiz-answer"><f:format.html>{correctAnswer.answer}</f:format.html></div>
                                 <f:if condition="{correctAnswer.furtherInformation}">
                                     <div class="quiz-furtherinformation">
-                                        <p class="quiz-subtitle"><f:translate key="simplequiz.furtherinformation" extensionName="simplequiz"/></p>
+                                        <p class="quiz-subtitle"><f:translate key="mctest.furtherinformation" extensionName="mctest"/></p>
                                         <f:format.html>{correctAnswer.furtherInformation}</f:format.html>
                                     </div>
                                 </f:if>

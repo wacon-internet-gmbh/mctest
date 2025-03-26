@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_db.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
+	<file source-language="en" datatype="plaintext" original="EXT:mctest/Resources/Private/Language/locallang_db.xlf" date="2024-01-16T09:21:42Z" product-name="mctest">
 		<header/>
 		<body>
-			<trans-unit id="tx_simplequiz_domain_model_quiz_session.name" resname="tx_simplequiz_domain_model_quiz_session.name">
+			<trans-unit id="tx_mctest_domain_model_quiz_session.name" resname="tx_mctest_domain_model_quiz_session.name">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz_session.data" resname="tx_simplequiz_domain_model_quiz_session.data">
+			<trans-unit id="tx_mctest_domain_model_quiz_session.data" resname="tx_mctest_domain_model_quiz_session.data">
 				<source>Data</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz_session.data.description" resname="tx_simplequiz_domain_model_quiz_session.data.description">
+			<trans-unit id="tx_mctest_domain_model_quiz_session.data.description" resname="tx_mctest_domain_model_quiz_session.data.description">
 				<source>Contains all information for the filled quiz of a single user in JSON format</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz" resname="tx_simplequiz_domain_model_quiz">
+			<trans-unit id="tx_mctest_domain_model_quiz" resname="tx_mctest_domain_model_quiz">
 				<source>Quiz</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz.name" resname="tx_simplequiz_domain_model_quiz.name">
+			<trans-unit id="tx_mctest_domain_model_quiz.name" resname="tx_mctest_domain_model_quiz.name">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz.questions" resname="tx_simplequiz_domain_model_quiz.questions">
+			<trans-unit id="tx_mctest_domain_model_quiz.questions" resname="tx_mctest_domain_model_quiz.questions">
 				<source>Questions</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer" resname="tx_simplequiz_domain_model_answer">
+			<trans-unit id="tx_mctest_domain_model_answer" resname="tx_mctest_domain_model_answer">
 				<source>Answer</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer.description" resname="tx_simplequiz_domain_model_answer.description">
+			<trans-unit id="tx_mctest_domain_model_answer.description" resname="tx_mctest_domain_model_answer.description">
 				<source>Single Answer, Right Or Wrong</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer.answer" resname="tx_simplequiz_domain_model_answer.answer">
+			<trans-unit id="tx_mctest_domain_model_answer.answer" resname="tx_mctest_domain_model_answer.answer">
 				<source>Answer</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer.is_correct" resname="tx_simplequiz_domain_model_answer.is_correct">
+			<trans-unit id="tx_mctest_domain_model_answer.is_correct" resname="tx_mctest_domain_model_answer.is_correct">
 				<source>Correct answer</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer.further_information" resname="tx_simplequiz_domain_model_answer.further_information">
+			<trans-unit id="tx_mctest_domain_model_answer.further_information" resname="tx_mctest_domain_model_answer.further_information">
 				<source>Further Information</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_answer.further_information.description" resname="tx_simplequiz_domain_model_answer.further_information.description">
+			<trans-unit id="tx_mctest_domain_model_answer.further_information.description" resname="tx_mctest_domain_model_answer.further_information.description">
 				<source>Further Information Which Are Shown After Answering The Question.</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question" resname="tx_simplequiz_domain_model_question">
+			<trans-unit id="tx_mctest_domain_model_question" resname="tx_mctest_domain_model_question">
 				<source>Question</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question.question" resname="tx_simplequiz_domain_model_question.question">
+			<trans-unit id="tx_mctest_domain_model_question.question" resname="tx_mctest_domain_model_question.question">
 				<source>Question</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question.answers" resname="tx_simplequiz_domain_model_question.answers">
+			<trans-unit id="tx_mctest_domain_model_question.answers" resname="tx_mctest_domain_model_question.answers">
 				<source>Answers</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_question.answers.description" resname="tx_simplequiz_domain_model_question.answers.description">
+			<trans-unit id="tx_mctest_domain_model_question.answers.description" resname="tx_mctest_domain_model_question.answers.description">
 				<source>List of possible answer options</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_simplequiz.name" resname="tx_simplequiz_simplequiz.name">
-				<source>Simplequiz</source>
+			<trans-unit id="tx_mctest_mctest.name" resname="tx_mctest_mctest.name">
+				<source>Mctest</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_simplequiz.description" resname="tx_simplequiz_simplequiz.description">
+			<trans-unit id="tx_mctest_mctest.description" resname="tx_mctest_mctest.description">
 				<source>This shows a quiz in the frontend</source>
 			</trans-unit>
-			<trans-unit id="tx_simplequiz_domain_model_quiz_session" resname="tx_simplequiz_domain_model_quiz_session">
+			<trans-unit id="tx_mctest_domain_model_quiz_session" resname="tx_mctest_domain_model_quiz_session">
 				<source>Quiz Session</source>
 			</trans-unit>
 		</body>

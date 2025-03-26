@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Domain\Model;
+namespace Wacon\Mctest\Domain\Model;
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.

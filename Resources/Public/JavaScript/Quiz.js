@@ -35,7 +35,7 @@ class Quiz
   }
 
   showErrorMessage(html) {
-    let errorContainer = this.containerElement.querySelector('.tx-simplequiz-errors');
+    let errorContainer = this.containerElement.querySelector('.tx-mctest-errors');
 
     if (errorContainer) {
       errorContainer.innerHTML = html;

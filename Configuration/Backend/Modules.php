@@ -15,20 +15,20 @@
 
 
 /**
- * Definitions for modules provided by EXT:simplequiz
+ * Definitions for modules provided by EXT:mctest
  */
 return [
-    'web_simplequiz_dashboard' => [
+    'web_mctest_dashboard' => [
         'parent' => 'web',
         'position' => ['bottom'],
         'access' => 'user',
         'workspaces' => 'live',
-        'path' => '/module/web/simplequiz',
-        'labels' => 'LLL:EXT:simplequiz/Resources/Private/Language/DashboardModule/locallang_mod.xlf',
-        'iconIdentifier' => 'simplequiz-plugin-simplequiz',
-        'extensionName' => 'simplequiz',
+        'path' => '/module/web/mctest',
+        'labels' => 'LLL:EXT:mctest/Resources/Private/Language/DashboardModule/locallang_mod.xlf',
+        'iconIdentifier' => 'mctest-plugin-mctest',
+        'extensionName' => 'mctest',
         'controllerActions' => [
-            \Wacon\Simplequiz\Controller\Backend\DashboardController::class => [
+            \Wacon\Mctest\Controller\Backend\DashboardController::class => [
                 'show'
             ],
         ],

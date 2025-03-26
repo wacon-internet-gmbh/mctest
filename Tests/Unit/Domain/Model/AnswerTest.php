@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Tests\Unit\Domain\Model;
+namespace Wacon\Mctest\Tests\Unit\Domain\Model;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
@@ -16,7 +16,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 class AnswerTest extends UnitTestCase
 {
     /**
-     * @var \Wacon\Simplequiz\Domain\Model\Answer|MockObject|AccessibleObjectInterface
+     * @var \Wacon\Mctest\Domain\Model\Answer|MockObject|AccessibleObjectInterface
      */
     protected $subject;
 
@@ -25,7 +25,7 @@ class AnswerTest extends UnitTestCase
         parent::setUp();
 
         $this->subject = $this->getAccessibleMock(
-            \Wacon\Simplequiz\Domain\Model\Answer::class,
+            \Wacon\Mctest\Domain\Model\Answer::class,
             ['dummy']
         );
     }

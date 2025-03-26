@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -11,10 +11,10 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-namespace Wacon\Simplequiz\Domain\Utility;
+namespace Wacon\Mctest\Domain\Utility;
 
-use Wacon\Simplequiz\Domain\Model\Answer;
-use Wacon\Simplequiz\Domain\Model\Question;
+use Wacon\Mctest\Domain\Model\Answer;
+use Wacon\Mctest\Domain\Model\Question;
 
 class QuizUtility
 {
@@ -69,7 +69,7 @@ class QuizUtility
 
     /**
      * Check if question is answered correctly
-     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @param \Wacon\Mctest\Domain\Model\Question $question
      * @param array $selectedAnswers
      * @return bool
      */

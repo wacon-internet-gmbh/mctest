@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 extension: simplequiz.
+ * This file is part of the TYPO3 extension: mctest.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Wacon\Simplequiz\Bootstrap\Traits;
+namespace Wacon\Mctest\Bootstrap\Traits;
 
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -23,7 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 trait ExtensionTrait
 {
-    protected $extensionKey = 'simplequiz';
+    protected $extensionKey = 'mctest';
 
     /**
      * Return the extension key in Namespace writing

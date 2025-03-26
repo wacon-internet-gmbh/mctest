@@ -1,8 +1,8 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz',
-        'label' => 'name',
+        'title' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_question',
+        'label' => 'question',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'versioningWS' => true,
@@ -15,14 +15,15 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
+        'searchFields' => 'text',
+        'iconfile' => 'EXT:mctest/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
+        'hideTable' => true
     ],
     'types' => [
-        '1' => ['showitem' => 'name, questions, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'question, answers, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -42,8 +43,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_simplequiz_domain_model_quiz',
-                'foreign_table_where' => 'AND {#tx_simplequiz_domain_model_quiz}.{#pid}=###CURRENT_PID### AND {#tx_simplequiz_domain_model_quiz}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_mctest_domain_model_question',
+                'foreign_table_where' => 'AND {#tx_mctest_domain_model_question}.{#pid}=###CURRENT_PID### AND {#tx_mctest_domain_model_question}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -95,29 +96,29 @@ return [
                 ]
             ],
         ],
-        'name' => [
+        'question' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.name',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_question.question',
             'config' => [
                 'type' => 'input',
-                'size' => 30,
                 'eval' => 'trim',
-                'required' => true,
-                'default' => ''
-            ],
+                'default' => '',
+                'required' => true
+            ]
         ],
-        'questions' => [
+        'answers' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz.questions',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_question.answers',
+            'description' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_question.answers.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_simplequiz_domain_model_question',
+                'foreign_table' => 'tx_mctest_domain_model_answer',
                 'appearance' => [
                     'showSynchronizationLink' => true,
                     'showAllLocalizationLink' => true,
                     'showPossibleLocalizationRecords' => true,
                 ],
-                'minitems' => 1
+                'minitems' => 2
             ],
         ],
     ],

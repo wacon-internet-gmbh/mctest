@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Tests\Unit\Controller;
+namespace Wacon\Mctest\Tests\Unit\Controller;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
@@ -17,14 +17,14 @@ use TYPO3Fluid\Fluid\View\ViewInterface;
 class QuizControllerTest extends UnitTestCase
 {
     /**
-     * @var \Wacon\Simplequiz\Controller\QuizController|MockObject|AccessibleObjectInterface
+     * @var \Wacon\Mctest\Controller\QuizController|MockObject|AccessibleObjectInterface
      */
     protected $subject;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->subject = $this->getMockBuilder($this->buildAccessibleProxy(\Wacon\Simplequiz\Controller\QuizController::class))
+        $this->subject = $this->getMockBuilder($this->buildAccessibleProxy(\Wacon\Mctest\Controller\QuizController::class))
             ->onlyMethods(['redirect', 'forward', 'addFlashMessage'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -44,7 +44,7 @@ class QuizControllerTest extends UnitTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $quizRepository = $this->getMockBuilder(\Wacon\Simplequiz\Domain\Repository\QuizRepository::class)
+        $quizRepository = $this->getMockBuilder(\Wacon\Mctest\Domain\Repository\QuizRepository::class)
             ->onlyMethods(['findAll'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -63,7 +63,7 @@ class QuizControllerTest extends UnitTestCase
      */
     public function showActionAssignsTheGivenQuizToView(): void
     {
-        $quiz = new \Wacon\Simplequiz\Domain\Model\Quiz();
+        $quiz = new \Wacon\Mctest\Domain\Model\Quiz();
 
         $view = $this->getMockBuilder(ViewInterface::class)->getMock();
         $this->subject->_set('view', $view);

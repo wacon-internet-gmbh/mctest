@@ -1,20 +1,20 @@
 page {
   includeCSS {
-    simplequiz_quiz = EXT:simplequiz/Resources/Public/Css/style.css
+    mctest_quiz = EXT:mctest/Resources/Public/Css/style.css
   }
 
   includeJSFooterlibs {
-    simplequiz_quiz = EXT:simplequiz/Resources/Public/JavaScript/Quiz.js
+    mctest_quiz = EXT:mctest/Resources/Public/JavaScript/Quiz.js
   }
 
   includeJSFooter {
-    simplequiz_riddler = EXT:simplequiz/Resources/Public/JavaScript/Riddler.js
+    mctest_riddler = EXT:mctest/Resources/Public/JavaScript/Riddler.js
   }
 }
 
 pageWaconQuizSolving = PAGE
 pageWaconQuizSolving {
-  typeNum = {$plugin.tx_simplequiz_simplequiz.settings.pageTypes.solving}
+  typeNum = {$plugin.tx_mctest_mctest.settings.pageTypes.solving}
 
   config {
       disableAllHeaderCode = 1
@@ -22,9 +22,9 @@ pageWaconQuizSolving {
       admPanel = 0
    }
 
-  10 < tt_content.list.20.simplequiz_simplequiz
+  10 < tt_content.list.20.mctest_mctest
   10 {
-    settings < plugin.tx_simplequiz_simplequiz.settings
+    settings < plugin.tx_mctest_mctest.settings
     settings {
       step = 2
     }

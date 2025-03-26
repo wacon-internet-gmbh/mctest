@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Domain\Model;
+namespace Wacon\Mctest\Domain\Model;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
-use Wacon\Simplequiz\Domain\Repository\QuestionRepository;
-use Wacon\Simplequiz\Domain\Repository\QuizRepository;
-use Wacon\Simplequiz\Utility\PersistenceUtility;
+use Wacon\Mctest\Domain\Repository\AnswerRepository;
+use Wacon\Mctest\Domain\Repository\QuestionRepository;
+use Wacon\Mctest\Domain\Repository\QuizRepository;
+use Wacon\Mctest\Utility\PersistenceUtility;
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -199,7 +199,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Deliver the question of the current step
-     * @return \Wacon\Simplequiz\Domain\Model\Question
+     * @return \Wacon\Mctest\Domain\Model\Question
      */
     public function getCurrentQuestion(): ?Question
     {
@@ -238,7 +238,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Return true, if given Question contains in $this->questions
-     * @param \Wacon\Simplequiz\Domain\Model\Question $questionToSearchFor
+     * @param \Wacon\Mctest\Domain\Model\Question $questionToSearchFor
      * @return bool
      */
     public function containInQuestions(Question $questionToSearchFor): bool
@@ -324,7 +324,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Return true, if given Answer contains in $this->selectedAnswer
-     * @param \Wacon\Simplequiz\Domain\Model\Answer $answerToSearchFor
+     * @param \Wacon\Mctest\Domain\Model\Answer $answerToSearchFor
      * @return bool
      */
     public function containInSelectedAnswer(Answer $answerToSearchFor): bool

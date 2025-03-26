@@ -1,1 +1,1 @@
-@import 'EXT:simplequiz/Configuration/TypoScript/Backend/setup.typoscript'
+@import 'EXT:mctest/Configuration/TypoScript/Backend/setup.typoscript'

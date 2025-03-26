@@ -1,5 +1,5 @@
 {
-    "name": "wacon/simplequiz",
+    "name": "wacon/mctest",
     "type": "typo3-cms-extension",
     "description": "Single and multiple-choice tests to improve user experience (UX) and increase visitor dwelling time. Ideal for learning platforms, training sessions, or simply for entertainment.",
     "authors": [
@@ -15,9 +15,9 @@
         }
 	],
     "license": "GPL-2.0-or-later",
-	"version": "3.3.2",
+	"version": "3.4.0",
     "require": {
-        "typo3/cms-core": "^12.4 | ^13.4"
+        "typo3/cms-core": "^12.4 || ^13.4"
     },
     "require-dev": {
         "typo3/testing-framework": "^8.0",
@@ -25,16 +25,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Wacon\\Simplequiz\\": "Classes"
+            "Wacon\\Mctest\\": "Classes"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Wacon\\Simplequiz\\Tests\\": "Tests"
+            "Wacon\\Mctest\\Tests\\": "Tests"
         }
     },
     "replace": {
-        "typo3-ter/simplequiz": "self.version"
+        "typo3-ter/mctest": "self.version"
     },
     "config": {
         "vendor-dir": ".Build/vendor",
@@ -57,7 +57,7 @@
         "typo3/cms": {
             "app-dir": ".Build",
             "web-dir": ".Build/Web",
-            "extension-key": "simplequiz"
+            "extension-key": "mctest"
         }
     }
 }

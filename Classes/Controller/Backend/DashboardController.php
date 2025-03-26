@@ -15,7 +15,7 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Wacon\Simplequiz\Controller\Backend;
+namespace Wacon\Mctest\Controller\Backend;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Backend\Attribute\AsController;
@@ -23,14 +23,14 @@ use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use Wacon\Simplequiz\Controller\BaseActionController;
-use Wacon\Simplequiz\Domain\Repository\QuizSessionRepository;
-use Wacon\Simplequiz\Domain\Statistic\DashboardStatistic;
+use Wacon\Mctest\Controller\BaseActionController;
+use Wacon\Mctest\Domain\Repository\QuizSessionRepository;
+use Wacon\Mctest\Domain\Statistic\DashboardStatistic;
 
 #[AsController]
 final class DashboardController extends BaseActionController
 {
-    protected $extensionKey = 'simplequiz';
+    protected $extensionKey = 'mctest';
 
     public function __construct(
         private readonly ModuleTemplateFactory $moduleTemplateFactory,

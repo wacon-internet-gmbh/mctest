@@ -1,6 +1,6 @@
 <html
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
+    xmlns:sq="http://typo3.org/ns/Wacon/Mctest/ViewHelpers"
     data-namespace-typo3-fluid="true">
     <f:layout name="Default" />
 
@@ -9,7 +9,7 @@
             <f:render partial="Form/QuestionResult" arguments="{riddler: riddler}" />
             <sq:riddler.incrementStep />
             <div class="form-buttons">
-                <button class="btn btn-primary btn-nextstep"><f:translate key="simplequiz.next_step" extensionName="simplequiz" /></button>
+                <button class="btn btn-primary btn-nextstep"><f:translate key="mctest.next_step" extensionName="mctest" /></button>
             </div>
         </f:form>
     </f:section>

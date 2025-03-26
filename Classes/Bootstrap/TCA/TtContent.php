@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 extension: simplequiz.
+ * This file is part of the TYPO3 extension: mctest.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -15,11 +15,11 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Wacon\Simplequiz\Bootstrap\TCA;
+namespace Wacon\Mctest\Bootstrap\TCA;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-use Wacon\Simplequiz\Bootstrap\Base;
+use Wacon\Mctest\Bootstrap\Base;
 
 class TtContent extends Base
 {
@@ -38,8 +38,8 @@ class TtContent extends Base
     {
         $pluginSignature = ExtensionUtility::registerPlugin(
             $this->getExtensionKeyAsNamespace(),
-            'Simplequiz',
-            $this->getLLL('locallang_plugins.xlf:simplequiz.title'),
+            'Mctest',
+            $this->getLLL('locallang_plugins.xlf:mctest.title'),
         );
 
         $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'pages,recursive';
@@ -47,7 +47,7 @@ class TtContent extends Base
 
         ExtensionManagementUtility::addPiFlexFormValue(
             $pluginSignature,
-            $this->getFlexformPath('Simplequiz.xml')
+            $this->getFlexformPath('Mctest.xml')
         );
     }
 }

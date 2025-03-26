@@ -7,8 +7,8 @@ PageTypeSuffix:
       '.json': 20240902
   SimpleQuiz:
     type: Extbase
-    extension: Simplequiz
-    plugin: Simplequiz
+    extension: Mctest
+    plugin: Mctest
     defaultController: Quiz::show
     routes:
       - routePath: '/'

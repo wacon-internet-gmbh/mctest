@@ -1,21 +1,21 @@
-plugin.tx_simplequiz_simplequiz {
+plugin.tx_mctest_mctest {
     view {
-        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template root (FE)
-        templateRootPath = EXT:simplequiz/Resources/Private/Templates/
-        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template partials (FE)
-        partialRootPath = EXT:simplequiz/Resources/Private/Partials/
-        # cat=plugin.tx_simplequiz_simplequiz/file; type=string; label=Path to template layouts (FE)
-        layoutRootPath = EXT:simplequiz/Resources/Private/Layouts/
+        # cat=plugin.tx_mctest_mctest/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:mctest/Resources/Private/Templates/
+        # cat=plugin.tx_mctest_mctest/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:mctest/Resources/Private/Partials/
+        # cat=plugin.tx_mctest_mctest/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:mctest/Resources/Private/Layouts/
     }
 
     persistence {
-      # cat=plugin.tx_simplequiz_simplequiz/persistence/storagePid; type=int+; label=Persistence: Storage Page
+      # cat=plugin.tx_mctest_mctest/persistence/storagePid; type=int+; label=Persistence: Storage Page
       storagePid =
     }
 
     settings {
       pageTypes {
-        # cat=plugin.tx_simplequiz_simplequiz/settings/pageTypes; type=int+; label=Page Type: Solving
+        # cat=plugin.tx_mctest_mctest/settings/pageTypes; type=int+; label=Page Type: Solving
         solving = 20240902
       }
     }

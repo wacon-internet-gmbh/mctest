@@ -1,13 +1,13 @@
-module.tx_simplequiz_web_simplequiz_dashboard {
+module.tx_mctest_web_mctest_dashboard {
     view {
       templateRootPaths {
-        0 = EXT:simplequiz/Resources/Private/Templates/Backend/
+        0 = EXT:mctest/Resources/Private/Templates/Backend/
       }
       partialRootPaths {
-        0 = EXT:simplequiz/Resources/Private/Partials/Backend/
+        0 = EXT:mctest/Resources/Private/Partials/Backend/
       }
       layoutRootPaths {
-        0 = EXT:simplequiz/Resources/Private/Layouts/Backend/
+        0 = EXT:mctest/Resources/Private/Layouts/Backend/
       }
     }
 }

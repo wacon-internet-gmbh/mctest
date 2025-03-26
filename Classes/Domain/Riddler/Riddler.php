@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -11,17 +11,17 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-namespace Wacon\Simplequiz\Domain\Riddler;
+namespace Wacon\Mctest\Domain\Riddler;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
-use Wacon\Simplequiz\Domain\Model\Answer;
-use Wacon\Simplequiz\Domain\Model\Question;
-use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Domain\Repository\AnswerRepository;
-use Wacon\Simplequiz\Domain\Repository\QuestionRepository;
-use Wacon\Simplequiz\Domain\Repository\QuizRepository;
-use Wacon\Simplequiz\Domain\Utility\QuizUtility;
+use Wacon\Mctest\Domain\Model\Answer;
+use Wacon\Mctest\Domain\Model\Question;
+use Wacon\Mctest\Domain\Model\QuizSession;
+use Wacon\Mctest\Domain\Repository\AnswerRepository;
+use Wacon\Mctest\Domain\Repository\QuestionRepository;
+use Wacon\Mctest\Domain\Repository\QuizRepository;
+use Wacon\Mctest\Domain\Utility\QuizUtility;
 
 class Riddler
 {
@@ -57,7 +57,7 @@ class Riddler
 
     /**
      * Init the riddler
-     * @param \Wacon\Simplequiz\Domain\Model\QuizSession $quizSession
+     * @param \Wacon\Mctest\Domain\Model\QuizSession $quizSession
      * @return self
      */
     public function init(QuizSession $quizSession, array $settings)
@@ -80,6 +80,7 @@ class Riddler
         $totalQuestionsCount = $questions->count();
         $selectedQuestions = [];
         $generatedNumbers = [];
+        $cacheSelectedQuestionIndexes = [];
 
         for ($i = 0; $i < $amountOfQuestions; $i++) {
             $randomQuestionIndex = $this->getUniqueRandomNumber(0, $totalQuestionsCount - 1, $generatedNumbers);

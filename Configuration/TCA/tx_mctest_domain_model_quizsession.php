@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz_session',
+        'title' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_quiz_session',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -11,7 +11,7 @@ return [
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
         'searchFields' => 'session_key',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
+        'iconfile' => 'EXT:mctest/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -37,8 +37,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_simplequiz_domain_model_quizsession',
-                'foreign_table_where' => 'AND {#tx_simplequiz_domain_model_quizsession}.{#pid}=###CURRENT_PID### AND {#tx_simplequiz_domain_model_quizsession}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_mctest_domain_model_quizsession',
+                'foreign_table_where' => 'AND {#tx_mctest_domain_model_quizsession}.{#pid}=###CURRENT_PID### AND {#tx_mctest_domain_model_quizsession}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -48,7 +48,7 @@ return [
         ],
         'name' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz_session.name',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_quiz_session.name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -59,8 +59,8 @@ return [
         ],
         'data' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz_session.data',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz_session.data.description',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_quiz_session.data',
+            'description' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_quiz_session.data.description',
             'config' => [
                 'type' => 'json',
                 'eval' => 'trim',
@@ -70,10 +70,10 @@ return [
         ],
         'quiz' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_quiz',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_quiz',
             'config' => [
                 'type' => 'group',
-                'allowed' => 'tx_simplequiz_domain_model_quiz',
+                'allowed' => 'tx_mctest_domain_model_quiz',
                 'maxitems' => 1,
                 'size' => 1
             ],

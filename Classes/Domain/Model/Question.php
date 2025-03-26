@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Domain\Model;
+namespace Wacon\Mctest\Domain\Model;
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -26,7 +26,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * rightAnswer
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Answer>
      */
     protected $answers;
 
@@ -62,7 +62,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get rightAnswer
      *
-     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer>
+     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Answer>
      */
     public function getAnswers()
     {
@@ -72,7 +72,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set rightAnswer
      *
-     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Answer> $answers
+     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Answer> $answers
      *
      * @return  self
      */
@@ -85,7 +85,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Add a Answer
-     * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
+     * @param \Wacon\Mctest\Domain\Model\Answer $answer
      * @return self;
      */
     public function addAnswer(Answer $answer)
@@ -96,7 +96,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Remove a Answer
-     * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
+     * @param \Wacon\Mctest\Domain\Model\Answer $answer
      * @return self
      */
     public function removeAnswer(Answer $answer): self

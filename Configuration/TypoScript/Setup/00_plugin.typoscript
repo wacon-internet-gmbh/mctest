@@ -1,14 +1,14 @@
-plugin.tx_simplequiz_simplequiz {
+plugin.tx_mctest_mctest {
     view {
-        templateRootPaths.0 = EXT:simplequiz/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_simplequiz_simplequiz.view.templateRootPath}
-        partialRootPaths.0 = EXT:simplequiz/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_simplequiz_simplequiz.view.partialRootPath}
-        layoutRootPaths.0 = EXT:simplequiz/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_simplequiz_simplequiz.view.layoutRootPath}
+        templateRootPaths.0 = EXT:mctest/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_mctest_mctest.view.templateRootPath}
+        partialRootPaths.0 = EXT:mctest/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_mctest_mctest.view.partialRootPath}
+        layoutRootPaths.0 = EXT:mctest/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_mctest_mctest.view.layoutRootPath}
     }
     persistence {
-      storagePid = {$plugin.tx_simplequiz_simplequiz.persistence.storagePid}
+      storagePid = {$plugin.tx_mctest_mctest.persistence.storagePid}
     }
     features {
         #skipDefaultArguments = 1
@@ -17,7 +17,7 @@ plugin.tx_simplequiz_simplequiz {
     }
     settings {
       pageTypes {
-        solving = {$plugin.tx_simplequiz_simplequiz.settings.pageTypes.solving}
+        solving = {$plugin.tx_mctest_mctest.settings.pageTypes.solving}
       }
     }
 }

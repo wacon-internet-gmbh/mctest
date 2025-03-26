@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 return [
-    'simplequiz-plugin-simplequiz' => [
+    'mctest-plugin-mctest' => [
         'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        'source' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg'
+        'source' => 'EXT:mctest/Resources/Public/Icons/Extension.svg'
     ],
 ];

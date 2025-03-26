@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -11,12 +11,12 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-namespace Wacon\Simplequiz\Domain\Statistic;
+namespace Wacon\Mctest\Domain\Statistic;
 
-use Wacon\Simplequiz\Domain\Model\Quiz;
-use Wacon\Simplequiz\Domain\Model\QuizSession;
-use Wacon\Simplequiz\Domain\Utility\QuizUtility;
-use Wacon\Simplequiz\Utility\MathUtility;
+use Wacon\Mctest\Domain\Model\Quiz;
+use Wacon\Mctest\Domain\Model\QuizSession;
+use Wacon\Mctest\Domain\Utility\QuizUtility;
+use Wacon\Mctest\Utility\MathUtility;
 
 class DashboardStatistic
 {
@@ -104,7 +104,7 @@ class DashboardStatistic
 
     /**
      * Parse a QuizSession and return parsed data as array
-     * @param \Wacon\Simplequiz\Domain\Model\QuizSession $quizSession
+     * @param \Wacon\Mctest\Domain\Model\QuizSession $quizSession
      * @param int $sessionCount
      * @param int $questionsCount
      * @param int $correctAnsweredQuestions
@@ -159,7 +159,7 @@ class DashboardStatistic
 
     /**
      * Return statistics for a specific quiz
-     * @param \Wacon\Simplequiz\Domain\Model\Quiz $quiz
+     * @param \Wacon\Mctest\Domain\Model\Quiz $quiz
      * @return array
      */
     public function getStatisticsForQuiz(Quiz $quiz): array

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Domain\Repository;
+namespace Wacon\Mctest\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
-use Wacon\Simplequiz\Domain\Model\Answer;
+use Wacon\Mctest\Domain\Model\Answer;
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -23,7 +23,7 @@ class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
      * Find one question record by answer
-     * @param \Wacon\Simplequiz\Domain\Model\Answer $answer
+     * @param \Wacon\Mctest\Domain\Model\Answer $answer
      * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
      */
     public function findOneByAnswer(Answer $answer): QueryResult

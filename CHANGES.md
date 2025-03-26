@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0]
+- [IMPORTANT] No code changes, but rename extension from simplequiz to mctest. It is important to rename the db tables manually, Re-assign TypoScript Static File
+
 ## [3.3.2]
 - [BUGFIX] Workaround for TYPO3 12 in QuizSessionValidator to access session data
 
@@ -124,7 +127,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [dev-2.0.0-1]
 - [IMPORTANT] Rework all model to comply to the relational database model
 - [IMPORTANT] Rework TCA inclusion
-- [FEATURE] Add Flexform for Simplequiz Plugin
+- [FEATURE] Add Flexform for Mctest Plugin
 - [FEATURE] Rework ext_localconf and ext_tables.php
 
 ## [dev-2.0.0-0]
@@ -133,4 +136,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-03-31
 
 ### Features
-- First release of EXT:simplequiz
+- First release of EXT:mctest

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_plugins.xlf" date="2024-09-02T09:20:51Z" product-name="simplequiz">
+    <file source-language="en" datatype="plaintext" original="EXT:mctest/Resources/Private/Language/locallang_plugins.xlf" date="2024-09-02T09:20:51Z" product-name="mctest">
         <header/>
         <body>
-		<trans-unit id="simplequiz.quiz" resname="simplequiz.quiz">
+		<trans-unit id="mctest.quiz" resname="mctest.quiz">
 				<source>Quiz</source>
 			</trans-unit>
-			<trans-unit id="simplequiz.amountOfQuestions" resname="simplequiz.amountOfQuestions">
+			<trans-unit id="mctest.amountOfQuestions" resname="mctest.amountOfQuestions">
 				<source>Amount of questions</source>
 			</trans-unit>
-			<trans-unit id="simplequiz.quizType" resname="simplequiz.quizType">
+			<trans-unit id="mctest.quizType" resname="mctest.quizType">
 				<source>Quiz Type</source>
 			</trans-unit>
-			<trans-unit id="simplequiz.quizType.I.single" resname="simplequiz.quizType.I.single">
+			<trans-unit id="mctest.quizType.I.single" resname="mctest.quizType.I.single">
 				<source>Single choice</source>
 			</trans-unit>
-			<trans-unit id="simplequiz.quizType.I.multiple" resname="simplequiz.quizType.I.multiple">
+			<trans-unit id="mctest.quizType.I.multiple" resname="mctest.quizType.I.multiple">
 				<source>Multiple choice</source>
 			</trans-unit>
         </body>

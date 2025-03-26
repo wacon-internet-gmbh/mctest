@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang_mod.xlf" date="2024-09-05T09:21:42Z" product-name="simplequiz">
+	<file source-language="en" datatype="plaintext" original="EXT:mctest/Resources/Private/Language/locallang_mod.xlf" date="2024-09-05T09:21:42Z" product-name="mctest">
 		<header/>
 		<body>
 			<trans-unit id="mlang_tabs_tab" resname="mlang_tabs_tab">
-				<source>Simple Quiz</source>
+				<source>McTest</source>
 			</trans-unit>
 			<trans-unit id="mlang_labels_tabdescr" resname="mlang_labels_tabdescr">
-				<source>Dashboard module for wacon/simplequiz extension.</source>
+				<source>Dashboard module for wacon/mctest extension.</source>
 			</trans-unit>
 			<trans-unit id="mlang_labels_tablabel" resname="mlang_tabs_tab">
-				<source>Module for wacon/simplequiz extension.</source>
+				<source>Module for wacon/mctest extension.</source>
 			</trans-unit>
 		</body>
 	</file>

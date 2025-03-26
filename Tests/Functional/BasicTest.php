@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Tests\Functional;
+namespace Wacon\Mctest\Tests\Functional;
 
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -17,7 +17,7 @@ class BasicTest extends FunctionalTestCase
      * @var array
      */
     protected $testExtensionsToLoad = [
-        'typo3conf/ext/simplequiz',
+        'typo3conf/ext/mctest',
     ];
 
     /**

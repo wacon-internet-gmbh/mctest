@@ -6,7 +6,7 @@ class Riddler
 
   initQuizzes() {
     let cObj = this;
-    document.querySelectorAll('.tx-simplequiz-ajax').forEach((element) => {
+    document.querySelectorAll('.tx-mctest-ajax').forEach((element) => {
       // Avoid multiple init on one quiz
       if (element.hasAttribute('data-quizinit') && element.getAttribute('data-quizinit') == 'true') {
         return;

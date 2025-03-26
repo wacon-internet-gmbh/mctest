@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Wacon\Simplequiz\Domain\Model;
+namespace Wacon\Mctest\Domain\Model;
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -26,7 +26,7 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Questions
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Question>
      */
     protected $questions;
 
@@ -61,7 +61,7 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get questions
      *
-     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>
+     * @return  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Question>
      */
     public function getQuestions()
     {
@@ -71,7 +71,7 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set questions
      *
-     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Simplequiz\Domain\Model\Question>  $questions
+     * @param  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Wacon\Mctest\Domain\Model\Question>  $questions
      *
      * @return  self
      */
@@ -84,7 +84,7 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Add a Question
-     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @param \Wacon\Mctest\Domain\Model\Question $question
      * @return self
      */
     public function addQuestion(Question $question)
@@ -95,7 +95,7 @@ class Quiz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Remove a Question
-     * @param \Wacon\Simplequiz\Domain\Model\Question $question
+     * @param \Wacon\Mctest\Domain\Model\Question $question
      * @return self
      */
     public function removeQuestion(Question $question)

@@ -5,14 +5,14 @@
         <div class="quiz-complete">
             <f:if condition="{statistic}">
                 <f:then>
-                    <p><f:translate key="plugin.simplequiz.complete.intro" extensionName="simplequiz" /></p>
-                    <p><strong><f:translate key="plugin.simplequiz.complete.result" extensionName="simplequiz" arguments="{0: '{statistic.get.quiz.percentageCorrect} %'}"/></strong></p>
+                    <p><f:translate key="plugin.mctest.complete.intro" extensionName="mctest" /></p>
+                    <p><strong><f:translate key="plugin.mctest.complete.result" extensionName="mctest" arguments="{0: '{statistic.get.quiz.percentageCorrect} %'}"/></strong></p>
                     <f:if condition="{statistic.dashboardStatistic.quizSessions}">
-                        <p><f:translate key="plugin.simplequiz.complete.result.overall" extensionName="simplequiz" arguments="{0: '{statistic.statisticForUserQuiz.percentageCorrect} %'}"/></p>
+                        <p><f:translate key="plugin.mctest.complete.result.overall" extensionName="mctest" arguments="{0: '{statistic.statisticForUserQuiz.percentageCorrect} %'}"/></p>
                     </f:if>
                 </f:then>
                 <f:else>
-                    <p><f:translate key="plugin.simplequiz.complete.nostatistic" extensionName="simplequiz" /></p>
+                    <p><f:translate key="plugin.mctest.complete.nostatistic" extensionName="mctest" /></p>
                 </f:else>
             </f:if>
         </div>

@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:simplequiz/Resources/Private/Language/locallang.xlf" date="2024-01-16T09:21:42Z" product-name="simplequiz">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:mctest/Resources/Private/Language/locallang.xlf" date="2024-01-16T09:21:42Z" product-name="mctest">
 		<header/>
 		<body>
-			<trans-unit id="simplequiz.legend" resname="simplequiz.legend">
+			<trans-unit id="mctest.legend" resname="mctest.legend">
 				<target>Frage %s von %s</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.start_quiz" resname="simplequiz.start_quiz">
+			<trans-unit id="mctest.start_quiz" resname="mctest.start_quiz">
 				<target>Quiz starten</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.next_step" resname="simplequiz.next_step">
+			<trans-unit id="mctest.next_step" resname="mctest.next_step">
 				<target>Nächste</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.complete" resname="simplequiz.complete">
+			<trans-unit id="mctest.complete" resname="mctest.complete">
 				<target>Komplett</target>
 			</trans-unit>
 
-			<trans-unit id="simplequiz.answer.correct" resname="simplequiz.answer.correct">
+			<trans-unit id="mctest.answer.correct" resname="mctest.answer.correct">
 				<target>Richtig</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.answers.correct" resname="simplequiz.answers.correct">
+			<trans-unit id="mctest.answers.correct" resname="mctest.answers.correct">
 				<target>Alle Antworten sind korrekt</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.answer.incorrect" resname="simplequiz.answer.incorrect">
+			<trans-unit id="mctest.answer.incorrect" resname="mctest.answer.incorrect">
 				<target>Die Antwort ist leider falsch.</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.answers.incorrect" resname="simplequiz.answers.incorrect">
+			<trans-unit id="mctest.answers.incorrect" resname="mctest.answers.incorrect">
 				<target>Mindestens eine Antwort ist leider falsch.</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.correct_answer.info" resname="simplequiz.correct_answer.info">
+			<trans-unit id="mctest.correct_answer.info" resname="mctest.correct_answer.info">
 				<target>Die richtige Antwort lautet...</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.correct_answers.info" resname="simplequiz.correct_answers.info">
+			<trans-unit id="mctest.correct_answers.info" resname="mctest.correct_answers.info">
 				<target>Die richtigen Antworten lauten...</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.furtherinformation" resname="simplequiz.furtherinformation">
+			<trans-unit id="mctest.furtherinformation" resname="mctest.furtherinformation">
 				<target>Hinweis</target>
 			</trans-unit>
-			<trans-unit id="simplequiz.quizType" resname="simplequiz.quizType">
+			<trans-unit id="mctest.quizType" resname="mctest.quizType">
 				<target>Quiz Typ</target>
 			</trans-unit>
 
-			<trans-unit id="plugin.simplequiz.complete.nostatistic" resname="plugin.simplequiz.complete.nostatistic">
+			<trans-unit id="plugin.mctest.complete.nostatistic" resname="plugin.mctest.complete.nostatistic">
 				<target>Deine Quiz Session ist abgelaufen.</target>
 			</trans-unit>
-			<trans-unit id="plugin.simplequiz.complete.intro" resname="plugin.simplequiz.complete.intro">
+			<trans-unit id="plugin.mctest.complete.intro" resname="plugin.mctest.complete.intro">
 				<target>Gratulation, du hast das Quiz beendet.</target>
 			</trans-unit>
-			<trans-unit id="plugin.simplequiz.complete.result" resname="plugin.simplequiz.complete.result">
+			<trans-unit id="plugin.mctest.complete.result" resname="plugin.mctest.complete.result">
 				<target>Du hast %s Fragen richtig beantwort.</target>
 			</trans-unit>
-			<trans-unit id="plugin.simplequiz.complete.result.overall" resname="plugin.simplequiz.complete.result.overall">
+			<trans-unit id="plugin.mctest.complete.result.overall" resname="plugin.mctest.complete.result.overall">
 				<target>Durchschnittlich werden %s Fragen zu diesem Quiz richtig beantwortet.</target>
 			</trans-unit>
 		</body>

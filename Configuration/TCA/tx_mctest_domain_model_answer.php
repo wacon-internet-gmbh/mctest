@@ -1,8 +1,8 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question',
-        'label' => 'question',
+        'title' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer',
+        'label' => 'answer',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'versioningWS' => true,
@@ -15,15 +15,15 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'text',
-        'iconfile' => 'EXT:simplequiz/Resources/Public/Icons/Extension.svg',
+        'searchFields' => 'answer,further_information',
+        'iconfile' => 'EXT:mctest/Resources/Public/Icons/Extension.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
         'hideTable' => true
     ],
     'types' => [
-        '1' => ['showitem' => 'question, answers, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'answer, is_correct, further_information, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -43,8 +43,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_simplequiz_domain_model_question',
-                'foreign_table_where' => 'AND {#tx_simplequiz_domain_model_question}.{#pid}=###CURRENT_PID### AND {#tx_simplequiz_domain_model_question}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_mctest_domain_model_answer',
+                'foreign_table_where' => 'AND {#tx_mctest_domain_model_answer}.{#pid}=###CURRENT_PID### AND {#tx_mctest_domain_model_answer}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -96,29 +96,39 @@ return [
                 ]
             ],
         ],
-        'question' => [
+        'answer' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question.question',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer.answer',
+            'description' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer.answer.description',
             'config' => [
-                'type' => 'input',
+                'type' => 'text',
+                'enableRichtext' => 'true',
+                'rows' => 15,
                 'eval' => 'trim',
-                'default' => '',
-                'required' => true
+                'default' => ''
             ]
         ],
-        'answers' => [
+        'is_correct' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question.answers',
-            'description' => 'LLL:EXT:simplequiz/Resources/Private/Language/locallang_db.xlf:tx_simplequiz_domain_model_question.answers.description',
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer.is_correct',
             'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_simplequiz_domain_model_answer',
-                'appearance' => [
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
+                'type' => 'check',
+                'items' => [
+                    ['label' => ''],
                 ],
-                'minitems' => 2
+                'default' => 0,
+            ]
+        ],
+        'further_information' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer.further_information',
+            'description' => 'LLL:EXT:mctest/Resources/Private/Language/locallang_db.xlf:tx_mctest_domain_model_answer.further_information.description',
+            'config' => [
+                'type' => 'text',
+                'enableRichtext' => 'true',
+                'rows' => 15,
+                'eval' => 'trim',
+                'default' => ''
             ],
         ],
     ],

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the "Simplequiz" Extension for TYPO3 CMS.
+ * This file is part of the "Mctest" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -11,9 +11,9 @@ declare(strict_types=1);
  * (c) 2024 Kevin Chileong Lee <info@wacon.de>, Wacon Internet GmbH
  */
 
-namespace Wacon\Simplequiz\Controller;
+namespace Wacon\Mctest\Controller;
 
 class BaseActionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-    protected $extensionKey = 'simplequiz';
+    protected $extensionKey = 'mctest';
 }
