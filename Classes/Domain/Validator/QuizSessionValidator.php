@@ -25,6 +25,12 @@ class QuizSessionValidator extends AbstractValidator
 
     public function isValid(mixed $value): void
     {
+        if (!isset($this->request)) {
+            $request = $GLOBALS['TYPO3_REQUEST'];
+        } else {
+            $request = $this->request;
+        }
+
         /**
          * @var \Wacon\Simplequiz\Domain\Model\QuizSession $quizSession
          */
@@ -32,12 +38,12 @@ class QuizSessionValidator extends AbstractValidator
 
         $riddler = GeneralUtility::makeInstance(Riddler::class);
 
-        if (!Riddler::hasSession($this->request->getAttribute('frontend.user'))) {
+        if (!Riddler::hasSession($request->getAttribute('frontend.user'))) {
             $this->addError(LocalizationUtility::translate('validation.quizsession.session', $this->extensionKey), time());
         }
 
-        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), $quizSession);
-        $riddler->storeSessionData($this->request->getAttribute('frontend.user'));
+        $riddler->recreateFromSession($request->getAttribute('frontend.user'), $quizSession);
+        $riddler->storeSessionData($request->getAttribute('frontend.user'));
 
         if (\count($riddler->getSelectedAnswersOfCurrentQuestion()) == 0) {
             $this->addError(LocalizationUtility::translate('validation.quizsession.selectedAnswers', $this->extensionKey), time());
