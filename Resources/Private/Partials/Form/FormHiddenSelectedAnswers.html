@@ -2,6 +2,7 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:sq="http://typo3.org/ns/Wacon/Simplequiz/ViewHelpers"
     data-namespace-typo3-fluid="true">
+    <f:cache.disable />
     <f:for each="{selectedAnswers}" as="answer" key="questionId">
         <sq:isArray value="{answer}">
             <f:then>
