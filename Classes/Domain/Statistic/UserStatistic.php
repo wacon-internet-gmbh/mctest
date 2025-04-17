@@ -93,6 +93,11 @@ class UserStatistic
                 if ($questionId != $question->getUid()) {
                     continue;
                 }
+
+                if (!is_array($selectedAnswerIds)) {
+                    $selectedAnswerIds = [$selectedAnswerIds];
+                }
+
                 if (QuizUtility::isQuestionAnsweredCorrectly($question, $selectedAnswerIds)) {
                     $amountOfCorrectlyAnsweredQuestions++;
                 }

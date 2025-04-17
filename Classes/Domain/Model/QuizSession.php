@@ -318,6 +318,8 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                         $flatArray[] = $answer;
                     }
                 }
+            } else {
+                $flatArray[] = $answers;
             }
         }
 
@@ -390,6 +392,10 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             foreach ($this->selectedAnswers as $questionId => $answerIds) {
                 if ($questionId != $question->getUid()) {
                     continue;
+                }
+
+                if (!is_array($answerIds)) {
+                    $answerIds = [$answerIds];
                 }
 
                 foreach ($answerIds as $answerId) {
