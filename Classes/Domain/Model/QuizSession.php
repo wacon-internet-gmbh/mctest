@@ -267,8 +267,10 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getSelectedAnswersForCurrentQuestion(): array
     {
-        if (\array_key_exists($this->getCurrentQuestion()->getUid(), $this->selectedAnswers) && is_array($this->selectedAnswers[$this->getCurrentQuestion()->getUid()])) {
-            return $this->selectedAnswers[$this->getCurrentQuestion()->getUid()];
+        $currentQuestion = $this->getCurrentQuestion();
+
+        if (\array_key_exists($currentQuestion->getUid(), $this->selectedAnswers)) {
+            return is_array($this->selectedAnswers[$currentQuestion->getUid()]) ? $this->selectedAnswers[$currentQuestion->getUid()] : [$this->selectedAnswers[$currentQuestion->getUid()]];
         }
 
         return [];

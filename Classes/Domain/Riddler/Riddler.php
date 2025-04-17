@@ -15,7 +15,6 @@ namespace Wacon\Mctest\Domain\Riddler;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
-use Wacon\Mctest\Domain\Model\Answer;
 use Wacon\Mctest\Domain\Model\Question;
 use Wacon\Mctest\Domain\Model\QuizSession;
 use Wacon\Mctest\Domain\Repository\AnswerRepository;
