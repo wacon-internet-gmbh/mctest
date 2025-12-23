@@ -269,8 +269,8 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $currentQuestion = $this->getCurrentQuestion();
 
-        if (\array_key_exists($currentQuestion->getUid(), $this->selectedAnswers)) {
-            return is_array($this->selectedAnswers[$currentQuestion->getUid()]) ? $this->selectedAnswers[$currentQuestion->getUid()] : [$this->selectedAnswers[$currentQuestion->getUid()]];
+        if (\array_key_exists('q_' . $currentQuestion->getUid(), $this->selectedAnswers)) {
+            return is_array($this->selectedAnswers['q_' . $currentQuestion->getUid()]) ? $this->selectedAnswers['q_' . $currentQuestion->getUid()] : [$this->selectedAnswers['q_' . $currentQuestion->getUid()]];
         }
 
         return [];
@@ -390,7 +390,7 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             ];
 
             foreach ($this->selectedAnswers as $questionId => $answerIds) {
-                if ($questionId != $question->getUid()) {
+                if ($questionId != 'q_' . $question->getUid()) {
                     continue;
                 }
 
@@ -465,9 +465,13 @@ class QuizSession extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         // Example data
         // {"quiz":1,"report":{"question":{"uid":2,"question":"Frage 1"},"selectedAnswers":[{"uid":4,"answer":"<p>Antwort 2<\/p>","isCorrect":true}]}}
-        $report = \json_decode($this->data, true);
+        $report = \json_decode($this->data, true, 512, \JSON_OBJECT_AS_ARRAY);
 
-        if (empty($report)) {
+        if (is_string($report)) {
+            $report = \json_decode($report, true, 512, \JSON_OBJECT_AS_ARRAY);
+        }
+
+        if (empty($report) || !\is_array($report) || !\array_key_exists('quiz', $report) || !\array_key_exists('records', $report)) {
             return $this;
         }
 

@@ -397,10 +397,10 @@ class Riddler
         foreach ($answers as $answer) {
             if (
                 (
-                    \in_array($answer->getUid(), $selectedAnswers) && !$answer->isCorrect()
+                    \in_array('q_' . $answer->getUid(), $selectedAnswers) && !$answer->isCorrect()
                 ) ||
                 (
-                    !\in_array($answer->getUid(), $selectedAnswers) && $answer->isCorrect()
+                    !\in_array('q_' . $answer->getUid(), $selectedAnswers) && $answer->isCorrect()
                 )
             ) {
                 $incorrectAnswers[] = $answer;

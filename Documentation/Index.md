@@ -29,3 +29,6 @@ Execute the DB Analyzer inisde the Admin Tools -> Maintenance module
 
 ### Routes
 Example route configuration for config.yaml of your site configuration can be found [here](Routes.md).
+
+## Upgrade
+[see](Upgrade.md)

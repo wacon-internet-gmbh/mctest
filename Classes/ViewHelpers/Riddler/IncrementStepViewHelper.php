@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Wacon\Mctest\ViewHelpers\Riddler;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use Wacon\Mctest\Domain\Riddler\Riddler;
@@ -20,13 +21,23 @@ use Wacon\Mctest\Domain\Riddler\Riddler;
 class IncrementStepViewHelper extends AbstractViewHelper
 {
     public function render(): string {
+        $request = $this->getRequest();
+
         // increment step
         $riddler = GeneralUtility::makeInstance(Riddler::class);
-        $riddler->recreateFromSession($this->getRenderingContext()->getRequest()->getAttribute('frontend.user'));
+        $riddler->recreateFromSession($request->getAttribute('frontend.user'), null);
         $riddler->incrementStep();
         $riddler->setCurrentStep();
-        $riddler->storeSessionData($this->getRenderingContext()->getRequest()->getAttribute('frontend.user'));
+        $riddler->storeSessionData($request->getAttribute('frontend.user'));
 
         return $this->renderChildren() ?? '';
+    }
+
+    private function getRequest(): ServerRequestInterface|null
+    {
+        if ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            return $this->renderingContext->getAttribute(ServerRequestInterface::class);
+        }
+        return null;
     }
 }

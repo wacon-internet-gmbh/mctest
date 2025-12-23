@@ -32,27 +32,6 @@ class QuizController extends BaseActionController
         private readonly AnswerRepository $answerRepository
     ) {}
 
-    public function initializeAction(): void
-    {
-        if ($this->arguments->hasArgument('selectedAnswers')) {
-            $mainConfig = $this->arguments->getArgument('selectedAnswers')->getPropertyMappingConfiguration();
-            $subConfig = $mainConfig->forProperty('selectedAnswers');
-            $subConfig->allowAllProperties();
-            $rawArguments = $this->request->getArguments();
-
-            if (isset($rawArguments['selectedAnswers']['selectedAnswers'])
-                && is_array($rawArguments['selectedAnswers']['selectedAnswers'])) {
-
-                $innerList = $rawArguments['selectedAnswers']['selectedAnswers'];
-
-                foreach ($innerList as $key => $data) {
-                    // Convert keys from int to string which is necessary for property mapping
-                    $subConfig->forProperty((string)$key)->allowAllProperties();
-                }
-            }
-        }
-    }
-
     /**
      * action index
      *
@@ -169,7 +148,7 @@ class QuizController extends BaseActionController
             ]));
         }
 
-        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'));
+        $riddler->recreateFromSession($this->request->getAttribute('frontend.user'), null);
         $quizSession = $riddler->getQuizSession();
         $quizSession->finalizeForDBStorage();
 
