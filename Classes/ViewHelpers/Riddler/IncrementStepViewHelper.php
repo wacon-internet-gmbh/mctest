@@ -34,7 +34,11 @@ class IncrementStepViewHelper extends AbstractViewHelper
         return $this->renderChildren() ?? '';
     }
 
-    private function getRequest(): ServerRequestInterface|null
+    /**
+     * Get the current request
+     * @return ServerRequestInterface|null
+     */
+    private function getRequest(): ?ServerRequestInterface
     {
         if ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
             return $this->renderingContext->getAttribute(ServerRequestInterface::class);

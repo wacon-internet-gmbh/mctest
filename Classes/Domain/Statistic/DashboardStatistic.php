@@ -83,11 +83,18 @@ class DashboardStatistic
 
             if (!\array_key_exists($quizSession->getQuiz()->getUid(), $this->statistics['quizzes'])) {
                 [$correctAnsweredQuestions, $incorrectAnsweredQuestions] = QuizUtility::getNumberOfCorrectAndIncorrectAnsweredQuestions($quizSession->getQuestions(), $quizSession->getSelectedAnswers());
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] = self::parseQuizSession($quizSession, 1, \count($quizSession->getSelectedAnswers()), $correctAnsweredQuestions, $incorrectAnsweredQuestions);
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]
+                    = self::parseQuizSession(
+                        $quizSession,
+                        1,
+                        \count($quizSession->getSelectedAnswers()),
+                        $correctAnsweredQuestions,
+                        $incorrectAnsweredQuestions
+                    );
             } else {
                 [$correctAnsweredQuestions, $incorrectAnsweredQuestions] = QuizUtility::getNumberOfCorrectAndIncorrectAnsweredQuestions($quizSession->getQuestions(), $quizSession->getSelectedAnswers());
-                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()] =
-                    self::parseQuizSession(
+                $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]
+                    = self::parseQuizSession(
                         $quizSession,
                         $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['sessionCount'] + 1,
                         $this->statistics['quizzes'][$quizSession->getQuiz()->getUid()]['questionsCount'] + \count($quizSession->getQuestions()),
