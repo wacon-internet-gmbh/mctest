@@ -32,6 +32,27 @@ class QuizController extends BaseActionController
         private readonly AnswerRepository $answerRepository
     ) {}
 
+    public function initializeAction(): void
+    {
+        if ($this->arguments->hasArgument('selectedAnswers')) {
+            $mainConfig = $this->arguments->getArgument('selectedAnswers')->getPropertyMappingConfiguration();
+            $subConfig = $mainConfig->forProperty('selectedAnswers');
+            $subConfig->allowAllProperties();
+            $rawArguments = $this->request->getArguments();
+
+            if (isset($rawArguments['selectedAnswers']['selectedAnswers'])
+                && is_array($rawArguments['selectedAnswers']['selectedAnswers'])) {
+
+                $innerList = $rawArguments['selectedAnswers']['selectedAnswers'];
+
+                foreach ($innerList as $key => $data) {
+                    // Convert keys from int to string which is necessary for property mapping
+                    $subConfig->forProperty((string)$key)->allowAllProperties();
+                }
+            }
+        }
+    }
+
     /**
      * action index
      *
@@ -59,7 +80,7 @@ class QuizController extends BaseActionController
      * @param QuizSession $quizSession
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function solvingAction(QuizSession $quizSession = null): \Psr\Http\Message\ResponseInterface
+    public function solvingAction(?QuizSession $quizSession): \Psr\Http\Message\ResponseInterface
     {
         $riddler = GeneralUtility::makeInstance(Riddler::class);
 

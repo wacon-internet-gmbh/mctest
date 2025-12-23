@@ -14,7 +14,7 @@ page {
 
 pageWaconQuizSolving = PAGE
 pageWaconQuizSolving {
-  typeNum = {$plugin.tx_mctest_mctest.settings.pageTypes.solving}
+  typeNum = {$mctest.pageTypes.solving}
 
   config {
       disableAllHeaderCode = 1
@@ -22,7 +22,7 @@ pageWaconQuizSolving {
       admPanel = 0
    }
 
-  10 < tt_content.list.20.mctest_mctest
+  10 < tt_content.mctest_mctest.20
   10 {
     settings < plugin.tx_mctest_mctest.settings
     settings {

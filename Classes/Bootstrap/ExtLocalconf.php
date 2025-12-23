@@ -43,7 +43,8 @@ class ExtLocalconf extends Base
             ],
             [
                 QuizController::class => 'show,solving,complete,answering',
-            ]
+            ],
+            ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
         );
     }
 }

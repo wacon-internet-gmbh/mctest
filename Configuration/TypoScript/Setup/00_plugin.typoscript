@@ -8,16 +8,14 @@ plugin.tx_mctest_mctest {
         layoutRootPaths.1 = {$plugin.tx_mctest_mctest.view.layoutRootPath}
     }
     persistence {
-      storagePid = {$plugin.tx_mctest_mctest.persistence.storagePid}
+      storagePid = {$mctest.persistence.storagePid}
     }
     features {
-        #skipDefaultArguments = 1
-        # if set to 1, the enable fields are ignored in BE context
         ignoreAllEnableFieldsInBe = 0
     }
     settings {
       pageTypes {
-        solving = {$plugin.tx_mctest_mctest.settings.pageTypes.solving}
+        solving = {$mctest.pageTypes.solving}
       }
     }
 }

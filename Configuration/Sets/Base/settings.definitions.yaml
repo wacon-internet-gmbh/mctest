@@ -1,0 +1,43 @@
+categories:
+  McTest:
+    label: 'McTest'
+  McTest.templates:
+    label: 'Templates'
+    parent: McTest
+  McTest.persistence:
+    label: 'Persistence'
+    parent: McTest
+  McTest.pageTypes:
+    label: 'Page types'
+    parent: McTest
+
+settings:
+  mctest.templates.templateRootPath:  # (5)
+    label: 'Templates' # (3)
+    category: McTest.templates # (2)
+    description: 'Path to template root'  # (4)
+    type: string  # (6)
+    default: 'EXT:mctest/Resources/Private/Templates/'  # (7) + (8)
+  mctest.templates.partialRootPath:
+    label: 'Partials'
+    category: McTest.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:mctest/Resources/Private/Partials/'
+  mctest.templates.layoutRootPath:
+    label: 'Layouts'
+    category: McTest.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:mctest/Resources/Private/Layouts/'
+  mctest.persistence.storagePid:
+    label: 'Storage PID for solving records'
+    category: McTest.persistence
+    type: int
+    default: 0
+  mctest.pageTypes.solving:
+    label: 'Solving page type'
+    category: McTest.pageTypes
+    description: 'typeNum value for solving ajax requests in frontend'
+    type: int
+    default: 20240902

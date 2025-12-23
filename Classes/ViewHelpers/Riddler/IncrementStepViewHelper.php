@@ -14,27 +14,19 @@ declare(strict_types=1);
 namespace Wacon\Mctest\ViewHelpers\Riddler;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 use Wacon\Mctest\Domain\Riddler\Riddler;
 
 class IncrementStepViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ): string {
+    public function render(): string {
         // increment step
         $riddler = GeneralUtility::makeInstance(Riddler::class);
-        $riddler->recreateFromSession($renderingContext->getRequest()->getAttribute('frontend.user'));
+        $riddler->recreateFromSession($this->getRenderingContext()->getRequest()->getAttribute('frontend.user'));
         $riddler->incrementStep();
         $riddler->setCurrentStep();
-        $riddler->storeSessionData($renderingContext->getRequest()->getAttribute('frontend.user'));
+        $riddler->storeSessionData($this->getRenderingContext()->getRequest()->getAttribute('frontend.user'));
 
-        return $renderChildrenClosure() ?? '';
+        return $this->renderChildren() ?? '';
     }
 }

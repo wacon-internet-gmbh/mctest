@@ -159,7 +159,7 @@ class Riddler
      * @param QuizSession $quizSession
      * @throws \RuntimeException
      */
-    public function recreateFromSession(FrontendUserAuthentication $frontendUserAuthentication, QuizSession $quizSession = null)
+    public function recreateFromSession(FrontendUserAuthentication $frontendUserAuthentication, ?QuizSession $quizSession)
     {
         $sessionData = $frontendUserAuthentication->getSessionData(QuizSession::class);
 

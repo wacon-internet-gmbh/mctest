@@ -17,7 +17,7 @@ Execute the DB Analyzer inisde the Admin Tools -> Maintenance module
 
 ### 3. Configure extension
 1. Create a folder with a name of your choice, for example: McTest
-2. Add the TypoScript static file from McTest to your TypoSript records (for instance of your root page)
+2. Add the Site Set from McTest
 3. Create your first quiz in your created folder in step 1 with the list module
 4. Add the McTest frontend plugin on your chosen page
    1. Choose the quiz you have just created

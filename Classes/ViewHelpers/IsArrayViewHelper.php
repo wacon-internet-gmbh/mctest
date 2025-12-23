@@ -14,15 +14,12 @@ declare(strict_types=1);
 namespace Wacon\Mctest\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractConditionViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 class IsArrayViewHelper extends AbstractConditionViewHelper
 {
-    use CompileWithRenderStatic;
-
     protected $escapeChildren = false;
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('value', 'mixed', 'Value to check', false, false);
     }

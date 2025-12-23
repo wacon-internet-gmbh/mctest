@@ -17,17 +17,22 @@ declare(strict_types=1);
 
 namespace Wacon\Mctest\Bootstrap\TCA;
 
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use Wacon\Mctest\Bootstrap\Base;
 
 class TtContent extends Base
 {
+    protected int $typo3MajorVersion = 13;
+
     /**
      * Does the main class purpose
      */
     public function invoke()
     {
+        $this->typo3MajorVersion = GeneralUtility::makeInstance(Typo3Version::class)->getMajorVersion();
         $this->registerPlugins();
     }
 
@@ -36,18 +41,30 @@ class TtContent extends Base
      */
     private function registerPlugins()
     {
-        $pluginSignature = ExtensionUtility::registerPlugin(
-            $this->getExtensionKeyAsNamespace(),
-            'Mctest',
-            $this->getLLL('locallang_plugins.xlf:mctest.title'),
-        );
+        if ($this->typo3MajorVersion >= 14) {
+            $pluginSignature = ExtensionUtility::registerPlugin(
+                $this->getExtensionKeyAsNamespace(),
+                'Mctest',
+                $this->getLLL('locallang_plugins.xlf:mctest.title'),
+                'mctest-plugin-mctest',
+                'plugins',
+                '',
+                $this->getFlexformPath('Mctest.xml')
+            );
+        } else {
+            $pluginSignature = ExtensionUtility::registerPlugin(
+                $this->getExtensionKeyAsNamespace(),
+                'Mctest',
+                $this->getLLL('locallang_plugins.xlf:mctest.title'),
+            );
 
-        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'pages,recursive';
-        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'pages,recursive';
+            $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 
-        ExtensionManagementUtility::addPiFlexFormValue(
-            $pluginSignature,
-            $this->getFlexformPath('Mctest.xml')
-        );
+            ExtensionManagementUtility::addPiFlexFormValue(
+                $pluginSignature,
+                $this->getFlexformPath('Mctest.xml')
+            );
+        }
     }
 }
