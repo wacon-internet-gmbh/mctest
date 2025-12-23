@@ -398,8 +398,8 @@ class Riddler
             if (
                 (
                     \in_array('q_' . $answer->getUid(), $selectedAnswers) && !$answer->isCorrect()
-                ) ||
-                (
+                )
+                || (
                     !\in_array('q_' . $answer->getUid(), $selectedAnswers) && $answer->isCorrect()
                 )
             ) {

@@ -1,20 +1,22 @@
 <?php
 
-$config = \TYPO3\CodingStandards\CsFixerConfig::create();
+use PhpCsFixer\Finder;
+use TYPO3\CodingStandards\CsFixerConfig;
+
+$config = CsFixerConfig::create();
 $config->setHeader(
-    'This file is part of the "filetransfer" Extension for TYPO3 CMS.
+    'This file is part of the "news" Extension for TYPO3 CMS.
 
 For the full copyright and license information, please read the
 LICENSE.txt file that was distributed with this source code.',
     true
 );
 $config->setFinder(
-    (new PhpCsFixer\Finder())
+    (new Finder())
         ->in(realpath(__DIR__ . '/../../'))
         ->ignoreVCSIgnored(true)
         ->notPath('/^.Build\//')
         ->notPath('/^Build\/php-cs-fixer\/php-cs-fixer.php/')
-        ->notPath('/^Build\/Scripts\/runTests.sh/')
         ->notPath('/^Build\/phpunit\/(UnitTestsBootstrap|FunctionalTestsBootstrap).php/')
         ->notPath('/^Configuration\//')
         ->notPath('/^Documentation\//')
@@ -23,21 +25,20 @@ $config->setFinder(
     ->setRiskyAllowed(true)
     ->setRules([
         '@DoctrineAnnotation' => true,
-        '@PER' => true,
+        '@PER-CS' => true,
         'array_syntax' => ['syntax' => 'short'],
         'blank_line_after_opening_tag' => true,
-        'braces' => ['allow_single_line_closure' => true],
         'cast_spaces' => ['space' => 'none'],
-        'compact_nullable_typehint' => true,
+        'compact_nullable_type_declaration' => true,
         'concat_space' => ['spacing' => 'one'],
         'declare_equal_normalize' => ['space' => 'none'],
         'dir_constant' => true,
-        'function_typehint_space' => true,
+        'type_declaration_spaces' => true,
         'lowercase_cast' => true,
         'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
         'modernize_types_casting' => true,
         'native_function_casing' => true,
-        'new_with_braces' => true,
+        'new_with_parentheses' => true,
         'no_alias_functions' => true,
         'no_blank_lines_after_phpdoc' => true,
         'no_empty_phpdoc' => true,
@@ -66,6 +67,9 @@ $config->setFinder(
         'phpdoc_trim' => true,
         'phpdoc_types' => true,
         'phpdoc_types_order' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'],
+        'php_unit_data_provider_static' => [
+            'force' => true,
+        ],
         'return_type_declaration' => ['space_before' => 'none'],
         'single_quote' => true,
         'single_line_comment_style' => ['comment_types' => ['hash']],
