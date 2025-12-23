@@ -20,7 +20,8 @@ use Wacon\Mctest\Domain\Riddler\Riddler;
 
 class IncrementStepViewHelper extends AbstractViewHelper
 {
-    public function render(): string {
+    public function render(): string
+    {
         $request = $this->getRequest();
 
         // increment step

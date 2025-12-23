@@ -90,7 +90,7 @@ class UserStatistic
 
         foreach ($questions as $question) {
             foreach ($selectedAnswers as $questionId => $selectedAnswerIds) {
-                if ($questionId != $question->getUid()) {
+                if ($questionId != 'q_' . $question->getUid()) {
                     continue;
                 }
 
