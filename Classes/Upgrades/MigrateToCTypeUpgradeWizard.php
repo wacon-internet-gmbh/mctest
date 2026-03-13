@@ -15,8 +15,7 @@ final class MigrateToCTypeUpgradeWizard implements UpgradeWizardInterface
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     /**
      * Return the speaking name of this wizard
@@ -110,7 +109,7 @@ final class MigrateToCTypeUpgradeWizard implements UpgradeWizardInterface
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
         $queryBuilder->getRestrictions()->removeAll();
-        return (bool) $queryBuilder
+        return (bool)$queryBuilder
             ->count('uid')
             ->from('tt_content')
             ->where(
